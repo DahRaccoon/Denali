@@ -6,9 +6,14 @@
 <title>Denali — Engagement Surveys & Interview Training for School Districts</title>
 <meta name="description" content="Denali helps school districts run high-integrity engagement surveys and train interview teams—clear insights, better hiring, real results." />
 
+<!-- Type -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!-- Calendly (popup widget) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script defer src="https://assets.calendly.com/assets/external/widget.js"></script>
 
 <style>
 :root{
@@ -27,6 +32,7 @@ img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
 /* minimal nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
+.brand img{height:28px;display:block}
 .brand .dot{width:18px;height:18px;border-radius:6px;background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold))}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
@@ -66,15 +72,17 @@ img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
   font-size:clamp(34px,5.8vw,68px)}
 .sublead{color:#e6ecff;max-width:64ch;margin:0 auto 12px}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:700;cursor:pointer}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
 .btn-ghost{color:#fff;background:transparent}
 
-/* stat band */
+/* stat band (expanded mission/outcomes language) */
 .band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stat{display:flex;align-items:center;justify-content:center;gap:18px;padding:16px 0}
-.stat b{font-size:clamp(26px,3.6vw,40px);line-height:1;font-weight:800;color:#264a5a}
-.stat small{color:#6a6256}
+.marquee{display:flex;gap:40px;white-space:nowrap;padding:14px 0;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6a6256;animation:scroll 24s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none}}
+/* first chip called out for the +74% stat */
+.marquee b{color:#264a5a}
 
 /* sections */
 .section{padding:84px 0;border-top:1px solid var(--line);background:var(--bone)}
@@ -87,6 +95,12 @@ img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
 .bullets{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
+
+/* packages (no pricing) */
+.packages{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
+.package h3{margin:0 0 8px}
+.package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px;}
 
 /* who we are */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
@@ -107,7 +121,11 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
 <header class="navbar" aria-label="Site">
   <div class="brand">
-    <span class="dot" aria-hidden="true"></span><span>Denali</span>
+    <!-- If you add denali-logo.svg or denali-logo.png next to this file, it will appear; else we show the dot + text -->
+    <img src="denali-logo.svg" alt="Denali" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
+    <span style="display:none;align-items:center;gap:10px">
+      <span class="dot" aria-hidden="true"></span><span>Denali</span>
+    </span>
   </div>
   <button class="hamburger" aria-label="Open menu" id="openMenu"><span></span></button>
 </header>
@@ -117,13 +135,17 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   <nav>
     <a href="#surveys">Engagement Surveys</a>
     <a href="#training">Interview Training</a>
+    <a href="#packages">Packages</a>
     <a href="#who">Who we are</a>
     <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn-primary" style="margin-top:8px">Book an intro call</a>
+    <a href="#" class="btn btn-primary" style="margin-top:8px"
+       onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">
+       Book an intro call
+    </a>
   </nav>
 </div>
 
-<!-- HERO (cleaner) -->
+<!-- HERO (clean) -->
 <section class="hero" id="home" aria-label="Hero">
   <div class="bg" id="parallax"></div>
   <div class="card">
@@ -131,18 +153,28 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     <h1>Clarity in your culture. Confidence in your hiring.</h1>
     <p class="sublead">High-integrity <b>engagement surveys</b> and <b>bias-aware interview training</b>—so leaders feel informed, staff feel heard, and teams hire well.</p>
     <div class="cta-row">
-      <a href="#surveys" class="btn btn-primary">Engagement Surveys</a>
-      <a href="#training" class="btn btn-ghost">Interview Training</a>
+      <a href="#surveys" class="btn btn-primary"
+         onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Engagement Surveys</a>
+      <a href="#training" class="btn btn-ghost"
+         onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Interview Training</a>
     </div>
   </div>
 </section>
 
-<!-- STAT: +74% -->
-<div class="band" role="region" aria-label="Results">
+<!-- EXPANDED MISSION BANNER -->
+<div class="band" role="region" aria-label="Mission & Outcomes">
   <div class="container">
-    <div class="stat">
-      <b>+74% participation</b>
-      <small>average increase after partnering with Denali</small>
+    <div class="marquee">
+      <span><b>+74% participation</b> average lift</span> •
+      <span>Anonymous & trusted surveys</span> •
+      <span>Board-ready reporting</span> •
+      <span>By Building • Role • Tenure</span> •
+      <span>Bias-aware interview training</span> •
+      <span>Reusable rubrics & question banks</span> •
+      <span>Plan → Measure → Act</span> •
+      <span>Built for busy school leaders</span> •
+      <span>Clarity in your culture</span> •
+      <span>Confidence in your hiring</span> •
     </div>
   </div>
 </div>
@@ -161,12 +193,14 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         <li>Trends and progress tracking over time</li>
       </ul>
       <div class="cta-row reveal" style="justify-content:flex-start">
-        <a href="#contact" class="btn btn-primary">Start your survey</a>
-        <a href="#who" class="btn" style="border:1px solid #d8d0c6">How it works</a>
+        <a href="#" class="btn btn-primary"
+           onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Start your survey</a>
+        <a href="#packages" class="btn" style="border:1px solid #d8d0c6">See packages</a>
       </div>
     </div>
     <figure class="visual reveal">
-      <img src="denali-hero.jpg" alt="Board-ready summary and participation dashboard" style="object-fit:cover;width:100%;height:100%">
+      <img src="denali-hero.jpg" alt="Board-ready summary and participation dashboard"
+           style="object-fit:cover;width:100%;height:100%">
     </figure>
   </div>
 </section>
@@ -175,7 +209,8 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 <section class="section" id="training" aria-labelledby="training-h">
   <div class="container scene" style="grid-template-columns:.95fr 1.05fr">
     <figure class="visual reveal">
-      <img src="denali-hero.jpg" alt="Structured, bias-aware interview workshop" style="object-fit:cover;width:100%;height:100%">
+      <img src="denali-hero.jpg" alt="Structured, bias-aware interview workshop"
+           style="object-fit:cover;width:100%;height:100%">
     </figure>
     <div class="copy">
       <div class="eyebrow">Interview Training</div>
@@ -188,15 +223,76 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         <li>Bundle with surveys for a complete system</li>
       </ul>
       <div class="cta-row reveal" style="justify-content:flex-start">
-        <a href="#contact" class="btn btn-primary">Book training</a>
-        <a href="#who" class="btn" style="border:1px solid #d8d0c6">View agenda</a>
+        <a href="#" class="btn btn-primary"
+           onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book training</a>
+        <a href="#packages" class="btn" style="border:1px solid #d8d0c6">See packages</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE ARE (replaces “Why Denali”) -->
-<section class="section" id="who" aria-labelledby="who-h" style="background:#fff">
+<!-- PACKAGES (no pricing) -->
+<section class="section" id="packages" aria-labelledby="packages-h" style="background:#fff">
+  <div class="container">
+    <div class="eyebrow">Packages</div>
+    <h2 id="packages-h" class="reveal">Choose your starting point</h2>
+    <p class="lead reveal" style="max-width:70ch">All packages include onboarding, communications toolkit, and leadership debrief. Add interview training anytime.</p>
+
+    <div class="packages">
+      <!-- Starter -->
+      <div class="package reveal">
+        <span class="tag">Starter</span>
+        <h3>Foundation for participation</h3>
+        <ul class="bullets" style="margin-top:10px">
+          <li>District-wide score & executive summary</li>
+          <li>High-integrity, anonymous survey launch</li>
+          <li>Leadership debrief with immediate actions</li>
+          <li>Optional monthly support</li>
+        </ul>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
+          <a href="#" class="btn btn-primary"
+             onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Starter</a>
+        </div>
+      </div>
+
+      <!-- Plus -->
+      <div class="package reveal" style="border-color:#e2d3bf">
+        <span class="tag">Plus</span>
+        <h3>Deeper insight & guidance</h3>
+        <ul class="bullets" style="margin-top:10px">
+          <li>Everything in Starter</li>
+          <li>Breakdowns by <b>Building</b>, <b>Role</b>, <b>Tenure</b></li>
+          <li>Trend analysis (where applicable)</li>
+          <li>Results portal access (with support)</li>
+          <li>Early access to regional benchmarking</li>
+        </ul>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
+          <a href="#" class="btn btn-primary"
+             onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Plus</a>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="package reveal">
+        <span class="tag">Premium</span>
+        <h3>Custom reporting & strategy</h3>
+        <ul class="bullets" style="margin-top:10px">
+          <li>Everything in Plus</li>
+          <li>Custom cuts (SPED, admin, campuses, etc.)</li>
+          <li>Multiple strategy sessions & board support</li>
+          <li>Implementation coaching & follow-through</li>
+        </ul>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
+          <a href="#" class="btn btn-primary"
+             onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Premium</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section" id="who" aria-labelledby="who-h">
   <div class="container">
     <div class="tile reveal">
       <h3 id="who-h">Who we are</h3>
@@ -220,7 +316,8 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         Tell us your goals. We’ll propose a clear plan—timeline, roles, and outcomes.
       </p>
       <div class="cta-row" style="justify-content:center">
-        <a href="mailto:info@denalihireeducation.com?subject=Intro%20Call%20Request" class="btn btn-primary">Request an intro call</a>
+        <a href="#" class="btn btn-primary"
+           onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book an intro call</a>
         <a href="#home" class="btn btn-ghost">Back to top</a>
       </div>
     </div>
