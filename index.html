@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-<!-- Calendly (popup widget) -->
+<!-- Calendly popup widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script defer src="https://assets.calendly.com/assets/external/widget.js"></script>
 
@@ -46,29 +46,39 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* HERO — video background */
-.hero{min-height:100dvh;display:grid;place-items:end center;position:relative;overflow:hidden}
+/* HERO — video background, NO box behind text */
+.hero{min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden}
 .hero .bgvid{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 45%;
   filter:brightness(.9) saturate(1.05);
   transform:scale(1.02);will-change:transform;
+  pointer-events:none;
+  z-index:0;
 }
+/* top & bottom gradients for legibility without a card */
+.hero::before,
 .hero::after{
-  content:""; position:absolute; inset:auto 0 0 0; height:42%;
-  background:linear-gradient(to bottom, rgba(11,16,32,0), rgba(11,16,32,.78));
+  content:""; position:absolute; left:0; right:0; z-index:1; pointer-events:none;
 }
-.hero .card{
-  position:relative; z-index:1; margin:0 auto 8vh; max-width:880px; text-align:center; padding:36px 24px; color:#fff;
-  border-radius:var(--radius); background:rgba(12,18,36,.45); border:1px solid rgba(255,255,255,.20); box-shadow:var(--shadow);
+.hero::before{ top:0; height:30%; background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent);}
+.hero::after{ bottom:0; height:40%; background:linear-gradient(to top, rgba(7,10,18,.78), transparent);}
+
+/* hero content */
+.hero .content{
+  position:relative; z-index:2; text-align:center; color:#fff; padding:0 1rem; max-width:960px;
 }
-.kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.06);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
-.hero h1{margin:.5rem 0 .3rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:var(--cream);font-size:clamp(34px,5.8vw,68px)}
-.sublead{color:#e6ecff;max-width:64ch;margin:0 auto 12px}
+.kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(0,0,0,.25);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
+.hero h1{margin:.6rem 0 .35rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:#fff;font-size:clamp(34px,5.8vw,68px);text-shadow:0 2px 6px rgba(0,0,0,.45)}
+.sublead{color:#f0f5ff;max-width:64ch;margin:0 auto 1rem;text-shadow:0 2px 5px rgba(0,0,0,.35)}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:700;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;cursor:pointer}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
 .btn-ghost{color:#fff;background:transparent}
+
+/* “scroll” cue */
+.scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.scroll-cue svg{display:block;margin:6px auto 0}
 
 /* mission banner */
 .band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -93,7 +103,7 @@ a{color:inherit;text-decoration:none}
 .packages{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .package h3{margin:0 0 8px}
-.package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px;}
+.package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
 /* who we are + testimonials */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
@@ -137,12 +147,13 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- HERO with VIDEO (fixed markup) -->
+<!-- HERO (clean text over video) -->
 <section class="hero" id="home" aria-label="Hero">
   <video class="bgvid" autoplay muted loop playsinline preload="metadata" poster="denali-hero.jpg">
-    <source src="denali-loop.mp4?v=4" type="video/mp4">
+    <source src="denali-loop.mp4?v=5" type="video/mp4">
   </video>
-  <div class="card">
+
+  <div class="content">
     <span class="kicker">School District Specialists</span>
     <h1>Clarity in your culture. Confidence in your hiring.</h1>
     <p class="sublead">High-integrity <b>engagement surveys</b> and <b>structured, skill-based interview training</b>—so leaders feel informed, staff feel heard, and teams hire well.</p>
@@ -152,6 +163,13 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <a href="#training" class="btn btn-ghost"
          onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Interview Training</a>
     </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    SCROLL
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
 </section>
 
