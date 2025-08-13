@@ -18,7 +18,7 @@
 <style>
 :root{
   --bone:#F2EEE8; --ink:#0b1020; --ink-2:#11162a;
-  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A;
+  --cream:#F2EEDD; --teal:#69E0F1; --teal2:#4ad6e5; --blue:#5bb7d4; --gold:#caa634;
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
@@ -46,19 +46,57 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* HERO — video background (no box), gradients for legibility */
-.hero{min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden}
-.hero .bgvid{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 52%;
-  filter:brightness(.92) saturate(1.05);
-  transform:scale(1.02);will-change:transform;
-  pointer-events:none;z-index:0;
+/* ===== HERO — still image + CSS aurora animation (no video) ===== */
+.hero{
+  min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden;
+  background:#0f1529 url('denali-aurora.jpg') center 60% / cover no-repeat;
 }
+.hero[data-fallback="true"]{ background-image:url('denali-hero.jpg'); }
+
+/* gradients for legibility */
 .hero::before,
 .hero::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
 .hero::before{top:0;height:28%;background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent)}
-.hero::after{bottom:0;height:40%;background:linear-gradient(to top, rgba(7,10,18,.78), transparent)}
+.hero::after{bottom:0;height:42%;background:linear-gradient(to top, rgba(7,10,18,.78), transparent)}
+
+/* AURORA LAYERS */
+.aurora, .aurora2, .auroraGold{
+  position:absolute;inset:-15% -20%; /* overscan to hide edges during movement */
+  background-repeat:no-repeat;
+  mix-blend-mode:screen; opacity:.45; filter:blur(6px) saturate(120%);
+  z-index:0; pointer-events:none;
+}
+
+/* Layer 1: wide teal ribbons */
+.aurora{
+  background-image:
+    radial-gradient(60% 140% at 30% 30%, rgba(105,224,241,.50), transparent 60%),
+    radial-gradient(50% 120% at 70% 60%, rgba(91,183,212,.45), transparent 65%);
+  animation: drift1 28s linear infinite alternate;
+}
+
+/* Layer 2: cooler blue ribbons */
+.aurora2{
+  opacity:.35;
+  background-image:
+    radial-gradient(70% 160% at 60% 20%, rgba(73,200,220,.40), transparent 60%),
+    radial-gradient(55% 130% at 40% 70%, rgba(66,170,210,.35), transparent 65%);
+  animation: drift2 36s linear infinite alternate;
+}
+
+/* Layer 3: subtle gold shimmer accents */
+.auroraGold{
+  opacity:.18;
+  background-image:
+    radial-gradient(55% 120% at 50% 40%, rgba(202,166,52,.35), transparent 65%),
+    radial-gradient(45% 110% at 65% 65%, rgba(202,166,52,.25), transparent 70%);
+  animation: drift3 42s linear infinite alternate;
+}
+
+/* Movement keyframes (slow & smooth) */
+@keyframes drift1 { from {transform:translateX(-6%) translateY(-2%) rotate(1deg) scale(1.02);} to {transform:translateX(6%) translateY(2%) rotate(-1deg) scale(1.04);} }
+@keyframes drift2 { from {transform:translateX(5%) translateY(-3%) rotate(-2deg) scale(1.03);} to {transform:translateX(-5%) translateY(3%) rotate(2deg) scale(1.05);} }
+@keyframes drift3 { from {transform:translateX(-4%) translateY(1%) rotate(1.5deg) scale(1.02);} to {transform:translateX(4%) translateY(-1%) rotate(-1.5deg) scale(1.03);} }
 
 /* hero content */
 .hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 1rem;max-width:960px}
@@ -124,7 +162,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
 /* mobile tweaks */
 @media (max-width:600px){
-  .hero .bgvid{object-position:center 58%}
   .btn{padding:10px 14px}
 }
 </style>
@@ -154,11 +191,12 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- HERO (video background + fade-in + scroll zoom) -->
-<section class="hero" id="home" aria-label="Hero">
-  <video class="bgvid" autoplay muted loop playsinline preload="metadata" poster="denali-hero.jpg">
-    <source src="denali-loop.mp4?v=7" type="video/mp4">
-  </video>
+<!-- ===== HERO (image + CSS aurora + fade-in + scroll zoom) ===== -->
+<section class="hero" id="home" aria-label="Hero" data-fallback="false">
+  <!-- Aurora layers -->
+  <div class="aurora"></div>
+  <div class="aurora2"></div>
+  <div class="auroraGold"></div>
 
   <div class="content">
     <span class="kicker fade-in">School District Specialists</span>
@@ -221,7 +259,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         <li>Optional ongoing support to track progress</li>
       </ul>
 
-      <!-- Packages inside Surveys -->
       <div class="reveal" style="margin-top:22px">
         <div class="eyebrow">Packages</div>
         <div class="packages" style="margin-top:10px">
@@ -273,7 +310,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         </div>
       </div>
 
-      <!-- Wilken testimonial -->
       <div class="quote reveal" style="margin-top:18px">
         <blockquote>
           “We saw a <b>74% increase</b> in response rate compared to previous years… What stood out was the detailed reporting and specific recommendations.
@@ -313,7 +349,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         <li>Option to bundle with surveys for a complete system</li>
       </ul>
 
-      <!-- Packages inside Training -->
       <div class="reveal" style="margin-top:22px">
         <div class="eyebrow">Packages</div>
         <div class="packages" style="margin-top:10px">
@@ -364,7 +399,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
         </div>
       </div>
 
-      <!-- Ladd testimonial -->
       <div class="quote reveal" style="margin-top:18px">
         <blockquote>
           “Participating in the interview training conducted by Denali Hire Education was an outstanding experience.
@@ -438,19 +472,19 @@ const openBtn = document.getElementById('openMenu');
 openBtn.addEventListener('click', ()=> menu.classList.toggle('open'));
 menu.addEventListener('click', (e)=>{ if(e.target === menu) menu.classList.remove('open'); });
 
-/* intersection reveal */
+/* reveal */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
 },{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  document.querySelector('.bgvid')?.pause();
 }
 
 /* hero fade-in sequence */
 document.addEventListener('DOMContentLoaded', () => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('show'));
     return;
   }
@@ -459,26 +493,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 400);
 });
 
-/* scroll-driven zoom on the hero video (subtle; calmer on mobile) */
+/* Scroll-driven zoom: scale the aurora layers for subtle parallax */
 (function(){
-  const v = document.querySelector('.bgvid');
-  if(!v) return;
+  const layers = document.querySelectorAll('.aurora, .aurora2, .auroraGold');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
 
-  const maxScaleDesktop = 1.06;
-  const maxScaleMobile = 1.035;
-  const maxScale = window.innerWidth < 700 ? maxScaleMobile : maxScaleDesktop;
-
+  const base = 1.0, max = 1.06;
   function onScroll(){
     const h = window.innerHeight;
     const y = Math.min(Math.max(window.scrollY, 0), h);
     const t = y / h;
-    const scale = 1.02 + (maxScale - 1.02) * t;
-    v.style.transform = `scale(${scale})`;
+    const s = base + (max - base) * t;
+    layers.forEach(l => l.style.transform = `scale(${s})`);
   }
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+/* If the custom hero image is missing, use fallback */
+(function(){
+  const testImg = new Image();
+  const hero = document.querySelector('.hero');
+  testImg.onload = () => { if (!testImg.width) hero.setAttribute('data-fallback','true'); };
+  testImg.onerror = () => hero.setAttribute('data-fallback','true');
+  testImg.src = 'denali-aurora.jpg';
 })();
 </script>
 </body>
