@@ -18,7 +18,7 @@
 <style>
 :root{
   --bone:#F2EEE8; --ink:#0b1020; --ink-2:#11162a;
-  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A; /* gold accent blends into aurora subtly */
+  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A;
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
@@ -46,16 +46,15 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* HERO — video background (no box behind text) */
+/* HERO — video background (no box), gradients for legibility */
 .hero{min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden}
 .hero .bgvid{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 52%; /* keep Denali high on mobile */
+  object-fit:cover;object-position:center 52%;
   filter:brightness(.92) saturate(1.05);
   transform:scale(1.02);will-change:transform;
   pointer-events:none;z-index:0;
 }
-/* top & bottom gradients for legibility, no card */
 .hero::before,
 .hero::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
 .hero::before{top:0;height:28%;background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent)}
@@ -70,6 +69,13 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;cursor:pointer}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
 .btn-ghost{color:#fff;background:transparent}
+
+/* hero fade-in */
+.fade-in{opacity:0;transform:translateY(8px);transition:opacity .9s ease, transform 1s ease}
+.fade-in.show{opacity:1;transform:none}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.30s}
+.delay-3{transition-delay:.45s}
 
 /* scroll cue */
 .scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
@@ -118,7 +124,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
 /* mobile tweaks */
 @media (max-width:600px){
-  .hero .bgvid{object-position:center 58%} /* nudge framing upward on phones */
+  .hero .bgvid{object-position:center 58%}
   .btn{padding:10px 14px}
 }
 </style>
@@ -148,17 +154,20 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- HERO (clean text over video + scroll zoom) -->
+<!-- HERO (video background + fade-in + scroll zoom) -->
 <section class="hero" id="home" aria-label="Hero">
   <video class="bgvid" autoplay muted loop playsinline preload="metadata" poster="denali-hero.jpg">
-    <source src="denali-loop.mp4?v=6" type="video/mp4">
+    <source src="denali-loop.mp4?v=7" type="video/mp4">
   </video>
 
   <div class="content">
-    <span class="kicker">School District Specialists</span>
-    <h1>Clarity in your culture. Confidence in your hiring.</h1>
-    <p class="sublead">High-integrity <b>engagement surveys</b> and <b>structured, skill-based interview training</b>—so leaders feel informed, staff feel heard, and teams hire well.</p>
-    <div class="cta-row">
+    <span class="kicker fade-in">School District Specialists</span>
+    <h1 class="fade-in delay-1">Great Schools Start With Great People.</h1>
+    <p class="sublead fade-in delay-2">
+      From the first interview to ongoing engagement, we give districts clear insight
+      <br class="hide-mobile">and proven tools to build teams that stay committed.
+    </p>
+    <div class="cta-row fade-in delay-3">
       <a href="#surveys" class="btn btn-primary"
          onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Engagement Surveys</a>
       <a href="#training" class="btn btn-ghost"
@@ -374,7 +383,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </div>
 </section>
 
-<!-- WHO WE ARE (reworded to emphasize employee experience) -->
+<!-- WHO WE ARE -->
 <section class="section" id="who" aria-labelledby="who-h" style="background:#fff">
   <div class="container">
     <div class="tile reveal">
@@ -429,7 +438,7 @@ const openBtn = document.getElementById('openMenu');
 openBtn.addEventListener('click', ()=> menu.classList.toggle('open'));
 menu.addEventListener('click', (e)=>{ if(e.target === menu) menu.classList.remove('open'); });
 
-/* reveal */
+/* intersection reveal */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
 },{threshold:.14});
@@ -438,6 +447,17 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   document.querySelector('.bgvid')?.pause();
 }
+
+/* hero fade-in sequence */
+document.addEventListener('DOMContentLoaded', () => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('show'));
+    return;
+  }
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('show'));
+  }, 400);
+});
 
 /* scroll-driven zoom on the hero video (subtle; calmer on mobile) */
 (function(){
@@ -452,9 +472,9 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
   function onScroll(){
     const h = window.innerHeight;
-    const y = Math.min(Math.max(window.scrollY, 0), h); // clamp 0..1 viewport
-    const t = y / h; // progress through first screen
-    const scale = 1.02 + (maxScale - 1.02) * t; // ease linear; small range
+    const y = Math.min(Math.max(window.scrollY, 0), h);
+    const t = y / h;
+    const scale = 1.02 + (maxScale - 1.02) * t;
     v.style.transform = `scale(${scale})`;
   }
   onScroll();
