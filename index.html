@@ -1,246 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Denali Consulting LLC — Hire Education</title>
-  <meta name="description" content="Engagement surveys, interview training, and board-ready reporting for school districts."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Denali Consulting LLC — Hire Education</title>
+<meta name="description" content="Engagement surveys, interview training, and board-ready reporting for school districts." />
 
-  <style>
-    /* Denali Theme (brand-matched) */
-    :root{
-      --denali-navy-900:#0b1020;
-      --denali-navy-800:#11162a;
-      --denali-cream:#F2EEDD;
-      --denali-gold:#C8843A;
-      --denali-teal:#69E0F1;
-      --text:#E9EDF7;
-      --muted:#95A2BD;
-      --bg:var(--denali-navy-900);
-      --surface-1: #0d1426;
-      --surface-2: var(--denali-navy-800);
-      --line: rgba(105,224,241,.16);
-      --brand: var(--denali-teal);
-      --brand-2: var(--denali-gold);
-      --ring: rgba(105,224,241,.35);
-      --radius:16px;
-      --shadow-1:0 8px 22px rgba(0,0,0,.28);
-      --shadow-2:0 12px 34px rgba(0,0,0,.38);
-      --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    /* Pattern background */
-    body::before{
-      content:"";
-      position:fixed; inset:0; z-index:-1;
-      background:
-        radial-gradient(100% 100% at 100% 0, rgba(105,224,241,.05), transparent 60%) top left,
-        radial-gradient(100% 100% at 0 100%, rgba(200,132,58,.05), transparent 60%) bottom right,
-        repeating-linear-gradient(60deg, rgba(255,255,255,.04) 0 2px, transparent 2px 52px),
-        repeating-linear-gradient(-60deg, rgba(255,255,255,.03) 0 2px, transparent 2px 52px);
-      background-blend-mode: overlay;
-    }
+<style>
+/* ==== Denali x Award-style theme ======================================= */
+:root{
+  --navy-900:#0b1020; --navy-800:#11162a;
+  --cream:#F2EEDD; --gold:#C8843A; --teal:#69E0F1;
+  --text:#E9EDF7; --muted:#93A0BF; --line:rgba(105,224,241,.14);
+  --radius:16px; --shadow:0 20px 60px rgba(0,0,0,.45);
+}
+html,body{margin:0;background:var(--navy-900);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-    /* Global */
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans)}
-    a{color:var(--denali-teal);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    .card{background:var(--surface-1);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-2)}
-    .tile{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-1)}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(105,224,241,.25);font-weight:600}
-    .btn-primary{background:linear-gradient(135deg,var(--denali-teal),var(--denali-gold));color:#061019;border:none;box-shadow:0 10px 24px var(--ring)}
-    .btn-primary:hover{transform:translateY(-1px)}
-    .badge{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border:1px solid rgba(105,224,241,.25);border-radius:999px;background:rgba(105,224,241,.08);color:#c9f5dc;font-size:13px}
-    .section-title{font-size:clamp(24px,3.2vw,32px);line-height:1.1;margin:0 0 8px;color:var(--denali-teal);letter-spacing:.5px}
-    .section-sub{color:var(--muted);margin:0 0 24px}
+/* Subtle geometric lines background */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1;
+  background:
+    repeating-linear-gradient(60deg, rgba(255,255,255,.035) 0 2px, transparent 2px 56px),
+    repeating-linear-gradient(-60deg, rgba(255,255,255,.03) 0 2px, transparent 2px 56px),
+    radial-gradient(100% 100% at 100% 0, rgba(105,224,241,.06), transparent 60%) top left,
+    radial-gradient(100% 100% at 0 100%, rgba(200,132,58,.06), transparent 60%) bottom right;
+  background-blend-mode: overlay;
+}
 
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(10px);
-      background:color-mix(in oklab,var(--bg) 70%, transparent);border-bottom:1px solid var(--line)}
-    .site-nav a{color:var(--text);opacity:.9}
-    .site-nav a:hover{opacity:1}
+/* Sticky glass header (award vibe) */
+.header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px) saturate(1.3);
+  background:color-mix(in oklab, var(--navy-900) 70%, transparent); border-bottom:1px solid var(--line)}
+.nav{height:72px; display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.3px}
+.logo-tile{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;
+  background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold)); color:#061019;font-weight:900;
+  box-shadow:0 6px 16px rgba(105,224,241,.35)}
+.nav a{color:var(--text);opacity:.92} .nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(105,224,241,.25);font-weight:700}
+.btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none;box-shadow:0 10px 24px rgba(105,224,241,.35)}
+.btn-primary:hover{transform:translateY(-1px)}
+/* magnetic-ish hover */
+.btn-primary[data-mag]:hover{transform:translateY(-1px) scale(1.01)}
 
-    /* Logo tile */
-    .logo-tile{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;
-      background:radial-gradient(100% 100% at 100% 0,var(--denali-teal),var(--denali-gold));
-      color:#061019;font-weight:900;box-shadow:0 6px 16px rgba(105,224,241,.35)}
+/* HERO */
+.hero{padding:96px 0 40px}
+.hero-grid{display:grid; gap:28px; align-items:center; grid-template-columns:1.15fr .85fr}
+h1{margin:.2rem 0; font-size:clamp(34px,5vw,72px); line-height:1.02; letter-spacing:.04em; color:var(--cream)}
+.lead{font-size:clamp(16px,1.4vw,20px); color:var(--muted); max-width:64ch}
+.badge{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border:1px solid rgba(105,224,241,.25);
+  border-radius:999px;background:rgba(105,224,241,.09); color:#c9f5dc; font-size:13px}
+.card{background:color-mix(in oklab,var(--navy-800) 80%, #0d1426 20%); border:1px solid var(--line);
+  border-radius:var(--radius); box-shadow:var(--shadow)}
 
-    /* Focus */
-    :where(a,button,input,textarea,select):focus-visible{
-      outline:2px solid var(--denali-teal);outline-offset:2px;box-shadow:0 0 0 6px rgba(105,224,241,.25)
-    }
+/* Service cards with 3D tilt */
+.grid-3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile{padding:24px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.tile:hover{transform:perspective(800px) rotateX(2deg) rotateY(-2deg); transition:.25s ease;}
 
-    /* Layout helpers */
-    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-    .hero{padding:84px 0 38px}
-    .hero-grid{display:grid;gap:28px;align-items:center;grid-template-columns:1.1fr .9fr}
-    .lead{font-size:clamp(16px,1.4vw,20px);color:var(--muted);max-width:58ch}
-    .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
-    .grid-3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
-  </style>
+/* Section headings */
+.section{padding:70px 0}
+.section h2{font-size:clamp(24px,3vw,36px); color:var(--teal); margin:0 0 8px; letter-spacing:.06em}
+.section p.sub{color:var(--muted); margin:0 0 24px}
+
+/* Marquee ribbon */
+.ribbon{position:relative; overflow:hidden; border-block:1px solid var(--line); background:rgba(105,224,241,.06)}
+.marquee{display:flex; gap:40px; white-space:nowrap; padding:14px 0; font-weight:800; letter-spacing:.2em; color:var(--gold);
+  text-transform:uppercase; animation:scroll 18s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Quote */
+blockquote{margin:0;color:#dfe8ff;font-size:16px;line-height:1.5}
+
+/* Footer */
+footer{padding:40px 0 70px; border-top:1px solid var(--line); color:var(--muted)}
+
+/* Scroll-reveal */
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+.reveal.visible{opacity:1; transform:none}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+}
+</style>
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container nav site-nav">
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="logo-tile">D</div>
-        <div style="font-weight:800;letter-spacing:.3px">Denali Consulting LLC</div>
-      </div>
-      <nav style="display:flex;gap:18px;align-items:center">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#results">Results</a>
-        <a href="#contact" class="btn btn-primary">Book a 15-min intro</a>
-      </nav>
+
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <!-- Replace tile with your SVG: <img src="denali.svg" alt="Denali logo" height="36"> -->
+      <div class="logo-tile">D</div>
+      <div>Denali Consulting LLC</div>
     </div>
-  </header>
+    <nav style="display:flex;gap:18px;align-items:center">
+      <a href="#services">Services</a>
+      <a href="#way">The Denali Way</a>
+      <a href="#results">Results</a>
+      <a href="#contact" class="btn btn-primary" data-mag>Book a 15-min intro</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="badge">-Hire Education- • K-12 Specialists</span>
-          <h1 style="margin:.4rem 0;color:var(--denali-cream)">Interview training & engagement surveys that move the needle.</h1>
-          <p class="lead">We help districts run high-integrity surveys, train hiring panels, and convert insights into action. Clear reports by building, role, and tenure—plus coaching to implement.</p>
-          <div class="cta">
-            <a href="#contact" class="btn btn-primary">Request intro</a>
-            <a href="#results" class="btn" style="border-color:rgba(200,132,58,.35);color:var(--denali-gold)">See outcomes</a>
-          </div>
-        </div>
-        <aside class="card" style="padding:18px">
-          <div class="tile" style="padding:18px;display:grid;gap:14px">
-            <div class="grid-3" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-              <div class="card" style="padding:16px;border-style:dashed">
-                <div style="color:var(--muted);font-size:14px">Interview Training</div>
-                <div style="font-weight:700">Bias-aware • Competency-based</div>
-                <small>Reusable rubrics & question banks</small>
-              </div>
-              <div class="card" style="padding:16px;border-style:dashed">
-                <div style="color:var(--muted);font-size:14px">Executive Summary</div>
-                <div style="font-weight:700">By Building • Role • Tenure</div>
-                <small>Action-ready insights</small>
-              </div>
-            </div>
-            <div class="grid-3" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-              <div class="card" style="padding:16px;border-style:dashed">
-                <div style="color:var(--muted);font-size:14px">Privacy</div>
-                <div style="font-weight:700">Anonymity-first</div>
-                <small>3rd-party hosted surveys</small>
-              </div>
-              <div class="card" style="padding:16px;border-style:dashed">
-                <div style="color:var(--muted);font-size:14px">Outcomes</div>
-                <div style="font-weight:700;color:var(--denali-gold)">Higher participation & better signal</div>
-                <small>Clear actions per area</small>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">What we do</h2>
-        <p class="section-sub">End-to-end help—from survey launch to board-ready reporting and leadership coaching.</p>
-        <div class="grid-3">
-          <div class="tile" style="padding:22px">
-            <h3 style="margin:0 0 8px;color:var(--denali-cream)">Engagement Surveys</h3>
-            <p style="margin:0;color:var(--muted)">Anonymous, high-participation surveys tailored to K-12. Clean rollups by building, role, and tenure.</p>
-            <ul style="margin:12px 0 0;padding-left:18px;line-height:1.6">
-              <li>Anonymity and data integrity</li>
-              <li>Executive summary & dashboards</li>
-              <li>Follow-up action planning</li>
-            </ul>
-          </div>
-          <div class="tile" style="padding:22px">
-            <h3 style="margin:0 0 8px;color:var(--denali-cream)">Interview Training</h3>
-            <p style="margin:0;color:var(--muted)">Competency-based, bias-aware training for hiring panels to improve decisions and retention.</p>
-          </div>
-          <div class="tile" style="padding:22px">
-            <h3 style="margin:0 0 8px;color:var(--denali-cream)">Data & Reporting</h3>
-            <p style="margin:0;color:var(--muted)">Board-ready decks, building-level summaries, and prioritized recommendations.</p>
-          </div>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">-Hire Education- • K-12 Specialists</span>
+        <h1>Interview training & engagement surveys that move the needle.</h1>
+        <p class="lead">We help districts run high-integrity surveys, train hiring panels, and convert insights into action. Clear rollups by building, role, and tenure—plus coaching to implement.</p>
+        <div style="display:flex;gap:12px;margin-top:20px">
+          <a href="#contact" class="btn btn-primary" data-mag>Request intro</a>
+          <a href="#results" class="btn" style="border-color:rgba(200,132,58,.35);color:var(--gold)">See outcomes</a>
         </div>
       </div>
-    </section>
-
-    <!-- APPROACH -->
-    <section id="approach">
-      <div class="container">
-        <h2 class="section-title">The Denali Way</h2>
-        <p class="section-sub">Practical, transparent, and built for busy school leaders.</p>
-        <div class="grid-3">
-          <div class="card" style="padding:22px">
-            <span class="badge">Plan</span>
-            <h3 style="margin:.6rem 0 .3rem;color:var(--denali-cream)">Launch for participation</h3>
-            <p class="section-sub">Comms toolkit, timelines, and stakeholder buy-in to maximize response rates without fatigue.</p>
-          </div>
-          <div class="card" style="padding:22px">
-            <span class="badge">Measure</span>
-            <h3 style="margin:.6rem 0 .3rem;color:var(--denali-cream)">Clarity over complexity</h3>
-            <p class="section-sub">100-point scoring; engagement across Care • Connect • Coach • Contribute • Congratulate.</p>
-          </div>
-          <div class="card" style="padding:22px">
-            <span class="badge">Act</span>
-            <h3 style="margin:.6rem 0 .3rem;color:var(--denali-cream)">From insight to action</h3>
-            <p class="section-sub">Recommendations per area and coaching to implement, monitor, and report progress.</p>
-          </div>
+      <aside class="card" style="padding:18px">
+        <div class="grid-3" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+          <div class="tile"><div style="color:var(--muted);font-size:14px">Interview Training</div><div style="font-weight:700">Bias-aware • Competency-based</div><small>Reusable rubrics & question banks</small></div>
+          <div class="tile"><div style="color:var(--muted);font-size:14px">Executive Summary</div><div style="font-weight:700">By Building • Role • Tenure</div><small>Action-ready insights</small></div>
+          <div class="tile"><div style="color:var(--muted);font-size:14px">Privacy</div><div style="font-weight:700">Anonymity-first</div><small>3rd-party hosted surveys</small></div>
+          <div class="tile"><div style="color:var(--muted);font-size:14px">Outcomes</div><div style="font-weight:700;color:var(--gold)">Higher participation & better signal</div><small>Clear actions per area</small></div>
         </div>
-      </div>
-    </section>
-
-    <!-- RESULTS / QUOTE -->
-    <section id="results">
-      <div class="container">
-        <h2 class="section-title">Proof & outcomes</h2>
-        <div class="card" style="padding:22px;margin-top:12px">
-          <blockquote style="margin:0;color:#dfe8ff;font-size:16px;line-height:1.5">
-            “Participating in the interview training conducted by Denali Hire Education was an outstanding experience… I highly recommend it to any organization committed to building effective interview processes.”
-          </blockquote>
-          <div style="color:var(--muted);margin-top:8px">— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Let’s talk</h2>
-        <p class="section-sub">Tell us about your district and goals. We’ll follow up with a short intro call.</p>
-        <div class="card" style="padding:22px">
-          <form action="https://example.com/form-handler" method="post">
-            <div style="display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))">
-              <label> Your name<br><input name="name" required placeholder="First Last"></label>
-              <label> Email<br><input type="email" name="email" required placeholder="you@district.org"></label>
-              <label> District<br><input name="district" required placeholder="e.g., Willard Public Schools"></label>
-              <label> Role<br><input name="role" placeholder="Superintendent, HR Director, etc."></label>
-              <label style="grid-column:1/-1"> Goals / context<br><textarea name="message" rows="4" placeholder="What outcomes are you after? Timelines? Any constraints?"></textarea></label>
-            </div>
-            <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
-              <button class="btn btn-primary" type="submit">Request intro</button>
-              <small style="color:var(--muted)">By submitting, you agree to be contacted about Denali services.</small>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer style="padding:40px 0 70px;border-top:1px solid var(--line);color:var(--muted)">
-    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div>&copy; <span id="year"></span> Denali Consulting LLC • Missouri, USA</div>
-      <div>Engagement Surveys • Interview Training • Data & Reporting</div>
+      </aside>
     </div>
-  </footer>
+  </section>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <!-- RIBBON -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="marquee">The Denali Way • Care • Connect • Coach • Contribute • Congratulate • The Denali Way • Care • Connect • Coach • Contribute • Congratulate •</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="reveal">What we do</h2>
+      <p class="sub reveal">End-to-end help—from survey launch to board-ready reporting and leadership coaching.</p>
+      <div class="grid-3">
+        <div class="tile reveal">
+          <h3 style="margin:0 0 8px;color:var(--cream)">Engagement Surveys</h3>
+          <p style="margin:0;color:var(--muted)">Anonymous, high-participation surveys tailored to K-12. Clean rollups by building, role, and tenure.</p>
+          <ul style="margin:12px 0 0;padding-left:18px;line-height:1.6">
+            <li>Anonymity and data integrity</li><li>Executive summary & dashboards</li><li>Follow-up action planning</li>
+          </ul>
+        </div>
+        <div class="tile reveal">
+          <h3 style="margin:0 0 8px;color:var(--cream)">Interview Training</h3>
+          <p style="margin:0;color:var(--muted)">Competency-based, bias-aware training for hiring panels to improve decisions and retention.</p>
+        </div>
+        <div class="tile reveal">
+          <h3 style="margin:0 0 8px;color:var(--cream)">Data & Reporting</h3>
+          <p style="margin:0;color:var(--muted)">Board-ready decks, building-level summaries, and prioritized recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section" id="way">
+    <div class="container">
+      <h2 class="reveal">The Denali Way</h2>
+      <p class="sub reveal">Practical, transparent, and built for busy school leaders.</p>
+      <div class="grid-3">
+        <div class="card reveal" style="padding:22px">
+          <span class="badge">Plan</span>
+          <h3 style="margin:.6rem 0 .3rem;color:var(--cream)">Launch for participation</h3>
+          <p class="sub">Comms toolkit, timelines, and stakeholder buy-in to maximize response rates without fatigue.</p>
+        </div>
+        <div class="card reveal" style="padding:22px">
+          <span class="badge">Measure</span>
+          <h3 style="margin:.6rem 0 .3rem;color:var(--cream)">Clarity over complexity</h3>
+          <p class="sub">100-point scoring; engagement across Care • Connect • Coach • Contribute • Congratulate.</p>
+        </div>
+        <div class="card reveal" style="padding:22px">
+          <span class="badge">Act</span>
+          <h3 style="margin:.6rem 0 .3rem;color:var(--cream)">From insight to action</h3>
+          <p class="sub">Recommendations per area and coaching to implement, monitor, and report progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="container">
+      <h2 class="reveal">Proof & outcomes</h2>
+      <div class="card reveal" style="padding:22px;margin-top:12px">
+        <blockquote>“Participating in the interview training conducted by Denali Hire Education was an outstanding experience… I highly recommend it to any organization committed to building effective interview processes.”</blockquote>
+        <div style="color:var(--muted);margin-top:8px">— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="reveal">Let’s talk</h2>
+      <p class="sub reveal">Tell us about your district and goals. We’ll follow up with a short intro call.</p>
+      <div class="card" style="padding:22px">
+        <form action="#" method="post" class="reveal">
+          <div style="display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))">
+            <label> Your name<br><input name="name" required placeholder="First Last" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c1326;color:var(--text)"></label>
+            <label> Email<br><input type="email" name="email" required placeholder="you@district.org" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c1326;color:var(--text)"></label>
+            <label> District<br><input name="district" required placeholder="e.g., Willard Public Schools" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c1326;color:var(--text)"></label>
+            <label> Role<br><input name="role" placeholder="Superintendent, HR Director, etc." style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c1326;color:var(--text)"></label>
+            <label style="grid-column:1/-1"> Goals / context<br><textarea name="message" rows="4" placeholder="What outcomes are you after? Timelines? Any constraints?" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c1326;color:var(--text)"></textarea></label>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
+            <button class="btn btn-primary" type="submit" data-mag>Request intro</button>
+            <small style="color:var(--muted)">By submitting, you agree to be contacted about Denali services.</small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div>&copy; <span id="year"></span> Denali Consulting LLC • Missouri, USA</div>
+    <div>Engagement Surveys • Interview Training • Data & Reporting</div>
+  </div>
+</footer>
+
+<script>
+/* year */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* simple scroll-reveal */
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* lightweight magnetic hover for primary buttons */
+document.querySelectorAll('[data-mag]').forEach(btn=>{
+  const strength = 12;
+  btn.addEventListener('mousemove', (e)=>{
+    const r = btn.getBoundingClientRect();
+    const x = ((e.clientX - r.left)/r.width - .5)*strength;
+    const y = ((e.clientY - r.top)/r.height - .5)*strength;
+    btn.style.transform = `translate(${x}px,${y}px) scale(1.01)`;
+  });
+  btn.addEventListener('mouseleave', ()=>{ btn.style.transform='translate(0,0)'; });
+});
+</script>
 </body>
 </html>
