@@ -33,4 +33,325 @@
     .container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
     /* Floating capsule nav (centered, glassy) */
-    .site-nav{position:sticky;top:14px;z-index:60;display:flex;justify-content:ce
+    .site-nav{position:sticky;top:14px;z-index:60;display:flex;justify-content:center}
+    .nav-pill{
+      display:flex;gap:22px;align-items:center;padding:10px 16px;border-radius:999px;
+      background:rgba(20,25,40,.55);color:#f7f7f7;border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(10px) saturate(1.2);box-shadow:0 8px 20px rgba(0,0,0,.12);font-weight:600
+    }
+    .nav-pill a{opacity:.9} .nav-pill a:hover{opacity:1}
+    .nav-cta{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;padding:8px 12px;border-radius:999px;font-weight:800;border:none}
+
+    /* HERO — dark rounded card w/ media slot */
+    .hero-wrap{margin:26px auto 36px}
+    .hero{
+      background:
+        radial-gradient(900px 500px at 80% 15%, rgba(105,224,241,.10), transparent 60%),
+        linear-gradient(180deg, var(--ink), var(--ink-2));
+      color:#fff;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow)
+    }
+    .hero-media{aspect-ratio:16/7;background:#0a0f1d;position:relative}
+    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;padding:48px}
+    @media (max-width:980px){.hero-inner{grid-template-columns:1fr;padding:28px}}
+
+    .kicker{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;background:rgba(255,255,255,.07);color:var(--teal);font-weight:600;letter-spacing:.06em;font-size:12px}
+    h1{margin:.2rem 0;font-weight:800;line-height:.98;font-size:clamp(36px,6vw,88px);letter-spacing:-.02em;color:var(--cream)}
+    .lead{font-size:clamp(16px,1.4vw,20px);color:#cfd7f1;max-width:60ch}
+    .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
+    .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));font-weight:800;color:#061019}
+    .btn-ghost{border-color:rgba(255,255,255,.3);color:#fff;background:transparent}
+
+    /* Stat chips */
+    .chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);font-weight:700}
+    .chip b{font-size:18px}
+
+    /* Sections on bone */
+    .section{padding:80px 0;border-top:1px solid var(--line)}
+    .eyebrow{font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7b6a55;font-size:12px}
+    .section h2{margin:6px 0 8px;font-size:clamp(24px,3.2vw,40px);letter-spacing:.02em}
+    .sub{margin:0 0 24px;color:var(--muted)}
+    .grid-3{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:980px){.grid-3{grid-template-columns:1fr}}
+
+    .tile{background:#fff;border:1px solid #ede7dd;border-radius:24px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    .tile h3{margin:0 0 10px;font-size:22px}
+    ul.clean{margin:12px 0 0;padding-left:18px;line-height:1.6}
+
+    /* Pricing table */
+    .plans{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .plan{background:#fff;border:1px solid #ede7dd;border-radius:24px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    .plan h3{margin:0 0 6px}
+    .price{font-weight:800;font-size:26px;margin:6px 0 10px}
+    .features{list-style:none;margin:0;padding:0}
+    .features li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+    .features li:before{content:"✓";color:#1a7f52;font-weight:800}
+    .muted{color:#7a859f}
+
+    /* Ribbon marquee */
+    .ribbon{margin:8px 0 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .marquee{display:flex;gap:40px;white-space:nowrap;padding:12px 0;font-weight:800;letter-spacing:.24em;color:#6a6256;text-transform:uppercase;animation:scroll 18s linear infinite}
+    @keyframes scroll{to{transform:translateX(-50%)}}
+    @media (prefers-reduced-motion:reduce){.marquee{animation:none}}
+
+    /* Quote */
+    .quote{background:#fff;border:1px solid #ede7dd;border-radius:24px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    blockquote{margin:0;color:#3a4156;line-height:1.5}
+    cite{display:block;margin-top:8px;color:#7a859f}
+
+    /* Footer */
+    footer{padding:40px 0 70px;border-top:1px solid var(--line);color:#6a748e;font-size:14px}
+
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  <!-- Floating capsule nav -->
+  <div class="site-nav" role="navigation" aria-label="Primary">
+    <div class="nav-pill">
+      <span style="display:inline-flex;align-items:center;gap:8px">
+        <span aria-hidden="true" style="width:18px;height:18px;border-radius:6px;
+          background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold));display:inline-block"></span>
+        Denali
+      </span>
+      <a href="#services">Services</a>
+      <a href="#system">System</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Book intro</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-wrap" aria-label="Hero">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-media">
+          <!-- Replace with your image/video. For now, point to a stock photo file you add to the repo as /hero.jpg -->
+          <img src="hero.jpg" alt="Leaders collaborating on survey strategy">
+        </div>
+        <div class="hero-inner">
+          <div>
+            <span class="kicker">K-12 • -Hire Education-</span>
+            <h1>We turn staff feedback into action—and action into measurable improvement.</h1>
+            <p class="lead">Run high-integrity engagement surveys, train interview teams, and deliver board-ready reporting. Clear rollups by building, role, and tenure—plus coaching to implement.</p>
+            <div class="chips">
+              <span class="chip"><b>+74%</b> response rate lift</span>
+              <span class="chip">Anonymity-first</span>
+              <span class="chip">Board-ready reporting</span>
+            </div>
+            <div class="cta">
+              <a href="#contact" class="btn btn-primary">Request intro</a>
+              <a href="#pricing" class="btn btn-ghost" aria-label="See pricing">See pricing</a>
+            </div>
+          </div>
+          <aside>
+            <div class="tile" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#e6ecff">
+              <div style="font-size:14px;opacity:.9">From district leaders</div>
+              <p style="margin:.4rem 0 0">“We partnered with Denali… the result was a <b>74% increase</b> in response rate and far deeper insight by building, tenure, and role—plus actionable, data-driven recommendations.”</p>
+              <p class="muted" style="margin:.4rem 0 0">Superintendent outreach copy, summarized. (Proof point from Willard.)</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIBBON -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="marquee">The Denali Way • Care • Connect • Coach • Contribute • Congratulate • The Denali Way • Care • Connect • Coach • Contribute • Congratulate •</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" aria-labelledby="services-h">
+    <div class="container">
+      <div class="eyebrow">Services</div>
+      <h2 id="services-h" class="reveal">What we do</h2>
+      <p class="sub reveal">End-to-end help—from survey launch to board-ready reporting and leadership coaching.</p>
+      <div class="grid-3">
+        <div class="tile reveal">
+          <h3>Engagement Surveys</h3>
+          <p>Anonymous, high-participation surveys tailored to K-12. Clean rollups by building, role, and tenure.</p>
+          <ul class="clean">
+            <li>Anonymity and data integrity</li>
+            <li>Executive summary & dashboards</li>
+            <li>Follow-up action planning</li>
+          </ul>
+        </div>
+        <div class="tile reveal">
+          <h3>Interview Training</h3>
+          <p>Competency-based, bias-aware training for hiring panels—to improve decisions and retention.</p>
+        </div>
+        <div class="tile reveal">
+          <h3>Data & Reporting</h3>
+          <p>Board-ready decks, building-level summaries, and prioritized recommendations that stick.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM -->
+  <section class="section" id="system" aria-labelledby="system-h">
+    <div class="container">
+      <div class="eyebrow">System</div>
+      <h2 id="system-h" class="reveal">A simple operating system for engagement</h2>
+      <p class="sub reveal">Plan → Measure → Act. Clear phases, no fluff.</p>
+      <div class="grid-3">
+        <div class="tile reveal">
+          <div class="eyebrow">Plan</div>
+          <h3 style="margin:.4rem 0 0">Launch for participation</h3>
+          <p>Comms toolkit, timelines, and stakeholder buy-in to maximize response rates without fatigue.</p>
+        </div>
+        <div class="tile reveal">
+          <div class="eyebrow">Measure</div>
+          <h3 style="margin:.4rem 0 0">Clarity over complexity</h3>
+          <p>100-point scoring; engagement across Care • Connect • Coach • Contribute • Congratulate.</p>
+        </div>
+        <div class="tile reveal">
+          <div class="eyebrow">Act</div>
+          <h3 style="margin:.4rem 0 0">From insight to action</h3>
+          <p>Recommendations per area and coaching to implement, monitor, and report progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING (from your packages) -->
+  <section class="section" id="pricing" aria-labelledby="pricing-h">
+    <div class="container">
+      <div class="eyebrow">Pricing</div>
+      <h2 id="pricing-h" class="reveal">Packages that scale with your district</h2>
+      <p class="sub reveal">Choose a starting point; add monthly support and training as you grow.</p>
+
+      <div class="plans">
+        <!-- Starter -->
+        <div class="plan reveal">
+          <h3>Starter</h3>
+          <div class="muted">Ideal for small or budget-conscious districts</div>
+          <div class="price">$7,000 annual</div>
+          <ul class="features">
+            <li>District-wide score</li>
+            <li class="muted">No building/role breakdowns</li>
+            <li class="muted">No trend analysis</li>
+            <li>One leadership debrief session</li>
+            <li class="muted">No ongoing results portal</li>
+          </ul>
+        </div>
+
+        <!-- Plus (Best Value) -->
+        <div class="plan reveal" style="border-color:#c6a881">
+          <h3>Plus <span class="muted">(Best Value)</span></h3>
+          <div class="muted">Deeper insight + guidance</div>
+          <div class="price">$10,000–$15,000 annual</div>
+          <ul class="features">
+            <li>District-wide score</li>
+            <li>Building-level breakdowns</li>
+            <li>Role-based analysis</li>
+            <li>Trend analysis (if applicable)</li>
+            <li>One leadership debrief session</li>
+            <li>Ongoing results access (with monthly plan)</li>
+            <li>Early access to regional benchmarking</li>
+          </ul>
+        </div>
+
+        <!-- Premium -->
+        <div class="plan reveal">
+          <h3>Premium</h3>
+          <div class="muted">For large or strategic districts with complex needs</div>
+          <div class="price">$18,000+ annual</div>
+          <ul class="features">
+            <li>Everything in Plus</li>
+            <li>Custom reporting (SPED, admin, etc.)</li>
+            <li>Multiple strategy sessions</li>
+            <li>Board/staff presentation support</li>
+            <li>Ongoing results access (with monthly plan)</li>
+            <li>Early access to regional benchmarking</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="sub" style="margin-top:16px">
+        Optional monthly support: <b>$0.50 per employee</b> — far below typical platform fees of $3–$5 per user. 
+      </p>
+      <!-- Source: pricing packages & monthly model -->
+      <!-- Content derived from your Pricing Packages doc -->
+    </div>
+  </section>
+
+  <!-- Interview Training Add-on -->
+  <section class="section" id="training" aria-labelledby="training-h">
+    <div class="container">
+      <div class="eyebrow">Add-On</div>
+      <h2 id="training-h" class="reveal">Interview Training that improves hiring & retention</h2>
+      <div class="tile reveal">
+        <p><b>District-wide Training:</b> Multi-session training for admins/hiring teams with interview tools and ongoing support — <b>$20,000–$50,000</b>.</p>
+        <p><b>Bundle & save:</b> Discounted pricing when packaged with survey + strategy. <a href="#contact">Let’s discuss</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS / QUOTE -->
+  <section class="section" id="results" aria-labelledby="results-h">
+    <div class="container">
+      <div class="eyebrow">Outcomes</div>
+      <h2 id="results-h" class="reveal">Proof</h2>
+      <div class="quote reveal" style="margin-top:12px">
+        <blockquote>
+          “Participating in the interview training conducted by Denali Hire Education was an outstanding experience… I highly recommend it to any organization committed to building effective interview processes.”
+        </blockquote>
+        <cite>— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="container">
+      <div class="eyebrow">Contact</div>
+      <h2 id="contact-h" class="reveal">Let’s talk</h2>
+      <p class="sub reveal">Tell us about your district and goals. We’ll follow up with a short intro call.</p>
+      <div class="tile">
+        <form action="#" method="post" class="reveal">
+          <div style="display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))">
+            <label> Your name<br><input name="name" required placeholder="First Last" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;background:#fff"></label>
+            <label> Email<br><input type="email" name="email" required placeholder="you@district.org" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;background:#fff"></label>
+            <label> District<br><input name="district" required placeholder="e.g., Willard Public Schools" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;background:#fff"></label>
+            <label> Role<br><input name="role" placeholder="Superintendent, HR Director, etc." style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;background:#fff"></label>
+            <label style="grid-column:1/-1"> Goals / context<br><textarea name="message" rows="4" placeholder="What outcomes are you after? Timelines? Any constraints?" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;background:#fff"></textarea></label>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
+            <button class="nav-cta" type="submit">Request intro</button>
+            <small style="color:#7a859f">By submitting, you agree to be contacted about Denali services.</small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>&copy; <span id="year"></span> Denali Consulting LLC • Missouri, USA</div>
+      <div>Engagement Surveys • Interview Training • Data & Reporting</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold: .14 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
