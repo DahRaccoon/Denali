@@ -6,41 +6,27 @@
 <title>Denali — Engagement Surveys & Interview Training for School Districts</title>
 <meta name="description" content="Denali helps school districts run high-integrity engagement surveys and train interview teams—clear insights, better hiring, real results." />
 
-<!-- Type -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== Mun Rooftop–inspired, adapted to Denali ===== */
 :root{
-  /* palette */
-  --bone:#F2EEE8;         /* soft off-white canvas */
-  --ink:#0b1020;          /* deep navy */
-  --ink-2:#11162a;        /* darker navy */
-  --cream:#F2EEDD;        /* warm white for big type */
-  --teal:#69E0F1;         /* accent */
-  --gold:#C8843A;         /* accent */
-  --text:#0f1326;         /* body text on bone */
-  --muted:#6b748f;        /* secondary */
-  --line:#e6ded3;         /* hairlines on light sections */
-
-  --maxw:1200px;
-  --radius:28px;
-  --shadow:0 30px 80px rgba(0,0,0,.18);
+  --bone:#F2EEE8; --ink:#0b1020; --ink-2:#11162a;
+  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A;
+  --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
+  --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
 
 /* base */
-*{box-sizing:border-box}
-html,body{margin:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bone);-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bone);color:var(--text)}
+img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-/* nav — minimal brand left + hamburger right, overlay menu */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;mix-blend-mode:normal}
-.brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.02em;color:#fff}
+/* minimal nav */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
 .brand .dot{width:18px;height:18px;border-radius:6px;background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold))}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
@@ -52,52 +38,59 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* hero — fullscreen card with image + gradient overlay (Mun vibe) */
-.hero{min-height:100dvh;display:grid;place-items:center;position:relative;overflow:hidden}
+/* HERO — cleaner photo, softer overlay, smaller card */
+.hero{min-height:100dvh;display:grid;place-items:end center;position:relative;overflow:hidden}
 .hero .bg{
-  position:absolute;inset:0;background:#0a0f1d;
-  background-image:linear-gradient(180deg,rgba(11,16,32,.2),rgba(11,16,32,.7)),
-                    url('denali-hero.jpg');
-  background-size:cover;background-position:center center;
-  transform:scale(1.06); /* subtle zoom for parallax */
-  will-change:transform;
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(to bottom, rgba(11,16,32,.05), rgba(11,16,32,.55)),
+    url('denali-hero.jpg');
+  background-size:cover;background-position:center 40%;
+  will-change:transform;transform:translateY(0);
 }
+/* subtle bottom fade for text legibility without covering the mountain */
+.hero::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:40%;
+  background:linear-gradient(to bottom, transparent, rgba(11,16,32,.75));
+}
+
 .hero .card{
-  position:relative;z-index:1;max-width:900px;text-align:center;padding:48px 26px;
-  color:#fff;border-radius:var(--radius);
-  background:radial-gradient(80% 120% at 50% 0, rgba(255,255,255,.10), rgba(255,255,255,.04));
-  border:1px solid rgba(255,255,255,.18); box-shadow:var(--shadow);
+  position:relative; z-index:1; margin:0 auto 8vh; /* lower so more photo shows */
+  max-width:880px; text-align:center; padding:36px 24px; color:#fff;
+  border-radius:var(--radius);
+  background:rgba(12,18,36,.48); border:1px solid rgba(255,255,255,.20);
+  box-shadow:var(--shadow);
 }
 .kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.06);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
-.hero h1{margin:.6rem 0 .4rem;font-weight:800;letter-spacing:-.01em;line-height:1.02;color:var(--cream);
-  font-size:clamp(34px,6vw,72px)}
-.sublead{color:#d8e1ff;max-width:64ch;margin:0 auto 16px}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:700}
+.hero h1{margin:.5rem 0 .3rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:var(--cream);
+  font-size:clamp(34px,5.8vw,68px)}
+.sublead{color:#e6ecff;max-width:64ch;margin:0 auto 12px}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-weight:700}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
 .btn-ghost{color:#fff;background:transparent}
 
-/* section shells — calm, airy scenes */
-.section{padding:90px 0;border-top:1px solid var(--line);background:var(--bone)}
+/* stat band */
+.band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{display:flex;align-items:center;justify-content:center;gap:18px;padding:16px 0}
+.stat b{font-size:clamp(26px,3.6vw,40px);line-height:1;font-weight:800;color:#264a5a}
+.stat small{color:#6a6256}
+
+/* sections */
+.section{padding:84px 0;border-top:1px solid var(--line);background:var(--bone)}
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 @media (max-width:980px){.scene{grid-template-columns:1fr}}
-.scene .visual{border-radius:22px;overflow:hidden;border:1px solid #e9e2d8;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.08)}
-.scene .copy h2{margin:0 0 8px;font-size:clamp(24px,3vw,40px);letter-spacing:.02em}
+.scene .visual{border-radius:22px;overflow:hidden;border:1px solid #e9e2d8;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.08);min-height:340px}
+.scene .copy h2{margin:0 0 8px;font-size:clamp(24px,3vw,40px)}
 .scene .eyebrow{font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7b6a55;font-size:12px}
 .scene .lead{color:var(--muted);margin:6px 0 14px}
 .bullets{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
 
-/* split intro band like Mun’s section dividers */
-.band{padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
-.band .marquee{display:flex;gap:40px;white-space:nowrap;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#6a6256;animation:scroll 18s linear infinite}
-@keyframes scroll{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.band .marquee{animation:none}}
-
-/* testimonial */
-.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
-cite{display:block;margin-top:8px;color:#7a859f}
+/* who we are */
+.tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
+.tile h3{margin:0 0 8px}
 
 /* footer CTA */
 .footer-cta{padding:80px 0;background:#fff;border-top:1px solid var(--line)}
@@ -105,40 +98,38 @@ cite{display:block;margin-top:8px;color:#7a859f}
 .footer-cta h3{margin:0 0 8px;color:var(--cream);font-size:clamp(22px,2.4vw,34px)}
 footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-size:14px}
 
-/* reveals */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
-<!-- Minimal top bar -->
 <header class="navbar" aria-label="Site">
   <div class="brand">
-    <span class="dot" aria-hidden="true"></span>
-    <span>Denali</span>
+    <span class="dot" aria-hidden="true"></span><span>Denali</span>
   </div>
   <button class="hamburger" aria-label="Open menu" id="openMenu"><span></span></button>
 </header>
 
-<!-- Overlay Menu -->
+<!-- overlay menu -->
 <div class="menu" id="menu">
   <nav>
     <a href="#surveys">Engagement Surveys</a>
     <a href="#training">Interview Training</a>
-    <a href="#about">About</a>
+    <a href="#who">Who we are</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="btn btn-primary" style="margin-top:8px">Book an intro call</a>
   </nav>
 </div>
 
-<!-- HERO (full scene) -->
+<!-- HERO (cleaner) -->
 <section class="hero" id="home" aria-label="Hero">
   <div class="bg" id="parallax"></div>
   <div class="card">
     <span class="kicker">School District Specialists</span>
     <h1>Clarity in your culture. Confidence in your hiring.</h1>
-    <p class="sublead">Denali helps districts run <b>high-integrity engagement surveys</b> and deliver <b>bias-aware interview training</b>. Relaxed to browse. Ultra-informative to decide.</p>
+    <p class="sublead">High-integrity <b>engagement surveys</b> and <b>bias-aware interview training</b>—so leaders feel informed, staff feel heard, and teams hire well.</p>
     <div class="cta-row">
       <a href="#surveys" class="btn btn-primary">Engagement Surveys</a>
       <a href="#training" class="btn btn-ghost">Interview Training</a>
@@ -146,50 +137,45 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </div>
 </section>
 
-<!-- Divider band -->
-<div class="band" aria-hidden="true">
+<!-- STAT: +74% -->
+<div class="band" role="region" aria-label="Results">
   <div class="container">
-    <div class="marquee">Care • Connect • Coach • Contribute • Congratulate • The Denali Way • Care • Connect • Coach • Contribute • Congratulate •</div>
+    <div class="stat">
+      <b>+74% participation</b>
+      <small>average increase after partnering with Denali</small>
+    </div>
   </div>
 </div>
 
-<!-- SCENE: Engagement Surveys -->
+<!-- SURVEYS -->
 <section class="section" id="surveys" aria-labelledby="surveys-h">
   <div class="container scene">
     <div class="copy">
       <div class="eyebrow">Engagement Surveys</div>
       <h2 id="surveys-h" class="reveal">From low response to real insight.</h2>
-      <p class="lead reveal">If your “survey” is a Google Form and hardly anyone takes it, we’ll fix that. Anonymous, high-participation surveys tailored to K-12 with board-ready reporting.</p>
+      <p class="lead reveal">If your survey is a Google Form and hardly anyone takes it, we’ll fix that. Anonymous, high-participation surveys tailored to K-12 with board-ready reporting.</p>
       <ul class="bullets reveal">
         <li>Anonymity-first, third-party hosted</li>
         <li>Clean rollups by <b>Building</b>, <b>Role</b>, and <b>Tenure</b></li>
         <li>Executive summary + clear recommendations</li>
-        <li>Year-over-year trends and progress tracking</li>
+        <li>Trends and progress tracking over time</li>
       </ul>
       <div class="cta-row reveal" style="justify-content:flex-start">
         <a href="#contact" class="btn btn-primary">Start your survey</a>
-        <a href="#about" class="btn" style="border:1px solid #d8d0c6">How it works</a>
+        <a href="#who" class="btn" style="border:1px solid #d8d0c6">How it works</a>
       </div>
     </div>
-    <figure class="visual reveal" style="min-height:340px;display:grid;place-items:center">
-      <!-- optional image: surveys.jpg -->
-      <picture>
-        <source srcset="surveys.jpg" />
-        <img src="denali-hero.jpg" alt="Dashboard and summary by building, role, tenure" style="object-fit:cover;width:100%;height:100%">
-      </picture>
+    <figure class="visual reveal">
+      <img src="denali-hero.jpg" alt="Board-ready summary and participation dashboard" style="object-fit:cover;width:100%;height:100%">
     </figure>
   </div>
 </section>
 
-<!-- SCENE: Interview Training -->
+<!-- TRAINING -->
 <section class="section" id="training" aria-labelledby="training-h">
   <div class="container scene" style="grid-template-columns:.95fr 1.05fr">
-    <figure class="visual reveal" style="min-height:340px;display:grid;place-items:center">
-      <!-- optional image: training.jpg -->
-      <picture>
-        <source srcset="training.jpg" />
-        <img src="denali-hero.jpg" alt="Hiring panel training — structured, bias-aware" style="object-fit:cover;width:100%;height:100%">
-      </picture>
+    <figure class="visual reveal">
+      <img src="denali-hero.jpg" alt="Structured, bias-aware interview workshop" style="object-fit:cover;width:100%;height:100%">
     </figure>
     <div class="copy">
       <div class="eyebrow">Interview Training</div>
@@ -203,33 +189,29 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       </ul>
       <div class="cta-row reveal" style="justify-content:flex-start">
         <a href="#contact" class="btn btn-primary">Book training</a>
-        <a href="#about" class="btn" style="border:1px solid #d8d0c6">View agenda</a>
+        <a href="#who" class="btn" style="border:1px solid #d8d0c6">View agenda</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- About -->
-<section class="section" id="about" aria-labelledby="about-h" style="background:#fff">
+<!-- WHO WE ARE (replaces “Why Denali”) -->
+<section class="section" id="who" aria-labelledby="who-h" style="background:#fff">
   <div class="container">
-    <div class="eyebrow">About</div>
-    <h2 id="about-h" class="reveal">Why Denali?</h2>
-    <p class="lead reveal" style="max-width:70ch">
-      Named for North America’s tallest peak, Denali stands for clarity, elevation, and endurance.
-      We give busy school leaders a simple operating system: <b>Plan → Measure → Act</b>.
-      No fluff—just participation, insight, and follow-through.
-    </p>
-    <div class="quote reveal" style="margin-top:16px">
-      <blockquote>
-        “Participating in the interview training conducted by Denali Hire Education was an outstanding experience…
-        I highly recommend it to any organization committed to building effective interview processes.”
-      </blockquote>
-      <cite>— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</cite>
+    <div class="tile reveal">
+      <h3 id="who-h">Who we are</h3>
+      <p style="margin:.4rem 0 0">
+        We’re a small, senior team with <b>10+ years</b> building interview frameworks and engagement programs for educators.
+        Our mission is to help <b>school districts</b> hire better, keep great people, and make staff feel heard—without adding work to already full plates.
+      </p>
+      <p style="margin:.6rem 0 0;color:#6e7894">
+        We bring calm, crisp systems: <b>Plan → Measure → Act</b>. You bring your goals. Together we make progress you can report.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- Footer CTA -->
+<!-- CTA -->
 <section class="footer-cta" id="contact">
   <div class="container">
     <div class="wrap reveal">
@@ -253,7 +235,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 </footer>
 
 <script>
-/* year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* overlay menu */
@@ -262,7 +243,7 @@ const openBtn = document.getElementById('openMenu');
 openBtn.addEventListener('click', ()=> menu.classList.toggle('open'));
 menu.addEventListener('click', (e)=>{ if(e.target === menu) menu.classList.remove('open'); });
 
-/* scroll reveal */
+/* reveal */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
 },{threshold:.14});
@@ -271,11 +252,11 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
 }
 
-/* gentle parallax on hero bg */
-const bg = document.getElementById('parallax');
+/* gentle parallax on hero */
+const bg = document.querySelector('.hero .bg');
 window.addEventListener('scroll', ()=>{
-  const y = window.scrollY * 0.15; // subtle
-  bg.style.transform = `translateY(${y}px) scale(1.06)`;
+  const y = Math.min(window.scrollY * 0.12, 80);
+  bg.style.transform = `translateY(${y}px)`;
 },{passive:true});
 </script>
 </body>
