@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denali Consulting LLC — Engagement Surveys • Interview Training • Data & Reporting</title>
+  <meta name="description" content="Denali Consulting helps school districts increase staff engagement, run high-integrity surveys, train hiring teams, and turn results into action." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#11162a;
+      --muted:#7d89a8;
+      --text:#e9edf7;
+      --brand:#3CB8FF;      /* primary accent */
+      --brand-2:#7CF4AA;    /* secondary accent */
+      --ring: rgba(124,244,170,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1020 0%,#0a0f1d 50%,#0c1326 100%); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; scroll-behavior:smooth}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.4) blur(10px);
+      background:rgba(9,14,28,.6); border-bottom:1px solid rgba(124,244,170,.08);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; gap:12px; align-items:center; font-weight:800; letter-spacing:.2px}
+    .brand .logo{
+      width:36px; height:36px; display:grid; place-items:center; border-radius:10px;
+      background: radial-gradient(100% 100% at 100% 0, var(--brand) 0%, var(--brand-2) 100%);
+      box-shadow:0 6px 16px rgba(60,184,255,.35);
+      color:#071019; font-weight:900;
+    }
+    .nav a.btn{padding:10px 14px; border-radius:12px; font-weight:600; border:1px solid rgba(60,184,255,.25)}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color:#041019; border:none; box-shadow:0 10px 24px var(--ring)
+    }
+    .btn-primary:hover{transform:translateY(-1px)}
+    /* Hero */
+    .hero{padding:72px 0 32px}
+    .hero-grid{display:grid; gap:28px; align-items:center; grid-template-columns:1.1fr .9fr}
+    .badge{display:inline-flex; gap:10px; align-items:center; padding:6px 10px; border:1px solid rgba(124,244,170,.25); border-radius:999px; background:rgba(124,244,170,.08); color:#c9f5dc; font-size:13px}
+    h1{font-size:clamp(28px,4vw,50px); line-height:1.05; margin:10px 0 14px}
+    .lead{font-size:clamp(16px,1.4vw,20px); color:var(--muted); max-width:58ch}
+    .cta{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(124,244,170,.12); border-radius:var(--radius); box-shadow:var(--shadow)
+    }
+    .stat{display:grid; gap:6px; padding:16px; border-radius:12px; border:1px dashed rgba(60,184,255,.25)}
+    .stat b{font-size:22px}
+    .hero-visual{padding:18px}
+    .hero-visual .panel{padding:18px; display:grid; gap:14px}
+    .mini-grid{display:grid; gap:12px; grid-template-columns:repeat(2,minmax(0,1fr))}
+    /* Sections */
+    section{padding:64px 0}
+    .section-title{font-size:28px; margin:0 0 8px}
+    .section-sub{color:var(--muted); margin:0 0 24px}
+    .grid-3{display:grid; gap:18px; grid-template-columns:repeat(3,minmax(0,1fr))}
+    .tile{padding:22px; border-radius:var(--radius)}
+    .tile h3{margin:0 0 8px}
+    .tile p{margin:0; color:var(--muted)}
+    .list{display:grid; gap:10px; margin:14px 0 0; padding:0; list-style:none}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(124,244,170,.25); color:#cfeaf7; font-size:13px}
+    /* Proof */
+    .quote{display:grid; gap:10px; padding:22px}
+    blockquote{margin:0; color:#dfe8ff; font-size:16px; line-height:1.5}
+    cite{color:var(--muted); font-style:normal}
+    /* Footer */
+    footer{padding:40px 0 70px; border-top:1px solid rgba(124,244,170,.08); color:var(--muted)}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>Denali Consulting LLC</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#results">Results</a>
+        <a href="#contact" class="btn btn-primary">Book a 15-min intro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">School District Specialists • Missouri & Beyond</span>
+          <h1>Turn staff feedback into action—<br/>and action into measurable improvement.</h1>
+          <p class="lead">Denali partners with districts to run high-integrity engagement surveys, train interview teams, and deliver data-driven recommendations. Clear insights, safer anonymity, and follow-through that actually moves the needle.</p>
+          <div class="cta">
+            <a href="#contact" class="btn btn-primary">Book a 15-minute intro</a>
+            <a href="#results" class="btn">See results</a>
+          </div>
+        </div>
+        <aside class="hero-visual card">
+          <div class="panel card">
+            <div class="mini-grid">
+              <div class="stat">
+                <span>Engagement Response Lift</span>
+                <b>[[% Increase]]</b>
+                <small class="muted">vs prior year baseline</small>
+              </div>
+              <div class="stat">
+                <span>Executive Summary</span>
+                <b>By Building • Role • Tenure</b>
+                <small>Action-ready insights</small>
+              </div>
+            </div>
+            <div class="mini-grid">
+              <div class="stat">
+                <span>Interview Training</span>
+                <b>Bias-aware • Competency-based</b>
+                <small>Reusable tools & rubrics</small>
+              </div>
+              <div class="stat">
+                <span>Privacy</span>
+                <b>Anonymity-first</b>
+                <small>3rd-party hosted surveys</small>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">What we do</h2>
+        <p class="section-sub">End-to-end support—from survey launch to board-ready reporting and leadership coaching.</p>
+        <div class="grid-3">
+          <div class="tile card">
+            <h3>Engagement Surveys</h3>
+            <p>Anonymous, high-participation surveys tailored to K-12. Clear rollups by building, role, and tenure.</p>
+            <ul class="list">
+              <li>✅ Anonymity and data integrity</li>
+              <li>✅ Executive summary & dashboards</li>
+              <li>✅ Follow-up action planning</li>
+            </ul>
+          </div>
+          <div class="tile card">
+            <h3>Interview Training</h3>
+            <p>Competency-based, bias-aware training for hiring panels.</p>
+            <ul class="list">
+              <li>✅ Structured rubrics & question banks</li>
+              <li>✅ Legal defensibility in process</li>
+              <li>✅ Better signal, better hires</li>
+            </ul>
+          </div>
+          <div class="tile card">
+            <h3>Data & Reporting</h3>
+            <p>Board-ready presentations, building-level summaries, and targeted recommendations that stick.</p>
+            <ul class="list">
+              <li>✅ Clear “Top strengths” & “Opportunities”</li>
+              <li>✅ Prioritized recommendations</li>
+              <li>✅ Progress tracking year over year</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach">
+      <div class="container">
+        <h2 class="section-title">Our approach</h2>
+        <p class="section-sub">Practical, transparent, and built for busy school leaders.</p>
+        <div class="grid-3">
+          <div class="tile card">
+            <span class="pill">Plan</span>
+            <h3>Launch for Participation</h3>
+            <p>Comms toolkit, timelines, and stakeholder buy-in to maximize response rates without survey fatigue.</p>
+          </div>
+          <div class="tile card">
+            <span class="pill">Measure</span>
+            <h3>Clarity Over Complexity</h3>
+            <p>Clean scoring on a 100-point scale, engagement score across Care • Connect • Coach • Contribute • Congratulate.</p>
+          </div>
+          <div class="tile card">
+            <span class="pill">Act</span>
+            <h3>From Insight to Action</h3>
+            <p>Targeted recommendations per building/area and coaching to implement, monitor, and report progress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof / Results -->
+    <section id="results">
+      <div class="container">
+        <h2 class="section-title">Proof & outcomes</h2>
+        <p class="section-sub">Recent district partners saw substantial participation gains and clearer direction for leadership teams.</p>
+        <div class="grid-3">
+          <div class="tile card">
+            <h3>Higher Participation</h3>
+            <p>[[% Increase]] increase in completed responses year-over-year with a longer, more comprehensive survey.</p>
+          </div>
+          <div class="tile card">
+            <h3>Better Signal</h3>
+            <p>Building-level insights by role and tenure reveal where culture is thriving and where support is needed.</p>
+          </div>
+          <div class="tile card">
+            <h3>Actionable Playbooks</h3>
+            <p>Each area receives custom “Top Strengths,” “Opportunities,” and prioritized Recommendations.</p>
+          </div>
+        </div>
+
+        <div class="quote card" style="margin-top:18px">
+          <blockquote>
+            “Participating in the interview training conducted by Denali Hire Education was an outstanding experience. The sessions provided valuable insights in areas such as Unconscious Bias and Competency-Based Interviewing strategies. Gaining a deeper understanding of these concepts was incredibly impactful and will undoubtedly enhance our hiring practices. This training was both engaging and practical, and I highly recommend it to any organization committed to building effective interview processes.”
+          </blockquote>
+          <cite>— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Let’s talk</h2>
+        <p class="section-sub">Tell us a bit about your district and goals. We’ll follow up with a short intro call.</p>
+        <div class="card" style="padding:22px">
+          <form action="https://example.com/form-handler" method="post">
+            <div style="display:grid; gap:14px; grid-template-columns:repeat(2,minmax(0,1fr))">
+              <div>
+                <label for="name">Your name</label><br>
+                <input id="name" name="name" required placeholder="First Last" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(124,244,170,.25);background:#0c1326;color:var(--text)">
+              </div>
+              <div>
+                <label for="email">Email</label><br>
+                <input id="email" name="email" type="email" required placeholder="you@district.org" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(124,244,170,.25);background:#0c1326;color:var(--text)">
+              </div>
+              <div>
+                <label for="district">District</label><br>
+                <input id="district" name="district" required placeholder="e.g., Willard Public Schools" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(124,244,170,.25);background:#0c1326;color:var(--text)">
+              </div>
+              <div>
+                <label for="role">Role</label><br>
+                <input id="role" name="role" placeholder="Superintendent, HR Director, etc." style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(124,244,170,.25);background:#0c1326;color:var(--text)">
+              </div>
+              <div style="grid-column:1/-1">
+                <label for="message">Goals / context</label><br>
+                <textarea id="message" name="message" rows="4" placeholder="What outcomes are you after? Timelines? Any constraints?" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(124,244,170,.25);background:#0c1326;color:var(--text)"></textarea>
+              </div>
+            </div>
+            <div style="margin-top:16px; display:flex; gap:12px; align-items:center">
+              <button type="submit" class="btn btn-primary" style="padding:12px 16px; border-radius:12px; border:none; font-weight:700">Request intro</button>
+              <small style="color:var(--muted)">By submitting, you agree to be contacted about Denali services.</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div>&copy; <span id="year"></span> Denali Consulting LLC • Missouri, USA</div>
+      <div>Engagement Surveys • Interview Training • Data & Reporting</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
