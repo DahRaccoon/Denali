@@ -10,39 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== Terminal-Industries style, adapted for Denali ===== */
     :root{
-      --bone:#EFEAE3;           /* off-white page background */
-      --ink:#0b1020;            /* dark hero card */
-      --ink-2:#11162a;
-      --cream:#F2EEDD;          /* big headline color */
-      --teal:#69E0F1;           /* accent */
-      --gold:#C8843A;           /* accent */
-      --text:#0f1326;           /* body copy on bone */
-      --muted:#66708a;
-      --line:#e5ded3;           /* hairlines on bone */
-      --radius-xl:36px;         /* big rounded cards */
-      --radius:20px;
-      --shadow:0 30px 80px rgba(0,0,0,.18);
+      --bone:#EFEAE3; --ink:#0b1020; --ink-2:#11162a;
+      --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A;
+      --text:#0f1326; --muted:#66708a; --line:#e5ded3;
+      --radius-xl:36px; --radius:20px; --shadow:0 30px 80px rgba(0,0,0,.18);
       --maxw:1240px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bone);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    img,video{max-width:100%;height:auto;display:block}
+    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-    /* Floating capsule nav (centered, glassy) */
+    /* Floating capsule nav */
     .site-nav{position:sticky;top:14px;z-index:60;display:flex;justify-content:center}
-    .nav-pill{
-      display:flex;gap:22px;align-items:center;padding:10px 16px;border-radius:999px;
+    .nav-pill{display:flex;gap:22px;align-items:center;padding:10px 16px;border-radius:999px;
       background:rgba(20,25,40,.55);color:#f7f7f7;border:1px solid rgba(255,255,255,.18);
-      backdrop-filter:blur(10px) saturate(1.2);box-shadow:0 8px 20px rgba(0,0,0,.12);font-weight:600
-    }
-    .nav-pill a{opacity:.9} .nav-pill a:hover{opacity:1}
+      backdrop-filter:blur(10px) saturate(1.2);box-shadow:0 8px 20px rgba(0,0,0,.12);font-weight:600}
+    .nav-pill a{opacity:.9}.nav-pill a:hover{opacity:1}
     .nav-cta{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;padding:8px 12px;border-radius:999px;font-weight:800;border:none}
 
-    /* HERO — dark rounded card w/ media slot */
+    /* Hero */
     .hero-wrap{margin:26px auto 36px}
     .hero{
       background:
@@ -50,8 +39,10 @@
         linear-gradient(180deg, var(--ink), var(--ink-2));
       color:#fff;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow)
     }
-    .hero-media{aspect-ratio:16/7;background:#0a0f1d;position:relative}
-    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-media{aspect-ratio:16/7;position:relative;background:#0a0f1d}
+    .hero-media .fallback{position:absolute;inset:0;background:
+      linear-gradient(180deg,#162033,#0b1020);display:grid;place-items:center;color:#aab6d6}
+    .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;padding:48px}
     @media (max-width:980px){.hero-inner{grid-template-columns:1fr;padding:28px}}
 
@@ -60,19 +51,19 @@
     h1{margin:.2rem 0;font-weight:800;line-height:.98;font-size:clamp(36px,6vw,88px);letter-spacing:-.02em;color:var(--cream)}
     .lead{font-size:clamp(16px,1.4vw,20px);color:#cfd7f1;max-width:60ch}
     .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
     .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));font-weight:800;color:#061019}
-    .btn-ghost{border-color:rgba(255,255,255,.3);color:#fff;background:transparent}
+    .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
 
-    /* Stat chips */
+    /* Chips */
     .chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
     .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);font-weight:700}
     .chip b{font-size:18px}
 
-    /* Sections on bone */
+    /* Sections */
     .section{padding:80px 0;border-top:1px solid var(--line)}
     .eyebrow{font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7b6a55;font-size:12px}
-    .section h2{margin:6px 0 8px;font-size:clamp(24px,3.2vw,40px);letter-spacing:.02em}
+    .section h2{margin:6px 0 8px;font-size:clamp(24px,3.2vw,40px)}
     .sub{margin:0 0 24px;color:var(--muted)}
     .grid-3{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
     @media (max-width:980px){.grid-3{grid-template-columns:1fr}}
@@ -81,31 +72,26 @@
     .tile h3{margin:0 0 10px;font-size:22px}
     ul.clean{margin:12px 0 0;padding-left:18px;line-height:1.6}
 
-    /* Pricing table */
+    /* Pricing */
     .plans{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
     .plan{background:#fff;border:1px solid #ede7dd;border-radius:24px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-    .plan h3{margin:0 0 6px}
-    .price{font-weight:800;font-size:26px;margin:6px 0 10px}
-    .features{list-style:none;margin:0;padding:0}
-    .features li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+    .plan h3{margin:0 0 6px}.price{font-weight:800;font-size:26px;margin:6px 0 10px}
+    .features{list-style:none;margin:0;padding:0}.features li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
     .features li:before{content:"✓";color:#1a7f52;font-weight:800}
     .muted{color:#7a859f}
 
-    /* Ribbon marquee */
+    /* Ribbon */
     .ribbon{margin:8px 0 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .marquee{display:flex;gap:40px;white-space:nowrap;padding:12px 0;font-weight:800;letter-spacing:.24em;color:#6a6256;text-transform:uppercase;animation:scroll 18s linear infinite}
     @keyframes scroll{to{transform:translateX(-50%)}}
     @media (prefers-reduced-motion:reduce){.marquee{animation:none}}
 
-    /* Quote */
+    /* Quote + footer */
     .quote{background:#fff;border:1px solid #ede7dd;border-radius:24px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-    blockquote{margin:0;color:#3a4156;line-height:1.5}
-    cite{display:block;margin-top:8px;color:#7a859f}
-
-    /* Footer */
+    blockquote{margin:0;color:#3a4156;line-height:1.5} cite{display:block;margin-top:8px;color:#7a859f}
     footer{padding:40px 0 70px;border-top:1px solid var(--line);color:#6a748e;font-size:14px}
 
-    /* Scroll reveal */
+    /* Reveal */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
@@ -132,8 +118,9 @@
     <div class="container">
       <div class="hero">
         <div class="hero-media">
-          <!-- Replace with your image/video. For now, point to a stock photo file you add to the repo as /hero.jpg -->
-          <img src="hero.jpg" alt="Leaders collaborating on survey strategy">
+          <!-- Put your image beside index.html and name it denali-hero.jpg -->
+          <img src="denali-hero.jpg" alt="Denali mountain — clarity, scale, direction" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="fallback" style="display:none">Add <b>denali-hero.jpg</b> next to index.html</div>
         </div>
         <div class="hero-inner">
           <div>
@@ -154,7 +141,7 @@
             <div class="tile" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#e6ecff">
               <div style="font-size:14px;opacity:.9">From district leaders</div>
               <p style="margin:.4rem 0 0">“We partnered with Denali… the result was a <b>74% increase</b> in response rate and far deeper insight by building, tenure, and role—plus actionable, data-driven recommendations.”</p>
-              <p class="muted" style="margin:.4rem 0 0">Superintendent outreach copy, summarized. (Proof point from Willard.)</p>
+              <p class="muted" style="margin:.4rem 0 0">Superintendent outreach copy, summarized.</p>
             </div>
           </aside>
         </div>
@@ -221,18 +208,15 @@
     </div>
   </section>
 
-  <!-- PRICING (from your packages) -->
+  <!-- PRICING -->
   <section class="section" id="pricing" aria-labelledby="pricing-h">
     <div class="container">
       <div class="eyebrow">Pricing</div>
       <h2 id="pricing-h" class="reveal">Packages that scale with your district</h2>
       <p class="sub reveal">Choose a starting point; add monthly support and training as you grow.</p>
-
       <div class="plans">
-        <!-- Starter -->
         <div class="plan reveal">
-          <h3>Starter</h3>
-          <div class="muted">Ideal for small or budget-conscious districts</div>
+          <h3>Starter</h3><div class="muted">Ideal for small or budget-conscious districts</div>
           <div class="price">$7,000 annual</div>
           <ul class="features">
             <li>District-wide score</li>
@@ -242,60 +226,32 @@
             <li class="muted">No ongoing results portal</li>
           </ul>
         </div>
-
-        <!-- Plus (Best Value) -->
         <div class="plan reveal" style="border-color:#c6a881">
-          <h3>Plus <span class="muted">(Best Value)</span></h3>
-          <div class="muted">Deeper insight + guidance</div>
+          <h3>Plus <span class="muted">(Best Value)</span></h3><div class="muted">Deeper insight + guidance</div>
           <div class="price">$10,000–$15,000 annual</div>
           <ul class="features">
-            <li>District-wide score</li>
-            <li>Building-level breakdowns</li>
-            <li>Role-based analysis</li>
-            <li>Trend analysis (if applicable)</li>
-            <li>One leadership debrief session</li>
-            <li>Ongoing results access (with monthly plan)</li>
-            <li>Early access to regional benchmarking</li>
+            <li>District-wide score</li><li>Building-level breakdowns</li><li>Role-based analysis</li>
+            <li>Trend analysis (if applicable)</li><li>One leadership debrief session</li>
+            <li>Ongoing results access (with monthly plan)</li><li>Early access to regional benchmarking</li>
           </ul>
         </div>
-
-        <!-- Premium -->
         <div class="plan reveal">
-          <h3>Premium</h3>
-          <div class="muted">For large or strategic districts with complex needs</div>
+          <h3>Premium</h3><div class="muted">For large/strategic districts</div>
           <div class="price">$18,000+ annual</div>
           <ul class="features">
-            <li>Everything in Plus</li>
-            <li>Custom reporting (SPED, admin, etc.)</li>
-            <li>Multiple strategy sessions</li>
-            <li>Board/staff presentation support</li>
-            <li>Ongoing results access (with monthly plan)</li>
-            <li>Early access to regional benchmarking</li>
+            <li>Everything in Plus</li><li>Custom reporting (SPED, admin, etc.)</li>
+            <li>Multiple strategy sessions</li><li>Board/staff presentation support</li>
+            <li>Ongoing results access (with monthly plan)</li><li>Early access to regional benchmarking</li>
           </ul>
         </div>
       </div>
-
       <p class="sub" style="margin-top:16px">
-        Optional monthly support: <b>$0.50 per employee</b> — far below typical platform fees of $3–$5 per user. 
+        Optional monthly support: <b>$0.50 per employee</b> — far below typical platform fees of $3–$5 per user.
       </p>
-      <!-- Source: pricing packages & monthly model -->
-      <!-- Content derived from your Pricing Packages doc -->
     </div>
   </section>
 
-  <!-- Interview Training Add-on -->
-  <section class="section" id="training" aria-labelledby="training-h">
-    <div class="container">
-      <div class="eyebrow">Add-On</div>
-      <h2 id="training-h" class="reveal">Interview Training that improves hiring & retention</h2>
-      <div class="tile reveal">
-        <p><b>District-wide Training:</b> Multi-session training for admins/hiring teams with interview tools and ongoing support — <b>$20,000–$50,000</b>.</p>
-        <p><b>Bundle & save:</b> Discounted pricing when packaged with survey + strategy. <a href="#contact">Let’s discuss</a>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTS / QUOTE -->
+  <!-- QUOTE -->
   <section class="section" id="results" aria-labelledby="results-h">
     <div class="container">
       <div class="eyebrow">Outcomes</div>
@@ -326,7 +282,7 @@
           </div>
           <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
             <button class="nav-cta" type="submit">Request intro</button>
-            <small style="color:#7a859f">By submitting, you agree to be contacted about Denali services.</small>
+            <small class="muted">By submitting, you agree to be contacted about Denali services.</small>
           </div>
         </form>
       </div>
