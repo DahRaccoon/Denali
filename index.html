@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}
 /* nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
-.brand img{height:28px;display:block}
+.brand img{height:28px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
 .brand .dot{width:18px;height:18px;border-radius:6px;background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold))}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
@@ -46,36 +46,39 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* ===== HERO — still image + CSS aurora animation (no video) ===== */
+/* ===== HERO ===== */
 .hero{
   min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden;
-  background:#0f1529 url('denali-aurora.jpg') center 60% / cover no-repeat;
+  /* lift the mountain slightly by nudging bg-position */
+  background:#0f1529 url('denali-aurora.jpg') center 52% / cover no-repeat;
 }
 .hero[data-fallback="true"]{ background-image:url('denali-hero.jpg'); }
 
-/* gradients for legibility */
+/* top/bottom gradients */
 .hero::before,
 .hero::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
-.hero::before{top:0;height:28%;background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent)}
-.hero::after{bottom:0;height:42%;background:linear-gradient(to top, rgba(7,10,18,.78), transparent)}
+.hero::before{top:0;height:28%;background:linear-gradient(to bottom, rgba(7,10,18,.65), transparent)}
+.hero::after{bottom:0;height:42%;background:linear-gradient(to top, rgba(7,10,18,.85), transparent)}
+
+/* central dimming veil to calm aurora behind text */
+.hero .veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(70% 60% at 50% 36%, rgba(0,0,0,.38), rgba(0,0,0,.10) 60%, transparent 100%);
+}
 
 /* AURORA LAYERS */
 .aurora, .aurora2, .auroraGold{
-  position:absolute;inset:-15% -20%; /* overscan to hide edges during movement */
+  position:absolute;inset:-15% -20%;
   background-repeat:no-repeat;
   mix-blend-mode:screen; opacity:.45; filter:blur(6px) saturate(120%);
   z-index:0; pointer-events:none;
 }
-
-/* Layer 1: wide teal ribbons */
 .aurora{
   background-image:
     radial-gradient(60% 140% at 30% 30%, rgba(105,224,241,.50), transparent 60%),
     radial-gradient(50% 120% at 70% 60%, rgba(91,183,212,.45), transparent 65%);
   animation: drift1 28s linear infinite alternate;
 }
-
-/* Layer 2: cooler blue ribbons */
 .aurora2{
   opacity:.35;
   background-image:
@@ -83,8 +86,6 @@ a{color:inherit;text-decoration:none}
     radial-gradient(55% 130% at 40% 70%, rgba(66,170,210,.35), transparent 65%);
   animation: drift2 36s linear infinite alternate;
 }
-
-/* Layer 3: subtle gold shimmer accents */
 .auroraGold{
   opacity:.18;
   background-image:
@@ -93,7 +94,7 @@ a{color:inherit;text-decoration:none}
   animation: drift3 42s linear infinite alternate;
 }
 
-/* Movement keyframes (slow & smooth) */
+/* Movement keyframes */
 @keyframes drift1 { from {transform:translateX(-6%) translateY(-2%) rotate(1deg) scale(1.02);} to {transform:translateX(6%) translateY(2%) rotate(-1deg) scale(1.04);} }
 @keyframes drift2 { from {transform:translateX(5%) translateY(-3%) rotate(-2deg) scale(1.03);} to {transform:translateX(-5%) translateY(3%) rotate(2deg) scale(1.05);} }
 @keyframes drift3 { from {transform:translateX(-4%) translateY(1%) rotate(1.5deg) scale(1.02);} to {transform:translateX(4%) translateY(-1%) rotate(-1.5deg) scale(1.03);} }
@@ -103,17 +104,23 @@ a{color:inherit;text-decoration:none}
 .kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.25);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
 .hero h1{margin:.6rem 0 .35rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:#fff;font-size:clamp(34px,5.8vw,68px);text-shadow:0 2px 6px rgba(0,0,0,.45)}
 .sublead{color:#f0f5ff;max-width:64ch;margin:0 auto 1rem;text-shadow:0 2px 5px rgba(0,0,0,.35)}
+
+/* CTA styles */
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1.5px solid transparent;font-weight:700;cursor:pointer;transition:transform .08s ease, background-color .2s ease, color .2s ease, border-color .2s ease;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.btn:active{transform:translateY(1px)}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
-.btn-ghost{color:#fff;background:transparent}
+.btn-primary:hover{filter:brightness(.98)}
+/* new glass-outline secondary */
+.btn-secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.55);backdrop-filter:blur(2px)}
+.btn-secondary:hover{background:rgba(255,255,255,.20)}
 
 /* hero fade-in */
 .fade-in{opacity:0;transform:translateY(8px);transition:opacity .9s ease, transform 1s ease}
 .fade-in.show{opacity:1;transform:none}
 .delay-1{transition-delay:.15s}
 .delay-2{transition-delay:.30s}
-.delay-3{transition-delay:.45s}
+.delay-3{transition-delay=.45s}
 
 /* scroll cue */
 .scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
@@ -191,12 +198,14 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- ===== HERO (image + CSS aurora + fade-in + scroll zoom) ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero" id="home" aria-label="Hero" data-fallback="false">
   <!-- Aurora layers -->
   <div class="aurora"></div>
   <div class="aurora2"></div>
   <div class="auroraGold"></div>
+  <!-- central dimmer -->
+  <div class="veil" aria-hidden="true"></div>
 
   <div class="content">
     <span class="kicker fade-in">School District Specialists</span>
@@ -208,7 +217,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     <div class="cta-row fade-in delay-3">
       <a href="#surveys" class="btn btn-primary"
          onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Engagement Surveys</a>
-      <a href="#training" class="btn btn-ghost"
+      <a href="#training" class="btn btn-secondary"
          onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Interview Training</a>
     </div>
   </div>
@@ -449,7 +458,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <div class="cta-row" style="justify-content:center">
         <a href="#" class="btn btn-primary"
            onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book an intro call</a>
-        <a href="#home" class="btn btn-ghost">Back to top</a>
+        <a href="#home" class="btn btn-secondary">Back to top</a>
       </div>
     </div>
   </div>
