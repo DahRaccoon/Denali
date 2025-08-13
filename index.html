@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Denali — Engagement Surveys & Interview Training for School Districts</title>
-<meta name="description" content="Denali helps school districts run high-integrity engagement surveys and deliver structured, skill-based interview training—clear insights, better hiring, real results." />
+<meta name="description" content="Denali helps school districts improve the employee experience end-to-end: hire better with structured interview training, and keep people engaged with trusted surveys and clear follow-through." />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 <style>
 :root{
   --bone:#F2EEE8; --ink:#0b1020; --ink-2:#11162a;
-  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A;
+  --cream:#F2EEDD; --teal:#69E0F1; --gold:#C8843A; /* gold accent blends into aurora subtly */
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
@@ -46,29 +46,24 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* HERO — video background, NO box behind text */
+/* HERO — video background (no box behind text) */
 .hero{min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden}
 .hero .bgvid{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 45%;
-  filter:brightness(.9) saturate(1.05);
+  object-fit:cover;object-position:center 52%; /* keep Denali high on mobile */
+  filter:brightness(.92) saturate(1.05);
   transform:scale(1.02);will-change:transform;
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none;z-index:0;
 }
-/* top & bottom gradients for legibility without a card */
+/* top & bottom gradients for legibility, no card */
 .hero::before,
-.hero::after{
-  content:""; position:absolute; left:0; right:0; z-index:1; pointer-events:none;
-}
-.hero::before{ top:0; height:30%; background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent);}
-.hero::after{ bottom:0; height:40%; background:linear-gradient(to top, rgba(7,10,18,.78), transparent);}
+.hero::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.hero::before{top:0;height:28%;background:linear-gradient(to bottom, rgba(7,10,18,.55), transparent)}
+.hero::after{bottom:0;height:40%;background:linear-gradient(to top, rgba(7,10,18,.78), transparent)}
 
 /* hero content */
-.hero .content{
-  position:relative; z-index:2; text-align:center; color:#fff; padding:0 1rem; max-width:960px;
-}
-.kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(0,0,0,.25);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
+.hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 1rem;max-width:960px}
+.kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.25);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
 .hero h1{margin:.6rem 0 .35rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:#fff;font-size:clamp(34px,5.8vw,68px);text-shadow:0 2px 6px rgba(0,0,0,.45)}
 .sublead{color:#f0f5ff;max-width:64ch;margin:0 auto 1rem;text-shadow:0 2px 5px rgba(0,0,0,.35)}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
@@ -76,7 +71,7 @@ a{color:inherit;text-decoration:none}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
 .btn-ghost{color:#fff;background:transparent}
 
-/* “scroll” cue */
+/* scroll cue */
 .scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
 .scroll-cue svg{display:block;margin:6px auto 0}
 
@@ -105,7 +100,7 @@ a{color:inherit;text-decoration:none}
 .package h3{margin:0 0 8px}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
-/* who we are + testimonials */
+/* cards & quotes */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .tile h3{margin:0 0 8px}
 .quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
@@ -120,6 +115,12 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
+
+/* mobile tweaks */
+@media (max-width:600px){
+  .hero .bgvid{object-position:center 58%} /* nudge framing upward on phones */
+  .btn{padding:10px 14px}
+}
 </style>
 </head>
 <body>
@@ -147,10 +148,10 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- HERO (clean text over video) -->
+<!-- HERO (clean text over video + scroll zoom) -->
 <section class="hero" id="home" aria-label="Hero">
   <video class="bgvid" autoplay muted loop playsinline preload="metadata" poster="denali-hero.jpg">
-    <source src="denali-loop.mp4?v=5" type="video/mp4">
+    <source src="denali-loop.mp4?v=6" type="video/mp4">
   </video>
 
   <div class="content">
@@ -357,7 +358,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <!-- Ladd testimonial -->
       <div class="quote reveal" style="margin-top:18px">
         <blockquote>
-          “Participating in the interview training conducted by Denali Hire Education was an outstanding experience…
+          “Participating in the interview training conducted by Denali Hire Education was an outstanding experience.
           The sessions provided valuable insights in competency-based interviewing strategies. The training was engaging and practical—
           I highly recommend it to any organization committed to building effective interview processes.”
         </blockquote>
@@ -373,18 +374,21 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </div>
 </section>
 
-<!-- WHO WE ARE -->
+<!-- WHO WE ARE (reworded to emphasize employee experience) -->
 <section class="section" id="who" aria-labelledby="who-h" style="background:#fff">
   <div class="container">
     <div class="tile reveal">
       <h3 id="who-h">Who we are</h3>
       <p style="margin:.4rem 0 0">
-        Denali helps school districts make better people decisions with simple, proven systems.
-        We focus on two things that move the needle: clear, trustworthy <b>engagement surveys</b> and
-        <b>structured, skill-based interview training</b>.
+        Denali helps school districts improve the <b>employee experience end-to-end</b>—from the moment you attract and interview candidates to how you listen and act on staff feedback.
       </p>
       <p style="margin:.6rem 0 0;color:#6e7894">
-        Our approach is calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching.
+        We focus on two things that consistently move the needle:
+        <b>structured, skill-based interview training</b> that helps you find and treat great talent right,
+        and <b>clear, trustworthy engagement surveys</b> that reveal what people are experiencing so you can respond confidently.
+      </p>
+      <p style="margin:.6rem 0 0;color:#6e7894">
+        Our systems are calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching.
         The result is participation you can trust, decisions you can defend, and progress you can report.
       </p>
     </div>
@@ -435,13 +439,27 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelector('.bgvid')?.pause();
 }
 
-/* gentle parallax on video */
-window.addEventListener('scroll', ()=>{
+/* scroll-driven zoom on the hero video (subtle; calmer on mobile) */
+(function(){
   const v = document.querySelector('.bgvid');
   if(!v) return;
-  const y = Math.min(window.scrollY * 0.15, 80);
-  v.style.transform = `translateY(${y}px) scale(1.02)`;
-},{passive:true});
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const maxScaleDesktop = 1.06;
+  const maxScaleMobile = 1.035;
+  const maxScale = window.innerWidth < 700 ? maxScaleMobile : maxScaleDesktop;
+
+  function onScroll(){
+    const h = window.innerHeight;
+    const y = Math.min(Math.max(window.scrollY, 0), h); // clamp 0..1 viewport
+    const t = y / h; // progress through first screen
+    const scale = 1.02 + (maxScale - 1.02) * t; // ease linear; small range
+    v.style.transform = `scale(${scale})`;
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
 </script>
 </body>
 </html>
