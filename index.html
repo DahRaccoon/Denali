@@ -179,6 +179,37 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
 /* pencil-style handwritten notes in margins (desktop only) */
+  #surveys::before {
+  content: "boost participation\nkeep it anonymous";
+  white-space: pre-line;
+  display: block;
+  width: 64px;
+  text-align: left;
+  font-family: 'Caveat', cursive;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #5e4f40;
+  opacity: .78;
+  position: absolute;
+  left: 14px;
+  top: 26px;
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#surveys::after {
+  content: "";
+  position: absolute;
+  left: 80px; /* horizontal offset from notes */
+  top: 20px;  /* vertical alignment with notes */
+  width: 48px;
+  height: 48px;
+  background: url('images/denali-pencil.png') no-repeat center/contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
 #surveys::before{
   content:"boost participation\nkeep it anonymous";
   white-space:pre-line; display:block; width:64px; text-align:left;
