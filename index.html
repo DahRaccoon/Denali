@@ -150,6 +150,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 
 /* packages */
 .packages{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;z-index:0;padding:18px;border-radius:18px;background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='46' height='86' viewBox='0 0 46 86'><defs><filter id='s' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='1.2'/></filter></defs><g stroke='%237a6a59' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6-4-2-8-8-10-12' /><path d='M26 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6' /></g><ellipse cx='12' cy='10' rx='10' ry='5' fill='%23000' opacity='.08' filter='url(%23s)'/></svg>") no-repeat 12px -10px,
     linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
     repeating-linear-gradient(0deg, #faf7f2, #faf7f2 22px, #efe9e1 23px, #faf7f2 24px);
 }
@@ -168,16 +169,16 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 
 /* subtle handwritten notes in the paper margin (desktop only) */
 #surveys .container::after{
-  content: "boost participation
-keep it anonymous";
-  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
-  color:#6b5b4b; opacity:.55; position:absolute; left:16px; top:18px; transform:rotate(-4deg); pointer-events:none;
+  content: "boost participation\nkeep it anonymous\nincrease retention\nsave $$";
+  white-space: pre-line;
+  font-family: 'Caveat', cursive; font-size: 32px; line-height: 1.15;
+  color:#5e4f40; opacity:.75; position:absolute; left:16px; top:18px; transform:rotate(-3deg); pointer-events:none;
 }
 #training .container::after{
-  content: "structured interviews
-= better hires";
-  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
-  color:#6b5b4b; opacity:.5; position:absolute; left:16px; top:42%; transform:rotate(2deg); pointer-events:none;
+  content: "structured interviews\n= better hires\nreduce bias in interviewing";
+  white-space: pre-line;
+  font-family: 'Caveat', cursive; font-size: 32px; line-height: 1.15;
+  color:#5e4f40; opacity:.72; position:absolute; left:16px; top:42%; transform:rotate(2deg); pointer-events:none;
 }
 @media (max-width:900px){
   #surveys .container::after, #training .container::after{ display:none; }
@@ -186,7 +187,9 @@ keep it anonymous";
 /* cards & quotes */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .tile h3{margin:0 0 8px}
-.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
+.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156; position:relative} 
+#surveys .quote::after{content:""; position:absolute; right:-18px; bottom:-18px; width:120px; height:120px; pointer-events:none; opacity:.18; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><circle cx='80' cy='80' r='54' stroke='%238a6f4a' stroke-width='4' fill='none' opacity='.6'/><circle cx='96' cy='66' r='6' fill='%238a6f4a' opacity='.18'/></svg>") center/contain no-repeat;}
+@media (max-width:900px){ #surveys .quote::after{ display:none; } }
 cite{display:block;margin-top:8px;color:#7a859f}
 
 /* footer CTA */
