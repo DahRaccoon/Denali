@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 
 <!-- Calendly popup widget -->
@@ -24,17 +23,12 @@
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
-
-:root{--sticky-h:64px}
-
+:root{ --sticky-h:64px }
+/* notebook paper background only (no rings/clip/arrows) */
 :root{
-  /* notebook background + doodle assets */
-  --paper-bg: 
+  --paper-bg:
     linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
     repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
-  --doodle-ring: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><circle cx='80' cy='80' r='54' stroke='%238a6f4a' stroke-width='4' fill='none' opacity='.6'/><circle cx='96' cy='66' r='6' fill='%238a6f4a' opacity='.18'/></svg>");
-  --doodle-clip: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='46' height='86' viewBox='0 0 46 86'><defs><filter id='s' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='1.2'/></filter></defs><g stroke='%237a6a59' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6-4-2-8-8-10-12' /><path d='M26 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6' /></g><ellipse cx='12' cy='10' rx='10' ry='5' fill='%23000' opacity='.08' filter='url(%23s)'/></svg>");
-  --doodle-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='80' viewBox='0 0 140 80'><path d='M10 60 C 40 10, 80 10, 130 30' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M128 28 l8 8 l-11 1' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
 }
 
 /* base */
@@ -141,8 +135,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .section{padding:84px 0;border-top:1px solid var(--line); position:relative; background: var(--paper-bg);}
 .section > .container{ position:relative; z-index:1; }
 @media (max-width:900px){ .section{ background: var(--bone); } }
-@media (max-width:900px){ .section{ background: var(--bone); } }
-@media (max-width:900px){ .section{ background: var(--bone); } }
+
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 @media (max-width:980px){.scene{grid-template-columns:1fr}}
 .scene .visual{border-radius:22px;overflow:hidden;border:1px solid #e9e2d8;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.08);min-height:340px;position:relative;margin:0}
@@ -155,78 +148,107 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
 
-/* scatter extra doodles behind content (desktop only) */
-#surveys{ background:
-   var(--doodle-clip) no-repeat 16px 8px,
-   var(--doodle-ring) no-repeat calc(100% - 160px) 140px,
-   var(--doodle-ring) no-repeat calc(100% - 120px) 78%,
-   var(--paper-bg);
+/* clean notebook background only (no doodle assets) */
+#surveys{ background: var(--paper-bg); }
+#training{ background: var(--paper-bg); }
+@media (max-width:900px){
+  #surveys, #training{ background: var(--bone); }
 }
-#training{ background:
-   var(--doodle-clip) no-repeat calc(100% - 36px) 6px,
-   var(--doodle-arrow) no-repeat calc(100% - 200px) 30%,
-   var(--doodle-ring) no-repeat 120px 86%,
-   var(--paper-bg);
-}
-@media (max-width:900px){ #surveys, #training{ background: var(--bone); } }
 
-/* packages */
-.packages{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;z-index:0;padding:18px;border-radius:18px;background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='46' height='86' viewBox='0 0 46 86'><defs><filter id='s' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='1.2'/></filter></defs><g stroke='%237a6a59' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6-4-2-8-8-10-12' /><path d='M26 6c-6 8-8 16-8 24 0 10 4 18 10 26 6 8 14 16 14 22 0 6-4 8-8 6' /></g><ellipse cx='12' cy='10' rx='10' ry='5' fill='%23000' opacity='.08' filter='url(%23s)'/></svg>") no-repeat 12px -10px,
+/* packages: keep the notebook lines, remove paperclip/arrow */
+.packages{
+  display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr));
+  position:relative; z-index:0; padding:18px; border-radius:18px;
+  background:
     linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
     repeating-linear-gradient(0deg, #faf7f2, #faf7f2 22px, #efe9e1 23px, #faf7f2 24px);
 }
-/* pencil note pointing to PLUS */
+/* keep the handwritten “Most popular” label, lose the arrow */
 .packages::after{
-  content:"Most popular"; font-family:"Caveat", cursive; position:absolute; left:50%; top:-28px; font-size:28px; color:#6b5b4b; transform:translateX(-50%) rotate(-2deg); opacity:.8; pointer-events:none;
+  content:"Most popular";
+  font-family:"Caveat", cursive;
+  position:absolute; left:50%; top:-28px; font-size:28px;
+  color:#5e4f40; opacity:.88; transform:translateX(-50%) rotate(-2deg);
+  pointer-events:none; text-shadow:0 .25px 0 rgba(0,0,0,.12);
 }
-.packages::before{
-  content:""; position:absolute; left:calc(50% - 60px); top:-6px; width:120px; height:70px; opacity:.75; pointer-events:none; transform:rotate(0deg);
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='70' viewBox='0 0 120 70'><path d='M110 10 C 90 20, 70 35, 60 55' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M58 52 l8 8 l-11 1' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/></svg>") center/contain no-repeat;
+.packages::before{ content:none; display:none; }
+
+@media (max-width:980px){
+  .packages{ background:none; padding:0 }
+  .packages::after{ display:none }
 }
-@media (max-width:980px){ .packages{background:none;padding:0} .packages::before, .packages::after{display:none} }
+
 .package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative;z-index:1}
 .package h3{margin:0 0 8px}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
-/* subtle handwritten notes in the paper margin (desktop only) */
+/* pencil-style handwritten notes in margins (desktop only) */
 #surveys::before{
-  content: "boost participation
-keep it anonymous";
-  white-space: pre-line; display:block; width:64px; text-align:left;
-  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
-  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:26px; transform:rotate(-3deg); pointer-events:none; z-index:0;
+  content:"boost participation\nkeep it anonymous";
+  white-space:pre-line; display:block; width:64px; text-align:left;
+  font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
+  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:26px;
+  transform:rotate(-3deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.18); filter:blur(.1px);
+  pointer-events:none; z-index:0;
 }
 #surveys::after{
-  content: "increase retention
-save $$";
-  white-space: pre-line; display:block; width:64px; text-align:left;
-  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
-  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:58%; transform:rotate(2deg); pointer-events:none; z-index:0;
+  content:"increase retention\nsave $$";
+  white-space:pre-line; display:block; width:64px; text-align:left;
+  font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
+  color:#5e4f40; opacity:.76; position:absolute; left:14px; top:58%;
+  transform:rotate(2deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.18); filter:blur(.1px);
+  pointer-events:none; z-index:0;
 }
 #training::before{
-  content: "structured interviews
-= better hires";
-  white-space: pre-line; display:block; width:64px; text-align:left;
-  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
-  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:22px; transform:rotate(-2deg); pointer-events:none; z-index:0;
+  content:"structured interviews\n= better hires";
+  white-space:pre-line; display:block; width:64px; text-align:left;
+  font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
+  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:22px;
+  transform:rotate(-2deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.18); filter:blur(.1px);
+  pointer-events:none; z-index:0;
 }
 #training::after{
-  content: "reduce bias in interviewing";
-  white-space: pre-line; display:block; width:64px; text-align:left;
-  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
-  color:#5e4f40; opacity:.76; position:absolute; left:14px; top:65%; transform:rotate(4deg); pointer-events:none; z-index:0;
+  content:"reduce bias in interviewing";
+  white-space:pre-line; display:block; width:72px; text-align:left;
+  font-family:'Caveat', cursive; font-size:28px; line-height:1.1;
+  color:#5e4f40; opacity:.75; position:absolute; left:14px; top:65%;
+  transform:rotate(4deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.18); filter:blur(.1px);
+  pointer-events:none; z-index:0;
 }
+/* extras on Who we are */
+#who::before{
+  content:"engage your team";
+  position:absolute; left:16px; top:32px; width:80px;
+  font-family:'Caveat', cursive; font-size:28px; line-height:1.1;
+  color:#5e4f40; opacity:.68; transform:rotate(-5deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.15); filter:blur(.1px);
+  pointer-events:none; z-index:0;
+}
+#who::after{
+  content:"ask better questions";
+  position:absolute; left:16px; bottom:18%; width:90px;
+  font-family:'Caveat', cursive; font-size:26px; line-height:1.1;
+  color:#5e4f40; opacity:.66; transform:rotate(3deg);
+  text-shadow:0 .3px 0 rgba(0,0,0,.15); filter:blur(.1px);
+  pointer-events:none; z-index:0;
+}
+
 @media (max-width:900px){
-  #surveys::before, #surveys::after, #training::before, #training::after{ display:none; }
+  #surveys::before, #surveys::after,
+  #training::before, #training::after,
+  #who::before, #who::after { display:none; }
 }
 
 /* cards & quotes */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .tile h3{margin:0 0 8px}
-.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156; position:relative} 
-#surveys .quote::after{content:""; position:absolute; right:-18px; bottom:-18px; width:120px; height:120px; pointer-events:none; opacity:.18; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><circle cx='80' cy='80' r='54' stroke='%238a6f4a' stroke-width='4' fill='none' opacity='.6'/><circle cx='96' cy='66' r='6' fill='%238a6f4a' opacity='.18'/></svg>") center/contain no-repeat;}
-@media (max-width:900px){ #surveys .quote::after{ display:none; } }
+.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156; position:relative}
+/* remove coffee-ring from surveys quote */
+#surveys .quote::after{ content:none !important; display:none !important; }
 cite{display:block;margin-top:8px;color:#7a859f}
 
 /* footer CTA */
@@ -250,9 +272,8 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 @media (max-width:860px){
   body{ padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom)); }
 }
-  .brand img{height:32px}
-}
 </style>
+
 <style id="hero-overrides">
 /* ===== FAST HERO OVERRIDES ===== */
 .hero{
@@ -280,7 +301,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 .hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 1rem;max-width:960px}
 </style>
   
-  <link rel="preload" as="image" href="denali-aurora.jpg">
+<link rel="preload" as="image" href="denali-aurora.jpg">
 </head>
 <body>
 
@@ -314,8 +335,8 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 <section class="hero" id="home" aria-label="Hero">
   <!-- Single, fast-loading hero image -->
   <picture class="hero-media" aria-hidden="true">
-  <img src="denali-aurora.jpg" alt="" loading="eager" fetchpriority="high">
-</picture>
+    <img src="denali-aurora.jpg" alt="" loading="eager" fetchpriority="high">
+  </picture>
 
   <!-- central dimmer for readability -->
   <div class="veil" aria-hidden="true"></div>
@@ -332,7 +353,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <a class="btn btn-secondary" href="#surveys">See how surveys work</a>
       <a class="btn btn-secondary" href="#training">See interview training</a>
     </div>
-      <p class="sublead" style="margin-top:6px;color:#dfe6ff;font-size:13px">Surveys staff trust • Interview training for consistent hiring</p>
+    <p class="sublead" style="margin-top:6px;color:#dfe6ff;font-size:13px">Surveys staff trust • Interview training for consistent hiring</p>
   </div>
 
   <div class="scroll-cue" aria-hidden="true">
@@ -453,7 +474,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     </div>
 
     <figure class="visual reveal">
-      <!-- swapped to new survey image -->
       <img src="images/survey-insight.jpg" loading="lazy" decoding="async" alt="Engagement survey dashboard with participation trend and section scores" style="object-fit:cover;width:100%;height:100%">
     </figure>
   </div>
@@ -463,7 +483,6 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 <section class="section" id="training" aria-labelledby="training-h">
   <div class="container scene" style="grid-template-columns:.95fr 1.05fr">
     <figure class="visual reveal">
-      <!-- swapped to new training image -->
       <img src="images/interview-training.jpg" loading="lazy" decoding="async" alt="Structured, skill-based interview workshop with scorecards" style="object-fit:cover;width:100%;height:100%">
     </figure>
 
@@ -648,6 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
   testImg.onerror = () => hero.setAttribute('data-fallback','true');
   testImg.src = 'denali-aurora.jpg';
 })();
+
 /* Lightweight A/B toggles via URL params: radius=sharp|round, ctacolor=blue|teal|gold, h1=2, cta=book */
 (function(){
   const p = new URLSearchParams(location.search);
