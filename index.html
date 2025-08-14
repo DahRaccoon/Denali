@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
 .brand img{height:40px;display:block}
-.brand .dot{width:18px;height:18px;border-radius:6px;background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold))}
+.brand .dot{display:none}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
 
@@ -86,7 +86,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 
 /* Desktop nav CTA */
 .nav-cta{display:none}
-@media (min-width:860px){ .nav-cta{display:block} }
+@media (min-width:860px){ .nav-cta{display:block; position:absolute; left:50%; transform:translateX(-50%);} }
 
 /* Sticky mobile CTA */
 .sticky-cta{
@@ -202,7 +202,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 <header class="navbar" aria-label="Site">
   <div class="brand">
     <img src="denali-Logo.svg" alt="Denali" onerror="this.onerror=null;this.src='images/denali-logo.png';this.alt='Denali';">
-    <span class="dot" aria-hidden="true"></span><span>Denali</span>
+    <span>Denali</span>
   </div>
   <div class="nav-cta">
     <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book a call</a>
