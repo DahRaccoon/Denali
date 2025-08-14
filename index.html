@@ -66,11 +66,45 @@ a{color:inherit;text-decoration:none}
 .sublead{color:#f0f5ff;max-width:64ch;margin:0 auto 1rem;text-shadow:0 2px 5px rgba(0,0,0,.35)}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;cursor:pointer}
-.btn-primary{background:linear-gradient(135deg,var(--teal),var(--gold));color:#061019;border:none}
+.btn-primary{
+  background: var(--cta-bg, linear-gradient(135deg,var(--teal),var(--gold)));
+  color: var(--cta-text, #061019);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.btn-primary:hover{ filter: brightness(0.97); }
+.btn--sharp{ border-radius:12px; }
 .btn-ghost{color:#fff;background:transparent}
 /* Added: secondary button style so existing markup renders correctly */
 .btn-secondary{background:#ffffff; color:#1b243b; border:1px solid #d7dbe7; font-weight:700}
 .btn-secondary:hover{border-color:#c3c9da}
+
+/* CTA color variants via body classes */
+body.cta-blue { --cta-bg:#2D7DE0; --cta-text:#ffffff; }
+body.cta-teal { --cta-bg:#18B6CF; --cta-text:#061019; }
+body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
+
+/* Desktop nav CTA */
+.nav-cta{display:none}
+@media (min-width:860px){ .nav-cta{display:block} }
+
+/* Sticky mobile CTA */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:55;
+  backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.7));
+  border-top:1px solid rgba(0,0,0,.08);
+  padding:10px 14px; display:flex; justify-content:center;
+}
+@media (min-width:860px){ .sticky-cta{display:none} }
+
+/* Popular package nudge */
+.package.popular{border-color:#cfe0ff;box-shadow:0 16px 36px rgba(45,125,224,.16)}
+.package.popular::after{
+  content:"Most Popular"; position:absolute; top:14px; right:14px;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#1b3a7a;
+  background:#e9f1ff; border:1px solid #cfe0ff; padding:4px 8px; border-radius:999px;
+}
 
 /* hero fade-in */
 .fade-in{opacity:0;transform:translateY(8px);transition:opacity .9s ease, transform 1s ease}
@@ -106,7 +140,7 @@ a{color:inherit;text-decoration:none}
 
 /* packages */
 .packages{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
+.package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative}
 .package h3{margin:0 0 8px}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
@@ -166,10 +200,9 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
 <!-- NAV -->
 <header class="navbar" aria-label="Site">
-  <div class="brand">
-    <!-- cleaned up: removed stray quotes & duplicate onerror -->
-    <img src="denali-Logo.svg" alt="Denali" onerror="this.onerror=null;this.src='images/denali-logo.png';this.alt='Denali';">
-    <span class="dot" aria-hidden="true"></span><span>Denali</span>
+  <div class="brand">$1</div>
+  <div class="nav-cta">
+    <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book a call</a>
   </div>
   <button class="hamburger" aria-label="Open menu" id="openMenu"><span></span></button>
 </header>
@@ -205,12 +238,8 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       From the first interview to ongoing engagement, we give districts clear insight
       <br class="hide-mobile">and proven tools to build teams that stay committed.
     </p>
-    <div class="cta-row fade-in delay-3">
-      <a href="#surveys" class="btn btn-primary"
-         onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Engagement Surveys</a>
-      <a href="#training" class="btn btn-secondary"
-         onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Interview Training</a>
-    </div>
+    $1
+      <p class="sublead" style="margin-top:6px;color:#dfe6ff;font-size:13px">No pressure — 30‑min intro • Anonymity‑first approach</p>
   </div>
 
   <div class="scroll-cue" aria-hidden="true">
@@ -220,6 +249,11 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     </svg>
   </div>
 </section>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta" role="region" aria-label="Quick action">
+  <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book an intro call</a>
+</div>
 
 <!-- MISSION BANNER -->
 <div class="band" role="region" aria-label="Mission & Outcomes">
@@ -277,7 +311,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
             </div>
           </div>
 
-          <div class="package" style="border-color:#e2d3bf">
+          <div class="package popular" style="border-color:#e2d3bf">
             <span class="tag">Plus</span>
             <h3>Deeper insight & guidance</h3>
             <ul class="bullets" style="margin-top:10px">
@@ -520,6 +554,27 @@ document.addEventListener('DOMContentLoaded', () => {
   testImg.onload = () => { if (!testImg.width) hero.setAttribute('data-fallback','true'); };
   testImg.onerror = () => hero.setAttribute('data-fallback','true');
   testImg.src = 'denali-aurora.jpg';
+})();
+/* Lightweight A/B toggles via URL params: radius=sharp|round, ctacolor=blue|teal|gold, h1=2, cta=book */
+(function(){
+  const p = new URLSearchParams(location.search);
+  if (p.get('radius') === 'sharp') {
+    document.querySelectorAll('.btn').forEach(b => b.classList.add('btn--sharp'));
+  }
+  const color = p.get('ctacolor');
+  if (color) document.body.classList.add('cta-' + color);
+  if (p.get('h1') === '2') {
+    const h1 = document.querySelector('.hero h1');
+    if (h1) h1.textContent = 'Hire better. Keep people longer.';
+  }
+  if (p.get('cta') === 'book') {
+    const primary = document.querySelector('.hero .cta-row a.btn-primary');
+    if (primary) {
+      primary.textContent = 'Book an intro call';
+      primary.setAttribute('href','#');
+      primary.onclick = function(){ Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'}); return false; };
+    }
+  }
 })();
 </script>
 </body>
