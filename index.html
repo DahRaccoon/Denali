@@ -9,8 +9,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 
 <!-- Calendly popup widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -22,10 +21,8 @@
   --cream:#F2EEDD; --teal:#69E0F1; --teal2:#4ad6e5; --blue:#5bb7d4; --gold:#caa634;
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
-}
-:root{ --sticky-h:64px }
-/* notebook paper background only (no rings/clip/arrows) */
-:root{
+  --sticky-h:64px;
+  /* Notebook paper background only (no doodles) */
   --paper-bg:
     linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
     repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
@@ -33,17 +30,16 @@
 
 /* base */
 *{box-sizing:border-box}
-html,body{margin:0; overflow-x:hidden;} /* prevent horizontal scroll */
+html,body{margin:0; overflow-x:hidden;}
 body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bone);color:var(--text)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.container{max-width:var(--maxw);margin:0 auto;padding:0 24px; position: relative;} 
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px; position: relative;}
 
 /* nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
 .brand img{height:40px;display:block}
-.brand .dot{display:none}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
 
@@ -54,7 +50,7 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* ===== HERO — still image + CSS aurora animation (no video) ===== */
+/* ===== HERO ===== */
 .hero{
   min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden;
   background:#0f1529 url('denali-aurora.jpg') center 60% / cover no-repeat;
@@ -83,11 +79,10 @@ a{color:inherit;text-decoration:none}
 .btn-primary:hover{ filter: brightness(0.97); }
 .btn--sharp{ border-radius:12px; }
 .btn-ghost{color:#fff;background:transparent}
-/* Added: secondary button style so existing markup renders correctly */
 .btn-secondary{background:#ffffff; color:#1b243b; border:1px solid #d7dbe7; font-weight:700}
 .btn-secondary:hover{border-color:#c3c9da}
 
-/* CTA color variants via body classes */
+/* CTA color variants */
 body.cta-blue { --cta-bg:#2D7DE0; --cta-text:#ffffff; }
 body.cta-teal { --cta-bg:#18B6CF; --cta-text:#061019; }
 body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
@@ -125,7 +120,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .scroll-cue svg{display:block;margin:6px auto 0}
 
 /* mission banner */
-.band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line); overflow:hidden;} /* prevent marquee overflow */
+.band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line); overflow:hidden;}
 .marquee{display:flex;gap:40px;white-space:nowrap;padding:14px 0;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6a6256;animation:scroll 32s linear infinite}
 @keyframes scroll{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee{animation:none}}
@@ -139,7 +134,6 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 @media (max-width:980px){.scene{grid-template-columns:1fr}}
 .scene .visual{border-radius:22px;overflow:hidden;border:1px solid #e9e2d8;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.08);min-height:340px;position:relative;margin:0}
-/* make images fill the card, eliminating white space */
 .scene .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .scene .copy h2{margin:0 0 8px;font-size:clamp(24px,3vw,40px)}
 .scene .eyebrow{font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#7b6a55;font-size:12px}
@@ -155,7 +149,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
   #surveys, #training{ background: var(--bone); }
 }
 
-/* packages: keep the notebook lines, remove paperclip/arrow */
+/* packages: keep notebook lines (desktop), remove extra doodles */
 .packages{
   display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr));
   position:relative; z-index:0; padding:18px; border-radius:18px;
@@ -163,7 +157,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
     linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
     repeating-linear-gradient(0deg, #faf7f2, #faf7f2 22px, #efe9e1 23px, #faf7f2 24px);
 }
-/* keep the handwritten “Most popular” label, lose the arrow */
+/* handwritten “Most popular” label only */
 .packages::after{
   content:"Most popular";
   font-family:"Caveat", cursive;
@@ -174,8 +168,10 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .packages::before{ content:none; display:none; }
 
 @media (max-width:980px){
-  .packages{ background:none; padding:0 }
-  .packages::after{ display:none }
+  .packages{
+    grid-template-columns:1fr; gap:16px; padding:0; background:none;
+  }
+  .packages::after{ display:none; }
 }
 
 .package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative;z-index:1}
@@ -184,7 +180,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 
 /* pencil-style handwritten notes in margins (desktop only) */
 #surveys::before{
-  content:"boost participation keep it anonymous";
+  content:"boost participation\nkeep it anonymous";
   white-space:pre-line; display:block; width:64px; text-align:left;
   font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
   color:#5e4f40; opacity:.78; position:absolute; left:14px; top:26px;
@@ -193,7 +189,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
   pointer-events:none; z-index:0;
 }
 #surveys::after{
-  content:"increase retention...save $$";
+  content:"increase retention\nsave $$";
   white-space:pre-line; display:block; width:64px; text-align:left;
   font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
   color:#5e4f40; opacity:.76; position:absolute; left:14px; top:58%;
@@ -202,7 +198,7 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
   pointer-events:none; z-index:0;
 }
 #training::before{
-  content:"structured interviews = better hires";
+  content:"structured interviews\n= better hires";
   white-space:pre-line; display:block; width:64px; text-align:left;
   font-family:'Caveat', cursive; font-size:30px; line-height:1.1;
   color:#5e4f40; opacity:.78; position:absolute; left:14px; top:22px;
@@ -270,7 +266,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   .scene .visual{min-height:220px}
 }
 @media (max-width:860px){
-  body{ padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom)); }
+  body{ padding-bottom: calc(var(--sticky-h) + 12px + env(safe-area-inset-bottom)); }
 }
 </style>
 
@@ -300,7 +296,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 }
 .hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 1rem;max-width:960px}
 </style>
-  
+
 <link rel="preload" as="image" href="denali-aurora.jpg">
 </head>
 <body>
@@ -331,14 +327,11 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   </nav>
 </div>
 
-<!-- ===== HERO (image + CSS aurora + fade-in + scroll zoom) ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero" id="home" aria-label="Hero">
-  <!-- Single, fast-loading hero image -->
   <picture class="hero-media" aria-hidden="true">
     <img src="denali-aurora.jpg" alt="" loading="eager" fetchpriority="high">
   </picture>
-
-  <!-- central dimmer for readability -->
   <div class="veil" aria-hidden="true"></div>
 
   <div class="content">
@@ -642,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 400);
 });
 
-/* Scroll-driven zoom (kept) */
+/* Scroll-driven zoom (kept for hero aurora layers if present) */
 (function(){
   const layers = document.querySelectorAll('.aurora, .aurora2, .auroraGold');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -668,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
   testImg.src = 'denali-aurora.jpg';
 })();
 
-/* Lightweight A/B toggles via URL params: radius=sharp|round, ctacolor=blue|teal|gold, h1=2, cta=book */
+/* Lightweight A/B toggles via URL params */
 (function(){
   const p = new URLSearchParams(location.search);
   if (p.get('radius') === 'sharp') {
