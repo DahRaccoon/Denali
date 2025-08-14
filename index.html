@@ -128,12 +128,14 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .marquee b{color:#264a5a}
 
 /* sections */
-.section{padding:84px 0;border-top:1px solid var(--line);
+.section{padding:84px 0;border-top:1px solid var(--line); position:relative;
   /* notebook paper background: stronger lines + 2px margin rule */
   background:
     linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
     repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
 }
+.section > .container{ position:relative; z-index:1; }
+@media (max-width:900px){ .section{ background: var(--bone); } }
 @media (max-width:900px){ .section{ background: var(--bone); } }
 @media (max-width:900px){ .section{ background: var(--bone); } }
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
@@ -168,20 +170,35 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
 /* subtle handwritten notes in the paper margin (desktop only) */
-#surveys .container::after{
-  content: "boost participation\nkeep it anonymous\nincrease retention\nsave $$";
-  white-space: pre-line;
-  font-family: 'Caveat', cursive; font-size: 32px; line-height: 1.15;
-  color:#5e4f40; opacity:.75; position:absolute; left:16px; top:18px; transform:rotate(-3deg); pointer-events:none;
+#surveys::before{
+  content: "boost participation
+keep it anonymous";
+  white-space: pre-line; display:block; width:64px; text-align:left;
+  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
+  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:26px; transform:rotate(-3deg); pointer-events:none; z-index:0;
 }
-#training .container::after{
-  content: "structured interviews\n= better hires\nreduce bias in interviewing";
-  white-space: pre-line;
-  font-family: 'Caveat', cursive; font-size: 32px; line-height: 1.15;
-  color:#5e4f40; opacity:.72; position:absolute; left:16px; top:42%; transform:rotate(2deg); pointer-events:none;
+#surveys::after{
+  content: "increase retention
+save $$";
+  white-space: pre-line; display:block; width:64px; text-align:left;
+  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
+  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:58%; transform:rotate(2deg); pointer-events:none; z-index:0;
+}
+#training::before{
+  content: "structured interviews
+= better hires";
+  white-space: pre-line; display:block; width:64px; text-align:left;
+  font-family: 'Caveat', cursive; font-size: 30px; line-height: 1.1;
+  color:#5e4f40; opacity:.78; position:absolute; left:14px; top:22px; transform:rotate(-2deg); pointer-events:none; z-index:0;
+}
+#training::after{
+  content: "reduce bias in interviewing";
+  white-space: pre-line; display:block; width:64px; text-align:left;
+  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
+  color:#5e4f40; opacity:.76; position:absolute; left:14px; top:65%; transform:rotate(4deg); pointer-events:none; z-index:0;
 }
 @media (max-width:900px){
-  #surveys .container::after, #training .container::after{ display:none; }
+  #surveys::before, #surveys::after, #training::before, #training::after{ display:none; }
 }
 
 /* cards & quotes */
