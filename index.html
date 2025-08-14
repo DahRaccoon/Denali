@@ -123,7 +123,13 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .marquee b{color:#264a5a}
 
 /* sections */
-.section{padding:84px 0;border-top:1px solid var(--line);background:var(--bone)}
+.section{padding:84px 0;border-top:1px solid var(--line);
+  /* subtle notebook paper background for content sections */
+  background:
+    linear-gradient(90deg, transparent 72px, rgba(255,120,120,.12) 73px, transparent 74px),
+    repeating-linear-gradient(0deg, #f7f3ec, #f7f3ec 26px, #ede5db 27px);
+}
+@media (max-width:900px){ .section{ background: var(--bone); } }
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 @media (max-width:980px){.scene{grid-template-columns:1fr}}
 .scene .visual{border-radius:22px;overflow:hidden;border:1px solid #e9e2d8;background:#fff;box-shadow:0 12px 28px rgba(0,0,0,.08);min-height:340px;position:relative;margin:0}
@@ -143,11 +149,11 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 }
 /* pencil note pointing to PLUS */
 .packages::after{
-  content:"Most popular →"; font-family:"Caveat", cursive; position:absolute; right:14px; top:-22px; font-size:28px; color:#6b5b4b; transform:rotate(-6deg); opacity:.75; pointer-events:none;
+  content:"Most popular"; font-family:"Caveat", cursive; position:absolute; left:50%; top:-28px; font-size:28px; color:#6b5b4b; transform:translateX(-50%) rotate(-2deg); opacity:.8; pointer-events:none;
 }
 .packages::before{
-  content:""; position:absolute; right:120px; top:4px; width:120px; height:60px; opacity:.7; pointer-events:none; transform:rotate(-8deg);
-  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'><path d='M5 50 C 40 10, 80 10, 110 25' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M108 22 l8 8 l-11 1' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/></svg>") center/contain no-repeat;
+  content:""; position:absolute; left:calc(50% - 60px); top:-6px; width:120px; height:70px; opacity:.75; pointer-events:none; transform:rotate(0deg);
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='70' viewBox='0 0 120 70'><path d='M110 10 C 90 20, 70 35, 60 55' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M58 52 l8 8 l-11 1' stroke='%236b5b4b' stroke-width='3' fill='none' stroke-linecap='round'/></svg>") center/contain no-repeat;
 }
 @media (max-width:980px){ .packages{background:none;padding:0} .packages::before, .packages::after{display:none} }
 .package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative;z-index:1}
@@ -254,8 +260,9 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     <div class="cta-row fade-in delay-3" role="group" aria-label="Primary actions">
       <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book an intro call</a>
       <a class="btn btn-secondary" href="#surveys">See how surveys work</a>
+      <a class="btn btn-secondary" href="#training">See interview training</a>
     </div>
-      <p class="sublead" style="margin-top:6px;color:#dfe6ff;font-size:13px">No pressure — 30‑min intro • Anonymity‑first approach</p>
+      <p class="sublead" style="margin-top:6px;color:#dfe6ff;font-size:13px">Surveys staff trust • Interview training for consistent hiring</p>
   </div>
 
   <div class="scroll-cue" aria-hidden="true">
