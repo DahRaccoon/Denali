@@ -25,6 +25,8 @@
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
 }
 
+:root{--sticky-h:64px}
+
 /* base */
 *{box-sizing:border-box}
 html,body{margin:0; overflow-x:hidden;} /* prevent horizontal scroll */
@@ -96,8 +98,11 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
   backdrop-filter:blur(6px);
   background:linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.7));
   border-top:1px solid rgba(0,0,0,.08);
-  padding:10px 14px; display:flex; justify-content:center;
+  padding:10px 14px calc(12px + env(safe-area-inset-bottom));
+  display:flex; justify-content:center;
+  min-height: var(--sticky-h);
 }
+.sticky-cta .btn{ min-height:44px; }
 @media (min-width:860px){ .sticky-cta{display:none} }
 
 /* Popular package nudge */
@@ -197,7 +202,14 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
 /* mobile tweaks */
 @media (max-width:600px){
-  .btn{padding:10px 14px}
+  .btn{padding:12px 16px; min-height:44px; font-size:16px}
+  .brand img{height:32px}
+  .container{padding:0 16px}
+  .scene .visual{min-height:220px}
+}
+@media (max-width:860px){
+  body{ padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom)); }
+}
   .brand img{height:32px}
 }
 </style>
@@ -402,7 +414,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 
     <figure class="visual reveal">
       <!-- swapped to new survey image -->
-      <img src="images/survey-insight.jpg" alt="Engagement survey dashboard with participation trend and section scores" style="object-fit:cover;width:100%;height:100%">
+      <img src="images/survey-insight.jpg" loading="lazy" decoding="async" alt="Engagement survey dashboard with participation trend and section scores" style="object-fit:cover;width:100%;height:100%">
     </figure>
   </div>
 </section>
@@ -412,7 +424,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   <div class="container scene" style="grid-template-columns:.95fr 1.05fr">
     <figure class="visual reveal">
       <!-- swapped to new training image -->
-      <img src="images/interview-training.jpg" alt="Structured, skill-based interview workshop with scorecards" style="object-fit:cover;width:100%;height:100%">
+      <img src="images/interview-training.jpg" loading="lazy" decoding="async" alt="Structured, skill-based interview workshop with scorecards" style="object-fit:cover;width:100%;height:100%">
     </figure>
 
     <div class="copy">
