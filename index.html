@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}
 /* nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
-.brand img{height:28px;display:block}
+.brand img{height:40px;display:block}
 .brand .dot{width:18px;height:18px;border-radius:6px;background:radial-gradient(100% 100% at 100% 0,var(--teal),var(--gold))}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
@@ -120,6 +120,7 @@ cite{display:block;margin-top:8px;color:#7a859f}
 .footer-cta{padding:80px 0;background:#fff;border-top:1px solid var(--line)}
 .footer-cta .wrap{background:linear-gradient(180deg,var(--ink),var(--ink-2));border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:var(--shadow);padding:36px;text-align:center;color:#fff}
 .footer-cta h3{margin:0 0 8px;color:var(--cream);font-size:clamp(22px,2.4vw,34px)}
+.footer-cta .footer-logo{height:44px;margin:0 auto 10px;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));opacity:.95}
 footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-size:14px}
 
 /* reveal */
@@ -129,6 +130,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 /* mobile tweaks */
 @media (max-width:600px){
   .btn{padding:10px 14px}
+  .brand img{height:32px}
 }
 </style>
 <style id="hero-overrides">
@@ -442,6 +444,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 <section class="footer-cta" id="contact">
   <div class="container">
     <div class="wrap reveal">
+      <img class="footer-logo" src="denali-Logo.svg" alt="Denali" onerror="this.onerror=null;this.src='images/denali-logo.png'">
       <h3>Let’s take the next step for your district.</h3>
       <p class="sublead" style="margin:0 auto 14px;max-width:60ch;color:#dfe6ff">
         Tell us your goals. We’ll propose a clear plan—timeline, roles, and outcomes.
