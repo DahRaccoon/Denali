@@ -178,26 +178,63 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .package h3{margin:0 0 8px}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 
-/* pencil-style handwritten notes in margins (desktop only) */
-/* === Pencil deco (desktop only) === */
-/* If your file isn't .png, change the URL to .svg or .webp */
-:root{ --pencil-url: 'images/denali-pencil.png'; }
+/* === Decorative items that sit "on the notebook" (desktop only) === */
+/* Try multiple extensions so the asset shows even if the exact type differs */
+:root{
+  --pencil-url: image-set(
+    url('images/denali-pencil.png') type("image/png"),
+    url('images/denali-pencil.webp') type("image/webp"),
+    url('images/denali-pencil.svg') type("image/svg+xml")
+  );
+  --coffee-url: image-set(
+    url('images/denali-coffee.png') type("image/png"),
+    url('images/denali-coffee.webp') type("image/webp"),
+    url('images/denali-coffee.svg') type("image/svg+xml")
+  );
+}
 
-/* Put the pencil in the left margin of the SURVEYS section */
+/* Pencil: left margin, near the handwritten notes in the SURVEYS section */
 #surveys > .container::before{
   content:"";
   position:absolute;
-  left:84px;          /* scoot into the margin area; tweak as needed */
-  top:18px;           /* aligns with the first note */
-  width:88px;         /* size of the pencil image */
-  height:88px;
-  background: url(var(--pencil-url)) no-repeat center/contain;
+  left:78px;          /* nudge horizontally toward the margin */
+  top:18px;           /* align with your first note */
+  width:110px;        /* pencil size */
+  height:110px;
+  background: var(--pencil-url) no-repeat center/contain;
   transform: rotate(-12deg);
-  opacity:.95;
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,.18));
+  /* make it feel like it's on the paper */
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)) saturate(.95) contrast(.98);
+  opacity:.98;
   pointer-events:none;
-  z-index:0;          /* stays behind real content */
+  /* IMPORTANT: render under content but above the paper */
+  z-index: 0;
 }
+
+/* Coffee ring: one watermark on the right margin (SURVEYS only) */
+#surveys > .container::after{
+  content:"";
+  position:absolute;
+  right:48px;         /* move it inward from the right edge */
+  top:160px;          /* place it in open whitespace */
+  width:150px;        /* ring size */
+  height:150px;
+  background: var(--coffee-url) no-repeat center/contain;
+  /* subtle "on paper" look */
+  mix-blend-mode: multiply;
+  filter: saturate(.85) contrast(.92);
+  opacity:.28;
+  pointer-events:none;
+  z-index: 0;         /* under content so cards can overlap if needed */
+}
+
+/* Hide both on small screens */
+@media (max-width: 900px){
+  #surveys > .container::before,
+  #surveys > .container::after{ display:none; }
+}
+
 
 /* Hide on small screens so it doesn’t crowd content */
 @media (max-width:900px){
