@@ -31,7 +31,7 @@ html,body{margin:0; overflow-x:hidden;} /* prevent horizontal scroll */
 body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bone);color:var(--text)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px; position: relative;} 
 
 /* nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
@@ -124,11 +124,12 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 
 /* sections */
 .section{padding:84px 0;border-top:1px solid var(--line);
-  /* subtle notebook paper background for content sections */
+  /* notebook paper background: stronger lines + 2px margin rule */
   background:
-    linear-gradient(90deg, transparent 72px, rgba(255,120,120,.12) 73px, transparent 74px),
-    repeating-linear-gradient(0deg, #f7f3ec, #f7f3ec 26px, #ede5db 27px);
+    linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
+    repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
 }
+@media (max-width:900px){ .section{ background: var(--bone); } }
 @media (max-width:900px){ .section{ background: var(--bone); } }
 .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 @media (max-width:980px){.scene{grid-template-columns:1fr}}
@@ -159,6 +160,23 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative;z-index:1}
 .package h3{margin:0 0 8px}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
+
+/* subtle handwritten notes in the paper margin (desktop only) */
+#surveys .container::after{
+  content: "boost participation
+keep it anonymous";
+  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
+  color:#6b5b4b; opacity:.55; position:absolute; left:16px; top:18px; transform:rotate(-4deg); pointer-events:none;
+}
+#training .container::after{
+  content: "structured interviews
+= better hires";
+  font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.1;
+  color:#6b5b4b; opacity:.5; position:absolute; left:16px; top:42%; transform:rotate(2deg); pointer-events:none;
+}
+@media (max-width:900px){
+  #surveys .container::after, #training .container::after{ display:none; }
+}
 
 /* cards & quotes */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
@@ -477,7 +495,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
 </section>
 
 <!-- WHO WE ARE -->
-<section class="section" id="who" aria-labelledby="who-h" style="background:#fff">
+<section class="section" id="who" aria-labelledby="who-h">
   <div class="container">
     <div class="tile reveal">
       <h3 id="who-h">Who we are</h3>
