@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Denali — Engagement Surveys & Interview Training for School Districts</title>
-<meta name="description" content="Denali helps school districts improve the employee experience end-to-end: hire better with structured interview training, and keep people engaged with trusted surveys and clear follow-through." />
+<meta name="description" content="Denali helps districts hire better and keep great people through structured interview training and trusted engagement surveys." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +31,14 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px; position: relative}
 
+/* NAV */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:#fff}
 .brand img{height:40px}
 .hamburger{width:40px;height:40px;border-radius:999px;display:grid;place-items:center;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);cursor:pointer}
 .hamburger span{width:18px;height:2px;background:#fff;display:block;box-shadow:0 6px 0 #fff, 0 -6px 0 #fff}
 
+/* MENU */
 .menu{position:fixed;inset:0;z-index:70;display:none;place-items:center;background:rgba(10,15,28,.9);backdrop-filter:blur(10px)}
 .menu.open{display:grid}
 .menu nav{display:flex;flex-direction:column;gap:18px;align-items:center}
@@ -51,7 +53,7 @@ a{color:inherit;text-decoration:none}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to top, rgba(7,10,18,.85), transparent);z-index:1}
 .hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 1rem;max-width:960px}
 .kicker{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.25);color:var(--teal);font-weight:600;letter-spacing:.12em;font-size:12px}
-.hero h1{margin:.6rem 0 .35rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;color:#fff;font-size:clamp(34px,5.8vw,68px)}
+.hero h1{margin:.6rem 0 .35rem;font-weight:800;letter-spacing:-.01em;line-height:1.04;font-size:clamp(34px,5.8vw,68px)}
 .sublead{color:#f0f5ff;max-width:64ch;margin:0 auto 1rem}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-weight:700;cursor:pointer}
@@ -63,12 +65,12 @@ a{color:inherit;text-decoration:none}
 @media (min-width:860px){ .sticky-cta{display:none} }
 .scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
 
-/* band */
+/* BAND */
 .band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line); overflow:hidden;}
 .marquee{display:flex;gap:40px;white-space:nowrap;padding:14px 0;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6a6256;animation:scroll 32s linear infinite}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
-/* sections */
+/* SECTIONS */
 .section{padding:84px 0;border-top:1px solid var(--line); position:relative; background: var(--paper-bg);}
 .section > .container{ position:relative; z-index:1; }
 @media (max-width:900px){ .section{ background: var(--bone); } }
@@ -84,7 +86,7 @@ a{color:inherit;text-decoration:none}
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
 
-/* packages (keep original style) */
+/* PACKAGES (keep original style) */
 .packages{display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); position:relative; z-index:0; padding:18px; border-radius:18px;
   background:
     linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
@@ -103,7 +105,7 @@ a{color:inherit;text-decoration:none}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 .package.popular{border-color:#cfe0ff;box-shadow:0 16px 36px rgba(45,125,224,.16)}
 
-/* Proof / Stats */
+/* PROOF / STATS */
 .section.stats{ background:#fff; }
 .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
 @media (max-width:980px){ .kpis{grid-template-columns:repeat(2,1fr)} }
@@ -111,35 +113,25 @@ a{color:inherit;text-decoration:none}
 .kpi .num{font-weight:800;font-size:clamp(26px,4.6vw,40px);letter-spacing:-.01em;color:#0d1530}
 .kpi .label{color:#6e7894;margin-top:4px}
 
-/* How it works */
+/* HOW IT WORKS */
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
 @media (max-width:980px){ .steps{grid-template-columns:1fr} }
 .step{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:20px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
 .step h4{margin:0 0 6px}
 .step .eyebrow{display:inline-block;margin-bottom:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7b6a55}
 
-/* FAQs */
+/* FAQS */
 .section.faqs{ background:#fff; }
 .accordion{display:grid;gap:10px;margin-top:10px}
 .ac-item{border:1px solid #ede7dd;border-radius:14px;background:#fff;overflow:hidden}
 .ac-btn{width:100%;text-align:left;background:#fff;border:0;padding:16px 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
 .ac-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.ac-item.open .ac-body{max-height:500px}
+.ac-item.open .ac-body{max-height:600px}
 .ac-item.open .ac-btn .icon{transform:rotate(180deg)}
 .icon{transition:transform .25s ease}
+.badge-cat{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #e5d8c7;background:#faf7f2;color:#7b6a55}
 
-/* Materials */
-.mats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
-@media (max-width:980px){ .mats{grid-template-columns:1fr} }
-.mat{border:1px solid #ede7dd;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.05);display:flex;flex-direction:column}
-.mat figure{margin:0;height:160px;background:#f7f3ec;overflow:hidden}
-.mat figure img{width:100%;height:100%;object-fit:cover}
-.mat .meta{padding:16px}
-.mat .meta h4{margin:0 0 4px}
-.mat .meta p{margin:0;color:#6e7894}
-.mat .meta .cta{margin-top:10px}
-
-/* Impact & Savings */
+/* IMPACT & SAVINGS */
 #impact{background:#fff}
 #impact .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px}
 #impact .kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05)}
@@ -148,9 +140,12 @@ a{color:inherit;text-decoration:none}
 #impact .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
 @media (max-width:980px){ #impact .grid, #impact .kpis{grid-template-columns:1fr} }
 .card{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
-.callout{margin-top:12px;padding:10px 12px;border:1px dashed #decfb8;background:#fff7e6;border-radius:12px;font-weight:800;color:#4b3b18}
+.callout{margin-top:12px;padding:12px 14px;border:2px dashed #caa634;background:#fff7e6;border-radius:14px;font-weight:800;color:#4b3b18;display:flex;align-items:center;gap:10px}
+.callout .$ {font-size:0} /* noop */
+.callout-amount{font-size:clamp(22px,3.6vw,32px);line-height:1}
+.callout small{font-weight:600;color:#7a6742}
 
-/* Misc */
+/* MISC */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .footer-cta{padding:80px 0;background:#fff;border-top:1px solid var(--line)}
 .footer-cta .wrap{background:linear-gradient(180deg,var(--ink),var(--ink-2));border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:var(--shadow);padding:36px;text-align:center;color:#fff}
@@ -180,7 +175,6 @@ a{color:inherit;text-decoration:none}
     <a href="#proof">Results</a>
     <a href="#how">How it works</a>
     <a href="#faqs">FAQs</a>
-    <a href="#materials">Materials</a>
     <a href="#who">Who we are</a>
     <a href="#contact">Contact</a>
     <a href="#" class="btn btn-primary" style="margin-top:8px"
@@ -224,11 +218,11 @@ a{color:inherit;text-decoration:none}
     <div class="copy">
       <div class="eyebrow">Engagement Surveys</div>
       <h2 id="surveys-h" class="reveal">From low response to real insight.</h2>
-      <p class="lead reveal">Anonymous, high‑participation surveys tailored to K‑12 with board‑ready reporting.</p>
+      <p class="lead reveal">Anonymous, high-participation surveys tailored to K-12 with board-ready reporting.</p>
       <ul class="bullets reveal">
-        <li>Anonymous, third‑party hosted for trust</li>
+        <li>Third-party hosted for trust (with small-n safeguards)</li>
         <li>Executive summary with clear next steps</li>
-        <li>Guidance to drive participation and follow‑through</li>
+        <li>Guidance to drive participation and follow-through</li>
         <li>Optional ongoing support to track progress</li>
       </ul>
 
@@ -240,8 +234,8 @@ a{color:inherit;text-decoration:none}
             <span class="tag">Starter</span>
             <h3>Foundation for participation</h3>
             <ul class="bullets" style="margin-top:10px">
-              <li>District‑wide score & executive summary</li>
-              <li>High‑integrity, anonymous launch</li>
+              <li>District-wide score & executive summary</li>
+              <li>High-integrity, anonymous launch</li>
               <li>Leadership debrief with immediate actions</li>
               <li>Optional monthly support</li>
             </ul>
@@ -272,7 +266,7 @@ a{color:inherit;text-decoration:none}
               <li>Everything in Plus</li>
               <li>Custom cuts (e.g., departments, campuses)</li>
               <li>Multiple strategy sessions & presentation support</li>
-              <li>Implementation coaching & follow‑through</li>
+              <li>Implementation coaching & follow-through</li>
             </ul>
             <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
               <a href="#" class="btn btn-primary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Premium</a>
@@ -282,7 +276,7 @@ a{color:inherit;text-decoration:none}
       </div>
 
       <div class="quote reveal" style="margin-top:18px">
-        <blockquote>“We saw a <b>74% increase</b> in response rate… detailed reporting and specific recommendations. Full anonymity, more participation, clear follow‑up.”</blockquote>
+        <blockquote>“We saw a <b>74% increase</b> in response rate… detailed reporting and specific recommendations. Full anonymity, more participation, clear follow-up.”</blockquote>
         <cite>— Eric Wilken, Ed.D., Superintendent</cite>
       </div>
     </div>
@@ -291,7 +285,7 @@ a{color:inherit;text-decoration:none}
       <figure class="visual reveal">
         <img src="images/survey-insight.jpg" alt="Engagement survey dashboard" style="object-fit:cover;width:100%;height:100%">
       </figure>
-      <!-- NEW extra survey image -->
+      <!-- extra survey image -->
       <figure class="visual reveal" style="margin-top:18px;min-height:auto">
         <img src="images/engagement-example.png" alt="Example engagement survey results" style="object-fit:contain;width:100%;height:auto">
       </figure>
@@ -306,7 +300,7 @@ a{color:inherit;text-decoration:none}
       <figure class="visual reveal">
         <img src="images/interview-training.jpg" alt="Structured, skill-based interview workshop" style="object-fit:cover;width:100%;height:100%">
       </figure>
-      <!-- NEW extra training image -->
+      <!-- extra training image -->
       <figure class="visual reveal" style="margin-top:18px;min-height:auto">
         <img src="images/denali-way.png" alt="The Denali Way process visual" style="object-fit:contain;width:100%;height:auto">
       </figure>
@@ -315,11 +309,11 @@ a{color:inherit;text-decoration:none}
     <div class="copy">
       <div class="eyebrow">Interview Training</div>
       <h2 id="training-h" class="reveal">“I was never trained to interview.” Now you are.</h2>
-      <p class="lead reveal">A structured, skill‑based program that gives hiring panels simple tools, consistent rubrics, and a repeatable process—so you hire better and retain longer.</p>
+      <p class="lead reveal">A structured, skill-based program that gives hiring panels simple tools, consistent rubrics, and a repeatable process—so you hire better and retain longer.</p>
       <ul class="bullets reveal">
         <li>Reusable question banks & scorecards</li>
-        <li>Consistent, defensible decision‑making</li>
-        <li>Short workshops plus in‑the‑moment coaching</li>
+        <li>Consistent, defensible decision-making</li>
+        <li>Short workshops plus in-the-moment coaching</li>
         <li>Option to bundle with surveys for a complete system</li>
       </ul>
       <div class="quote reveal" style="margin-top:18px">
@@ -335,46 +329,54 @@ a{color:inherit;text-decoration:none}
   <div class="container">
     <div class="eyebrow">Impact</div>
     <h2 id="impact-h" class="reveal">Interview Training: measurable improvements</h2>
-    <p class="lead reveal">Update these with your mock‑site figures; they’re styled to stand out.</p>
+    <p class="lead reveal">Based on your mock: highlight productivity, speed, retention—and what those mean in dollars.</p>
 
+    <!-- KPI strip (from your graphic) -->
     <div class="kpis">
-      <div class="kpi reveal"><div class="num">+30%</div><div class="label">faster time‑to‑fill</div></div>
-      <div class="kpi reveal"><div class="num">+15%</div><div class="label">improvement in 1st‑year retention</div></div>
-      <div class="kpi reveal"><div class="num">+25%</div><div class="label">panel efficiency per hire</div></div>
+      <div class="kpi reveal"><div class="num">+16%</div><div class="label">productivity via better candidate fit</div></div>
+      <div class="kpi reveal"><div class="num">+26%</div><div class="label">faster time-to-fill (candidate experience)</div></div>
+      <div class="kpi reveal"><div class="num">+25–38%</div><div class="label">higher retention with positive experience</div></div>
     </div>
 
     <div class="grid">
       <div class="card reveal">
-        <h3>Avoid the cost of a mis‑hire</h3>
-        <p class="lead">Structured scoring + calibrated rubrics = fewer “gut feel” calls.</p>
+        <h3>Reduce turnover</h3>
+        <p class="lead">Hire for competencies and fit; fewer early exits.</p>
         <ul class="bullets">
-          <li>Competency‑based question banks & scorecards</li>
-          <li>Panel facilitation + note templates</li>
-          <li>Calibration on “what good looks like”</li>
+          <li>Calibrated rubrics & scorecards guide decisions</li>
+          <li>Panel facilitation keeps it consistent</li>
         </ul>
-        <div class="callout">Example savings: <b>$25,000–$50,000</b> per avoided mis‑hire</div>
+        <div class="callout">
+          <span class="callout-amount">$20–30K</span>
+          <small>per avoided teacher replacement (recruiting, backfill, onboarding, lost productivity)</small>
+        </div>
       </div>
 
       <div class="card reveal">
         <h3>Shorten hiring cycles</h3>
-        <p class="lead">Prebuilt materials reduce back‑and‑forth and meeting load.</p>
+        <p class="lead">Prebuilt tools reduce meetings and re-work.</p>
         <ul class="bullets">
-          <li>Ready‑to‑use agendas & scheduling templates</li>
-          <li>Score‑at‑the‑table tally sheets (no re‑work)</li>
-          <li>Defensible decision record</li>
+          <li>Agenda & scheduling templates</li>
+          <li>Score-at-the-table tally sheets</li>
+          <li>Clear decision record</li>
         </ul>
-        <div class="callout">Example savings: <b>$5,000–$12,000</b> per vacancy (1–2 weeks faster)</div>
+        <div class="callout">
+          <span class="callout-amount">+26% faster</span>
+          <small>less vacancy drag and lost productivity</small>
+        </div>
       </div>
 
       <div class="card reveal">
-        <h3>Improve retention through fit</h3>
-        <p class="lead">Better alignment on competencies and expectations reduces early exits.</p>
+        <h3>Save money through retention</h3>
+        <p class="lead">Better experience → people stay.</p>
         <ul class="bullets">
-          <li>Role profiles mapped to competencies</li>
-          <li>Candidate experience that sets expectations</li>
-          <li>Onboarding handoff notes from the panel</li>
+          <li>Expectation-setting & candidate care</li>
+          <li>Onboarding handoff notes from panel</li>
         </ul>
-        <div class="callout">Example savings: <b>$8,000–$18,000</b> per avoided early exit</div>
+        <div class="callout">
+          <span class="callout-amount">$250,000+ / yr</span>
+          <small>estimated savings when retention improves by ~25%</small>
+        </div>
       </div>
     </div>
 
@@ -389,11 +391,11 @@ a{color:inherit;text-decoration:none}
   <div class="container">
     <div class="eyebrow">Results</div>
     <h2 id="proof-h" class="reveal">Clear wins districts can point to.</h2>
-    <p class="lead reveal">Built for K‑12 realities: simpler launches, higher trust, clearer reporting.</p>
+    <p class="lead reveal">Built for K-12 realities: simpler launches, higher trust, clearer reporting.</p>
     <div class="kpis">
-      <div class="kpi reveal"><div class="num">+74%</div><div class="label">average participation lift</div></div>
-      <div class="kpi reveal"><div class="num">Anonymous</div><div class="label">third‑party hosted for trust</div></div>
-      <div class="kpi reveal"><div class="num">Board‑ready</div><div class="label">executive summaries & next steps</div></div>
+      <div class="kpi reveal"><div class="num">+74%</</div><div class="label">average participation lift</div></div>
+      <div class="kpi reveal"><div class="num">Anonymous</div><div class="label">third-party hosted for trust</div></div>
+      <div class="kpi reveal"><div class="num">Board-ready</div><div class="label">executive summaries & next steps</div></div>
       <div class="kpi reveal"><div class="num">Calibrated</div><div class="label">structured interviewing & scorecards</div></div>
     </div>
   </div>
@@ -407,58 +409,103 @@ a{color:inherit;text-decoration:none}
     <div class="steps">
       <div class="step reveal"><span class="eyebrow">01 • Plan</span><h4>Set goals & timeline</h4><p class="lead">Launch templates and a simple checklist.</p></div>
       <div class="step reveal"><span class="eyebrow">02 • Measure</span><h4>Anonymous survey & training</h4><p class="lead">We keep participation moving; training builds consistency.</p></div>
-      <div class="step reveal"><span class="eyebrow">03 • Act</span><h4>Board‑ready summary & next steps</h4><p class="lead">Clear scores, breakdowns, and targeted recommendations.</p></div>
+      <div class="step reveal"><span class="eyebrow">03 • Act</span><h4>Board-ready summary & next steps</h4><p class="lead">Clear scores, breakdowns, and targeted recommendations.</p></div>
     </div>
   </div>
 </section>
 
-<!-- FAQs -->
+<!-- FAQS -->
 <section class="section faqs" id="faqs" aria-labelledby="faqs-h">
   <div class="container">
     <div class="eyebrow">FAQs</div>
-    <h2 id="faqs-h" class="reveal">What districts ask us most.</h2>
+    <h2 id="faqs-h" class="reveal">Questions you might ask 🙂</h2>
+
     <div class="accordion">
       <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false"><span>How do you ensure anonymity?</span><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">Third‑party hosting, minimum‑n rules, aggregated reporting.</div></div>
+        <button class="ac-btn" aria-expanded="false">
+          <span>How do you ensure anonymity?<span class="badge-cat">Survey</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          Third-party hosting, small-n suppression, and aggregated reporting. We design questions to avoid accidental identifiers.
+        </div></div>
       </div>
+
       <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false"><span>Who owns the data?</span><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">Denali maintains infrastructure; districts receive agreed outputs with anonymity preserved.</div></div>
+        <button class="ac-btn" aria-expanded="false">
+          <span>What does the training look like in practice?<span class="badge-cat">Training</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          Short, practical workshops plus live panel coaching. Teams leave with question banks, scorecards, facilitation tips, and a decision record template.
+        </div></div>
       </div>
+
       <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false"><span>What’s the timeline?</span><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">Plan 1–2 weeks • Measure 1–2 weeks • Act 1 week.</div></div>
+        <button class="ac-btn" aria-expanded="false">
+          <span>Will you help us drive participation?<span class="badge-cat">Survey</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          Yes—launch emails, reminder cadence, and quick updates to build trust and momentum during the live window.
+        </div></div>
       </div>
+
       <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false"><span>Do you break down by building/role/tenure?</span><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">Yes, in Plus and Premium, with anonymity safeguards.</div></div>
+        <button class="ac-btn" aria-expanded="false">
+          <span>Can we get breakdowns by building/role/tenure?<span class="badge-cat">Survey</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          In Plus and Premium, yes—always with anonymity safeguards and sensible grouping.
+        </div></div>
+      </div>
+
+      <div class="ac-item reveal">
+        <button class="ac-btn" aria-expanded="false">
+          <span>What if our panel can’t agree on a candidate?<span class="badge-cat">Training</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          The rubric and scorecards surface specific evidence. We teach a quick “evidence-first” debrief so teams converge without politics.
+        </div></div>
+      </div>
+
+      <div class="ac-item reveal">
+        <button class="ac-btn" aria-expanded="false">
+          <span>Can you present to the board or staff?<span class="badge-cat">Survey</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          Yes—Premium includes presentation support; Plus can add it as an option.
+        </div></div>
+      </div>
+
+      <div class="ac-item reveal">
+        <button class="ac-btn" aria-expanded="false">
+          <span>Do we get reusable question banks and scorecards?<span class="badge-cat">Training</span></span>
+          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
+          Absolutely—customized by role families, with facilitation tips and note-taking templates.
+        </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MATERIALS -->
-<section class="section" id="materials" aria-labelledby="materials-h">
-  <div class="container">
-    <div class="eyebrow">Materials</div>
-    <h2 id="materials-h" class="reveal">One‑pagers you can share.</h2>
-    <p class="lead reveal">Swap thumbnails and wire to your PDFs when ready.</p>
-    <div class="mats">
-      <article class="mat reveal"><figure><img src="1.png" alt=""></figure><div class="meta"><h4>Engagement Survey Overview</h4><p>What we measure, how we launch, and what leaders receive.</p><div class="cta"><a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a></div></div></article>
-      <article class="mat reveal"><figure><img src="2.png" alt=""></figure><div class="meta"><h4>Interview Training Agenda</h4><p>Modules, toolkits, deliverables.</p><div class="cta"><a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a></div></div></article>
-      <article class="mat reveal"><figure><img src="3.png" alt=""></figure><div class="meta"><h4>Sample Executive Summary</h4><p>Board‑ready snapshot with next steps.</p><div class="cta"><a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a></div></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE ARE -->
+<!-- WHO WE ARE (restored + your mission paragraph) -->
 <section class="section" id="who">
   <div class="container">
     <div class="tile reveal">
       <h3>Who we are</h3>
-      <p>Denali helps school districts improve the <b>employee experience end‑to‑end</b>—from structured interviewing to clear, trusted engagement surveys.</p>
-      <p style="color:#6e7894">Our system is calm and crisp: <b>Plan → Measure → Act</b>. You bring goals; we bring framework, tools, and coaching.</p>
+      <p><b>We’re here to help school districts hire and retain the best teachers and staff</b> by making the interview process more intentional and effective—as well as understanding the needs of those who are hired. Through tailored training and surveys, we help schools improve decision-making, strengthen their employer brand, and boost teacher retention—ultimately creating better outcomes for students and staff alike.</p>
+
+      <p>Denali helps school districts improve the <b>employee experience end-to-end</b>—from the moment you attract and interview candidates to how you listen and act on staff feedback.</p>
+      <p style="color:#6e7894">We focus on two things that consistently move the needle:
+        <b>structured, skill-based interview training</b> that helps you find and treat great talent right, and
+        <b>clear, trustworthy engagement surveys</b> that reveal what people are experiencing so you can respond confidently.</p>
+      <p style="color:#6e7894">Our system is calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching. The result is participation you can trust, decisions you can defend, and progress you can report.</p>
     </div>
   </div>
 </section>
@@ -486,15 +533,25 @@ a{color:inherit;text-decoration:none}
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* menu */
 const menu = document.getElementById('menu'); const openBtn = document.getElementById('openMenu');
 openBtn.addEventListener('click', ()=> menu.classList.toggle('open'));
 menu.addEventListener('click', (e)=>{ if(e.target === menu) menu.classList.remove('open'); });
 
+/* reveal */
 const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 if (matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
 
-(function(){const p=new URLSearchParams(location.search); if(p.get('radius')==='sharp'){document.querySelectorAll('.btn').forEach(b=>b.style.borderRadius='12px');}})();
+/* accordion */
+document.querySelectorAll('.ac-item .ac-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.ac-item');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
 </script>
 </body>
 </html>
