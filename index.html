@@ -20,6 +20,7 @@
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:22px; --shadow:0 24px 70px rgba(0,0,0,.18);
   --sticky-h:64px;
+  /* Notebook paper background */
   --paper-bg:
     linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
     repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
@@ -45,7 +46,7 @@ a{color:inherit;text-decoration:none}
 .menu a{color:#fff;font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 .menu a:hover{opacity:1}
 
-/* HERO */
+/* HERO (mountain stays, no paper) */
 .hero{min-height:100dvh;position:relative;display:grid;place-items:center;overflow:hidden;background:#0f1529}
 .hero .hero-media{position:absolute; inset:0; z-index:0}
 .hero .hero-media img{width:100%; height:100%; object-fit:cover; object-position:center 80%; filter:brightness(.82) contrast(1.04)}
@@ -70,7 +71,7 @@ a{color:inherit;text-decoration:none}
 .marquee{display:flex;gap:40px;white-space:nowrap;padding:14px 0;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#6a6256;animation:scroll 32s linear infinite}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
-/* SECTIONS */
+/* SECTIONS — paper everywhere */
 .section{padding:84px 0;border-top:1px solid var(--line); position:relative; background: var(--paper-bg);}
 .section > .container{ position:relative; z-index:1; }
 @media (max-width:900px){ .section{ background: var(--bone); } }
@@ -86,7 +87,7 @@ a{color:inherit;text-decoration:none}
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
 
-/* PACKAGES (keep original style) */
+/* PACKAGES (card style) */
 .packages{display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); position:relative; z-index:0; padding:18px; border-radius:18px;
   background:
     linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
@@ -105,11 +106,10 @@ a{color:inherit;text-decoration:none}
 .package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
 .package.popular{border-color:#cfe0ff;box-shadow:0 16px 36px rgba(45,125,224,.16)}
 
-/* PROOF / STATS */
-.section.stats{ background:#fff; }
+/* PROOF / STATS (fixed grid) */
 .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
 @media (max-width:980px){ .kpis{grid-template-columns:repeat(2,1fr)} }
-.kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+.kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05);display:flex;flex-direction:column;justify-content:center}
 .kpi .num{font-weight:800;font-size:clamp(26px,4.6vw,40px);letter-spacing:-.01em;color:#0d1530}
 .kpi .label{color:#6e7894;margin-top:4px}
 
@@ -121,7 +121,7 @@ a{color:inherit;text-decoration:none}
 .step .eyebrow{display:inline-block;margin-bottom:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7b6a55}
 
 /* FAQS */
-.section.faqs{ background:#fff; }
+.section.faqs{ }
 .accordion{display:grid;gap:10px;margin-top:10px}
 .ac-item{border:1px solid #ede7dd;border-radius:14px;background:#fff;overflow:hidden}
 .ac-btn{width:100%;text-align:left;background:#fff;border:0;padding:16px 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
@@ -132,7 +132,6 @@ a{color:inherit;text-decoration:none}
 .badge-cat{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid #e5d8c7;background:#faf7f2;color:#7b6a55}
 
 /* IMPACT & SAVINGS */
-#impact{background:#fff}
 #impact .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px}
 #impact .kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05)}
 #impact .kpi .num{font-weight:800;font-size:clamp(26px,4.6vw,40px);letter-spacing:-.01em;color:#0d1530}
@@ -141,9 +140,19 @@ a{color:inherit;text-decoration:none}
 @media (max-width:980px){ #impact .grid, #impact .kpis{grid-template-columns:1fr} }
 .card{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
 .callout{margin-top:12px;padding:12px 14px;border:2px dashed #caa634;background:#fff7e6;border-radius:14px;font-weight:800;color:#4b3b18;display:flex;align-items:center;gap:10px}
-.callout .$ {font-size:0} /* noop */
 .callout-amount{font-size:clamp(22px,3.6vw,32px);line-height:1}
 .callout small{font-weight:600;color:#7a6742}
+
+/* SCRIBBLED NOTES (desktop only) */
+#surveys::before{content:"boost participation\\A keep it anonymous";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.78;position:absolute;left:14px;top:26px;transform:rotate(-3deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
+#surveys::after{content:"increase retention\\A save $$";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.76;position:absolute;right:14px;bottom:16%;transform:rotate(4deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
+#training::before{content:"structured interviews\\A better hires";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.78;position:absolute;left:14px;top:22px;transform:rotate(-2deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
+#training::after{content:"reduce bias\\A consistent panels";white-space:pre-line;display:block;width:72px;text-align:left;font-family:'Caveat',cursive;font-size:26px;line-height:1.1;color:#5e4f40;opacity:.75;position:absolute;right:14px;bottom:16%;transform:rotate(3deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
+#who::before{content:"engage your team";position:absolute;left:16px;top:32px;width:80px;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.68;transform:rotate(-5deg);text-shadow:0 .3px 0 rgba(0,0,0,.15);filter:blur(.1px);pointer-events:none;z-index:0;}
+#who::after{content:"ask better questions";position:absolute;right:16px;bottom:18%;width:90px;font-family:'Caveat',cursive;font-size:26px;line-height:1.1;color:#5e4f40;opacity:.66;transform:rotate(3deg);text-shadow:0 .3px 0 rgba(0,0,0,.15);filter:blur(.1px);pointer-events:none;z-index:0;}
+@media (max-width:900px){
+  #surveys::before,#surveys::after,#training::before,#training::after,#who::before,#who::after{display:none}
+}
 
 /* MISC */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
@@ -226,7 +235,7 @@ a{color:inherit;text-decoration:none}
         <li>Optional ongoing support to track progress</li>
       </ul>
 
-      <!-- Packages (original card style) -->
+      <!-- Packages -->
       <div class="reveal" style="margin-top:22px">
         <div class="eyebrow">Packages</div>
         <div class="packages" style="margin-top:10px">
@@ -285,7 +294,6 @@ a{color:inherit;text-decoration:none}
       <figure class="visual reveal">
         <img src="images/survey-insight.jpg" alt="Engagement survey dashboard" style="object-fit:cover;width:100%;height:100%">
       </figure>
-      <!-- extra survey image -->
       <figure class="visual reveal" style="margin-top:18px;min-height:auto">
         <img src="images/engagement-example.png" alt="Example engagement survey results" style="object-fit:contain;width:100%;height:auto">
       </figure>
@@ -300,7 +308,6 @@ a{color:inherit;text-decoration:none}
       <figure class="visual reveal">
         <img src="images/interview-training.jpg" alt="Structured, skill-based interview workshop" style="object-fit:cover;width:100%;height:100%">
       </figure>
-      <!-- extra training image -->
       <figure class="visual reveal" style="margin-top:18px;min-height:auto">
         <img src="images/denali-way.png" alt="The Denali Way process visual" style="object-fit:contain;width:100%;height:auto">
       </figure>
@@ -325,13 +332,11 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- IMPACT & SAVINGS -->
-<section class="section" id="impact" aria-labelledby="impact-h" style="background:#fff">
+<section class="section" id="impact" aria-labelledby="impact-h">
   <div class="container">
     <div class="eyebrow">Impact</div>
     <h2 id="impact-h" class="reveal">Interview Training: measurable improvements</h2>
-    <p class="lead reveal">Based on your mock: highlight productivity, speed, retention—and what those mean in dollars.</p>
 
-    <!-- KPI strip (from your graphic) -->
     <div class="kpis">
       <div class="kpi reveal"><div class="num">+16%</div><div class="label">productivity via better candidate fit</div></div>
       <div class="kpi reveal"><div class="num">+26%</div><div class="label">faster time-to-fill (candidate experience)</div></div>
@@ -348,7 +353,7 @@ a{color:inherit;text-decoration:none}
         </ul>
         <div class="callout">
           <span class="callout-amount">$20–30K</span>
-          <small>per avoided teacher replacement (recruiting, backfill, onboarding, lost productivity)</small>
+          <small>per avoided teacher replacement</small>
         </div>
       </div>
 
@@ -362,7 +367,7 @@ a{color:inherit;text-decoration:none}
         </ul>
         <div class="callout">
           <span class="callout-amount">+26% faster</span>
-          <small>less vacancy drag and lost productivity</small>
+          <small>less vacancy drag & lost productivity</small>
         </div>
       </div>
 
@@ -375,7 +380,7 @@ a{color:inherit;text-decoration:none}
         </ul>
         <div class="callout">
           <span class="callout-amount">$250,000+ / yr</span>
-          <small>estimated savings when retention improves by ~25%</small>
+          <small>when retention improves by ~25%</small>
         </div>
       </div>
     </div>
@@ -387,13 +392,13 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- RESULTS / STATS -->
-<section class="section stats" id="proof" aria-labelledby="proof-h">
+<section class="section" id="proof" aria-labelledby="proof-h">
   <div class="container">
     <div class="eyebrow">Results</div>
     <h2 id="proof-h" class="reveal">Clear wins districts can point to.</h2>
     <p class="lead reveal">Built for K-12 realities: simpler launches, higher trust, clearer reporting.</p>
     <div class="kpis">
-      <div class="kpi reveal"><div class="num">+74%</</div><div class="label">average participation lift</div></div>
+      <div class="kpi reveal"><div class="num">+74%</div><div class="label">average participation lift</div></div>
       <div class="kpi reveal"><div class="num">Anonymous</div><div class="label">third-party hosted for trust</div></div>
       <div class="kpi reveal"><div class="num">Board-ready</div><div class="label">executive summaries & next steps</div></div>
       <div class="kpi reveal"><div class="num">Calibrated</div><div class="label">structured interviewing & scorecards</div></div>
@@ -421,80 +426,81 @@ a{color:inherit;text-decoration:none}
     <h2 id="faqs-h" class="reveal">Questions you might ask 🙂</h2>
 
     <div class="accordion">
+      <!-- Use playful Qs; labeled Survey or Training; no “Who owns the data?” -->
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>How do you ensure anonymity?<span class="badge-cat">Survey</span></span>
+          <span>Can you help us get a high response rate? <span class="badge-cat">Survey</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Third-party hosting, small-n suppression, and aggregated reporting. We design questions to avoid accidental identifiers.
+          Yep. We provide launch emails, reminder cadence, and quick status updates that build trust and momentum without nagging.
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>What does the training look like in practice?<span class="badge-cat">Training</span></span>
+          <span>Will people really believe it’s anonymous? <span class="badge-cat">Survey</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Short, practical workshops plus live panel coaching. Teams leave with question banks, scorecards, facilitation tips, and a decision record template.
+          We host the survey as an independent third party, suppress small groups, and only report aggregates—no way to reverse-identify respondents.
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>Will you help us drive participation?<span class="badge-cat">Survey</span></span>
+          <span>What does the training day actually look like? <span class="badge-cat">Training</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Yes—launch emails, reminder cadence, and quick updates to build trust and momentum during the live window.
+          Short, practical modules; role-specific question banks; live panel coaching; and ready-to-use scorecards you can run immediately.
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>Can we get breakdowns by building/role/tenure?<span class="badge-cat">Survey</span></span>
+          <span>Can we compare results by building, role, or tenure? <span class="badge-cat">Survey</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          In Plus and Premium, yes—always with anonymity safeguards and sensible grouping.
+          In Plus and Premium, yes—always with minimum-n rules to protect anonymity.
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>What if our panel can’t agree on a candidate?<span class="badge-cat">Training</span></span>
+          <span>Our panel never agrees. How do we decide? <span class="badge-cat">Training</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          The rubric and scorecards surface specific evidence. We teach a quick “evidence-first” debrief so teams converge without politics.
+          We use an evidence-first debrief. The rubric and notes surface what actually happened so teams converge quickly (no politics).
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>Can you present to the board or staff?<span class="badge-cat">Survey</span></span>
+          <span>Do we need new software to use your tools? <span class="badge-cat">Training</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Yes—Premium includes presentation support; Plus can add it as an option.
+          Nope. We provide lightweight templates (docs/sheets) that plug into your current process. Use them as-is or import into your HR tools.
         </div></div>
       </div>
 
       <div class="ac-item reveal">
         <button class="ac-btn" aria-expanded="false">
-          <span>Do we get reusable question banks and scorecards?<span class="badge-cat">Training</span></span>
+          <span>Can you present findings to our board or staff? <span class="badge-cat">Survey</span></span>
           <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Absolutely—customized by role families, with facilitation tips and note-taking templates.
+          Yes—Premium includes this; Plus can add it on.
         </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE ARE (restored + your mission paragraph) -->
+<!-- WHO WE ARE -->
 <section class="section" id="who">
   <div class="container">
     <div class="tile reveal">
@@ -503,9 +509,9 @@ a{color:inherit;text-decoration:none}
 
       <p>Denali helps school districts improve the <b>employee experience end-to-end</b>—from the moment you attract and interview candidates to how you listen and act on staff feedback.</p>
       <p style="color:#6e7894">We focus on two things that consistently move the needle:
-        <b>structured, skill-based interview training</b> that helps you find and treat great talent right, and
-        <b>clear, trustworthy engagement surveys</b> that reveal what people are experiencing so you can respond confidently.</p>
-      <p style="color:#6e7894">Our system is calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching. The result is participation you can trust, decisions you can defend, and progress you can report.</p>
+        <b>structured, skill-based interview training</b> and
+        <b>clear, trustworthy engagement surveys</b>.</p>
+      <p style="color:#6e7894">Our system is calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching.</p>
     </div>
   </div>
 </section>
