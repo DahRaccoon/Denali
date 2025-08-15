@@ -22,6 +22,7 @@
   --text:#0f1326; --muted:#6b748f; --line:#e6ded3;
   --maxw:1200px; --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.18);
   --sticky-h:64px;
+  /* Notebook paper background */
   --paper-bg:
     linear-gradient(90deg, transparent 70px, rgba(220,80,80,.22) 71px, rgba(220,80,80,.22) 72px, transparent 73px),
     repeating-linear-gradient(0deg, #f5eee4 0 24px, #e8dccb 25px, #f5eee4 26px);
@@ -137,99 +138,47 @@ body.cta-gold { --cta-bg:#caa634; --cta-text:#0b1020; }
 .bullets li{display:flex;gap:10px}
 .bullets li::before{content:"✓";color:#1a7f52;font-weight:800}
 
-/* keep notebook lines (desktop), remove extra doodles */
+/* clean notebook background only */
 #surveys{ background: var(--paper-bg); }
 #training{ background: var(--paper-bg); }
 @media (max-width:900px){
   #surveys, #training{ background: var(--bone); }
 }
 
-/* packages */
-.packages{
-  display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr));
-  position:relative; z-index:0; padding:18px; border-radius:18px;
-  background:
-    linear-gradient(90deg, transparent 60px, rgba(255,120,120,.18) 61px, transparent 62px),
-    repeating-linear-gradient(0deg, #faf7f2, #faf7f2 22px, #efe9e1 23px, #faf7f2 24px);
-}
-.packages::after{
-  content:"Most popular";
-  font-family:"Caveat", cursive;
-  position:absolute; left:50%; top:-28px; font-size:28px;
-  color:#5e4f40; opacity:.88; transform:translateX(-50%) rotate(-2deg);
-  pointer-events:none; text-shadow:0 .25px 0 rgba(0,0,0,.12);
-}
-.packages::before{ content:none; display:none; }
-
-@media (max-width:980px){
-  .packages{ grid-template-columns:1fr; gap:16px; padding:0; background:none; }
-  .packages::after{ display:none; }
-}
-
-.package{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156;position:relative;z-index:1}
-.package h3{margin:0 0 8px}
-.package .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:#f6efe6;border:1px solid #eadfce;border-radius:999px;padding:4px 10px;color:#7b6a55;margin-bottom:8px}
-
-/* handwritten notes (kept), hide on mobile */
-#surveys::before{content:"boost participation & keep it anonymous";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:30px;line-height:1.1;color:#5e4f40;opacity:.78;position:absolute;left:14px;top:26px;transform:rotate(-3deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
-#surveys::after{content:"increase retention & save $$";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:30px;line-height:1.1;color:#5e4f40;opacity:.76;position:absolute;left:14px;top:58%;transform:rotate(2deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
-#training::before{content:"structured interviews = better hires";white-space:pre-line;display:block;width:64px;text-align:left;font-family:'Caveat',cursive;font-size:30px;line-height:1.1;color:#5e4f40;opacity:.78;position:absolute;left:14px;top:22px;transform:rotate(-2deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
-#training::after{content:"reduce bias in interviewing";white-space:pre-line;display:block;width:72px;text-align:left;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.75;position:absolute;left:14px;top:65%;transform:rotate(4deg);text-shadow:0 .3px 0 rgba(0,0,0,.18);filter:blur(.1px);pointer-events:none;z-index:0;}
-#who::before{content:"engage your team";position:absolute;left:16px;top:32px;width:80px;font-family:'Caveat',cursive;font-size:28px;line-height:1.1;color:#5e4f40;opacity:.68;transform:rotate(-5deg);text-shadow:0 .3px 0 rgba(0,0,0,.15);filter:blur(.1px);pointer-events:none;z-index:0;}
-#who::after{content:"ask better questions";position:absolute;left:16px;bottom:18%;width:90px;font-family:'Caveat',cursive;font-size:26px;line-height:1.1;color:#5e4f40;opacity:.66;transform:rotate(3deg);text-shadow:0 .3px 0 rgba(0,0,0,.15);filter:blur(.1px);pointer-events:none;z-index:0;}
-@media (max-width:900px){
-  #surveys::before,#surveys::after,#training::before,#training::after,#who::before,#who::after{display:none}
-}
-
 /* cards & quotes */
 .tile{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 .tile h3{margin:0 0 8px}
-.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156; position:relative}
-#surveys .quote::after{ content:none !important; display:none !important; }
+.quote{background:#fff;border:1px solid #ede7dd;border-radius:22px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.06);color:#3a4156}
 cite{display:block;margin-top:8px;color:#7a859f}
 
-/* ===== NEW: Proof / Stats ===== */
-.section.stats{ background:#fff; }
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:14px}
-@media (max-width:980px){ .kpis{grid-template-columns:repeat(2,1fr)} }
-.kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05)}
-.kpi .num{font-weight:800;font-size:clamp(26px,4.6vw,40px);letter-spacing:-.01em;color:#0d1530}
-.kpi .label{color:#6e7894;margin-top:4px}
+/* ===== Comparison Table (Surveys packages) ===== */
+.compare-wrap{margin-top:18px}
+.table-scroller{overflow:auto;border-radius:18px;border:1px solid #ede7dd;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+.compare{border-collapse:separate;border-spacing:0;width:100%;min-width:760px}
+.compare thead th{position:sticky;top:0;background:#f8f5ef;border-bottom:1px solid #ede7dd;padding:14px;font-weight:800;text-align:left}
+.compare th:first-child{width:38%}
+.compare tbody td, .compare tbody th{padding:14px;border-bottom:1px solid #f0e9df;font-weight:600}
+.compare tbody td{font-weight:600;color:#3a4156}
+.compare .note{font-weight:400;color:#8b93aa;font-size:12px}
+.badge{display:inline-block;padding:3px 8px;border-radius:999px;border:1px solid #e5d8c7;background:#faf7f2;font-size:12px;color:#7b6a55}
+.yes{font-weight:800}
+.yes::before{content:"✅ "; }
+.no{color:#ca5a6c;font-weight:700}
+.no::before{content:"❌ ";}
 
-/* ===== NEW: How it works ===== */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
-@media (max-width:980px){ .steps{grid-template-columns:1fr} }
-.step{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:20px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
-.step h4{margin:0 0 6px}
-.step .eyebrow{display:inline-block;margin-bottom:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7b6a55}
+/* ===== Impact & Savings ===== */
+#impact .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px}
+#impact .kpi{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+#impact .kpi .num{font-weight:800;font-size:clamp(26px,4.6vw,40px);letter-spacing:-.01em;color:#0d1530}
+#impact .kpi .label{color:#6e7894;margin-top:4px}
+#impact .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+#impact .card{background:#fff;border:1px solid #ede7dd;border-radius:18px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+@media (max-width:980px){ #impact .grid, #impact .kpis{grid-template-columns:1fr} }
 
-/* ===== NEW: FAQs ===== */
-.section.faqs{ background:#fff; }
-.accordion{display:grid;gap:10px;margin-top:10px}
-.ac-item{border:1px solid #ede7dd;border-radius:14px;background:#fff;overflow:hidden}
-.ac-btn{width:100%;text-align:left;background:#fff;border:0;padding:16px 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
-.ac-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.ac-item.open .ac-body{max-height:500px}
-.ac-item.open .ac-btn .icon{transform:rotate(180deg)}
-.icon{transition:transform .25s ease}
-
-/* ===== NEW: Materials ===== */
-.mats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
-@media (max-width:980px){ .mats{grid-template-columns:1fr} }
-.mat{border:1px solid #ede7dd;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.05);display:flex;flex-direction:column}
-.mat figure{margin:0;height:160px;background:#f7f3ec;display:block;overflow:hidden}
-.mat figure img{width:100%;height:100%;object-fit:cover}
-.mat .meta{padding:16px}
-.mat .meta h4{margin:0 0 4px}
-.mat .meta p{margin:0;color:#6e7894}
-.mat .meta .cta{margin-top:10px}
-
-/* footer CTA */
 .footer-cta{padding:80px 0;background:#fff;border-top:1px solid var(--line)}
 .footer-cta .wrap{background:linear-gradient(180deg,var(--ink),var(--ink-2));border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:var(--shadow);padding:36px;text-align:center;color:#fff}
 .footer-cta h3{margin:0 0 8px;color:var(--cream);font-size:clamp(22px,2.4vw,34px)}
-.footer-cta .footer-logo{height:44px;margin:0 auto 10px;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));opacity:.95}
-footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-size:14px}
+.footer-cta .footer-logo{height:44px;margin:0 auto 10px;display:block}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
@@ -294,10 +243,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
   <nav>
     <a href="#surveys">Engagement Surveys</a>
     <a href="#training">Interview Training</a>
-    <a href="#proof">Results</a>
-    <a href="#how">How it works</a>
-    <a href="#faqs">FAQs</a>
-    <a href="#materials">Materials</a>
+    <a href="#impact">Impact & Savings</a>
     <a href="#who">Who we are</a>
     <a href="#contact">Contact</a>
     <a href="#" class="btn btn-primary" style="margin-top:8px"
@@ -354,12 +300,7 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <span>Reusable question banks & scorecards</span> •
       <span>Consistent, repeatable hiring process</span> •
       <span>Plan → Measure → Act</span> •
-      <span>Less noise, more signal</span> •
-      <span>Built for busy school leaders</span> •
-      <span>Clarity in your culture</span> •
-      <span>Confidence in your hiring</span> •
       <span>Board-ready reporting</span> •
-      <span>Ongoing support available</span> •
       <span>Participation guidance & comms templates</span> •
       <span>Leadership debrief with next steps</span> •
     </div>
@@ -372,69 +313,83 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     <div class="copy">
       <div class="eyebrow">Engagement Surveys</div>
       <h2 id="surveys-h" class="reveal">From low response to real insight.</h2>
-      <p class="lead reveal">If your survey is a Google Form and hardly anyone takes it, we’ll fix that. Anonymous, high-participation surveys tailored to K-12 with board-ready reporting.</p>
+      <p class="lead reveal">Anonymous, high‑participation surveys tailored to K‑12 with board‑ready reporting.</p>
       <ul class="bullets reveal">
-        <li>Anonymous, third-party hosted for trust</li>
+        <li>Anonymous, third‑party hosted for trust</li>
         <li>Executive summary with clear next steps</li>
-        <li>Guidance to drive participation and follow-through</li>
+        <li>Guidance to drive participation and follow‑through</li>
         <li>Optional ongoing support to track progress</li>
       </ul>
 
-      <div class="reveal" style="margin-top:22px">
+      <!-- NEW: Survey Packages Comparison Table -->
+      <div class="compare-wrap reveal">
         <div class="eyebrow">Packages</div>
-        <div class="packages" style="margin-top:10px">
-          <div class="package">
-            <span class="tag">Starter</span>
-            <h3>Foundation for participation</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>District-wide score & executive summary</li>
-              <li>High-integrity, anonymous launch</li>
-              <li>Leadership debrief with immediate actions</li>
-              <li>Optional monthly support</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Starter</a>
-            </div>
-          </div>
-
-          <div class="package popular" style="border-color:#e2d3bf">
-            <span class="tag">Plus</span>
-            <h3>Deeper insight & guidance</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>Everything in Starter</li>
-              <li>Breakdowns across key staff groups</li>
-              <li>Trend analysis where applicable</li>
-              <li>Results portal access (with support)</li>
-              <li>Early access to regional benchmarking</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Plus</a>
-            </div>
-          </div>
-
-          <div class="package">
-            <span class="tag">Premium</span>
-            <h3>Custom reporting & strategy</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>Everything in Plus</li>
-              <li>Custom cuts (e.g., departments, campuses)</li>
-              <li>Multiple strategy sessions & presentation support</li>
-              <li>Implementation coaching & follow-through</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Premium</a>
-            </div>
-          </div>
+        <div class="table-scroller" role="region" aria-label="Engagement survey packages, comparison table">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Package</th>
+                <th>Starter</th>
+                <th>Plus <span class="badge">Best Value</span></th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Ideal for</th>
+                <td>Small or budget‑conscious districts</td>
+                <td>Districts seeking deeper insight + guidance</td>
+                <td>Large or strategic districts with complex needs</td>
+              </tr>
+              <tr>
+                <th>District‑wide score</th>
+                <td class="yes">Included</td><td class="yes">Included</td><td class="yes">Included</td>
+              </tr>
+              <tr>
+                <th>Building‑level breakdowns</th>
+                <td class="no">Not included</td><td class="yes">Included</td><td class="yes">Included</td>
+              </tr>
+              <tr>
+                <th>Role‑based analysis</th>
+                <td class="no">Not included</td><td class="yes">Included</td><td class="yes">Included</td>
+              </tr>
+              <tr>
+                <th>Trend analysis (if applicable)</th>
+                <td class="no">Not included</td><td class="yes">Included</td><td class="yes">Included</td>
+              </tr>
+              <tr>
+                <th>Custom reporting (SPED, admin, etc.)</th>
+                <td class="no">Not included</td><td class="no">Not included</td><td class="yes">Included</td>
+              </tr>
+              <tr>
+                <th>Leadership debrief / strategy session</th>
+                <td>One session</td><td>One session</td><td>Multiple sessions</td>
+              </tr>
+              <tr>
+                <th>Ongoing access to updated results <span class="note">(with monthly plan)</span></th>
+                <td class="no">Not included</td><td class="yes">Available</td><td class="yes">Available</td>
+              </tr>
+              <tr>
+                <th>Regional benchmarking <span class="note">(when available)</span></th>
+                <td class="no">Not included</td><td class="yes">Early Access</td><td class="yes">Early Access</td>
+              </tr>
+              <tr>
+                <th>Board/staff presentation</th>
+                <td class="no">Not included</td><td class="no">Not included</td><td class="yes">Included</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
+          <a href="#" class="btn btn-primary"
+             onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Choose a package</a>
         </div>
       </div>
 
       <div class="quote reveal" style="margin-top:18px">
         <blockquote>
           “We saw a <b>74% increase</b> in response rate compared to previous years… What stood out was the detailed reporting and specific recommendations.
-          Denali maintained full anonymity, helped us encourage participation, and provided follow-up consultation. We plan to run the survey annually.”
+          Denali maintained full anonymity, helped us encourage participation, and provided follow‑up consultation. We plan to run the survey annually.”
         </blockquote>
         <cite>— Eric Wilken, Ed.D., Superintendent</cite>
       </div>
@@ -442,89 +397,50 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <div class="cta-row reveal" style="justify-content:flex-start;margin-top:14px">
         <a href="#" class="btn btn-primary"
            onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Start your survey</a>
-        <a href="#who" class="btn" style="border:1px solid #d8d0c6">How it works</a>
+        <a href="#impact" class="btn" style="border:1px solid #d8d0c6">See impact & savings</a>
       </div>
     </div>
 
-    <figure class="visual reveal">
-      <img src="images/survey-insight.jpg" loading="lazy" decoding="async" alt="Engagement survey dashboard with participation trend and section scores" style="object-fit:cover;width:100%;height:100%">
-    </figure>
+    <div>
+      <figure class="visual reveal">
+        <img src="images/survey-insight.jpg" loading="lazy" decoding="async" alt="Engagement survey dashboard with participation trend and section scores" style="object-fit:cover;width:100%;height:100%">
+      </figure>
+      <!-- NEW: extra image under the main survey visual -->
+      <figure class="visual reveal" style="margin-top:18px;min-height:auto">
+        <img src="images/engagement-example.png" loading="lazy" decoding="async" alt="Example engagement survey results" style="object-fit:contain;width:100%;height:auto">
+      </figure>
+    </div>
   </div>
 </section>
 
 <!-- TRAINING -->
 <section class="section" id="training" aria-labelledby="training-h">
   <div class="container scene" style="grid-template-columns:.95fr 1.05fr">
-    <figure class="visual reveal">
-      <img src="images/interview-training.jpg" loading="lazy" decoding="async" alt="Structured, skill-based interview workshop with scorecards" style="object-fit:cover;width:100%;height:100%">
-    </figure>
+    <div>
+      <figure class="visual reveal">
+        <img src="images/interview-training.jpg" loading="lazy" decoding="async" alt="Structured, skill-based interview workshop with scorecards" style="object-fit:cover;width:100%;height:100%">
+      </figure>
+      <!-- NEW: extra image under the main training visual -->
+      <figure class="visual reveal" style="margin-top:18px;min-height:auto">
+        <img src="images/denali-way.png" loading="lazy" decoding="async" alt="The Denali Way process visual" style="object-fit:contain;width:100%;height:auto">
+      </figure>
+    </div>
 
     <div class="copy">
       <div class="eyebrow">Interview Training</div>
       <h2 id="training-h" class="reveal">“I was never trained to interview.” Now you are.</h2>
-      <p class="lead reveal">A structured, skill-based program that gives hiring panels simple tools, consistent rubrics, and a repeatable process—so you hire better and retain longer.</p>
+      <p class="lead reveal">A structured, skill‑based program that gives hiring panels simple tools, consistent rubrics, and a repeatable process—so you hire better and retain longer.</p>
       <ul class="bullets reveal">
         <li>Reusable question banks & scorecards</li>
-        <li>Consistent, defensible decision-making</li>
-        <li>Short workshops plus in-the-moment coaching</li>
+        <li>Consistent, defensible decision‑making</li>
+        <li>Short workshops plus in‑the‑moment coaching</li>
         <li>Option to bundle with surveys for a complete system</li>
       </ul>
-
-      <div class="reveal" style="margin-top:22px">
-        <div class="eyebrow">Packages</div>
-        <div class="packages" style="margin-top:10px">
-          <div class="package">
-            <span class="tag">Workshop</span>
-            <h3>Core skills in a day</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>Foundations of structured interviewing</li>
-              <li>Competency mapping & calibrated scoring</li>
-              <li>Reusable question bank & scorecards</li>
-              <li>Practical exercises for hiring panels</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Workshop</a>
-            </div>
-          </div>
-
-          <div class="package" style="border-color:#e2d3bf">
-            <span class="tag">Workshop + Toolkits</span>
-            <h3>Skills with ready-to-use tools</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>Everything in Workshop</li>
-              <li>Role-specific question packs</li>
-              <li>Panel facilitation & note-taking templates</li>
-              <li>Follow-up coaching for first panels</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Toolkits</a>
-            </div>
-          </div>
-
-          <div class="package">
-            <span class="tag">Program</span>
-            <h3>Embed the practice</h3>
-            <ul class="bullets" style="margin-top:10px">
-              <li>Everything in Workshop + Toolkits</li>
-              <li>Multi-session cadence & live panel coaching</li>
-              <li>Calibration & light QA on early hires</li>
-              <li>Implementation playbook & refreshers</li>
-            </ul>
-            <div class="cta-row" style="justify-content:flex-start;margin-top:12px">
-              <a href="#" class="btn btn-primary"
-                 onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Discuss Program</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="quote reveal" style="margin-top:18px">
         <blockquote>
           “Participating in the interview training conducted by Denali Hire Education was an outstanding experience.
-          The sessions provided valuable insights in competency-based interviewing strategies. The training was engaging and practical—
-          I highly recommend it to any organization committed to building effective interview processes.”
+          The sessions provided valuable insights in competency‑based interviewing strategies. The training was engaging and practical.”
         </blockquote>
         <cite>— Josh Ladd, Ed.D., Assistant Superintendent of Academics, Willard Public Schools</cite>
       </div>
@@ -532,65 +448,74 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
       <div class="cta-row reveal" style="justify-content:flex-start;margin-top:14px">
         <a href="#" class="btn btn-primary"
            onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Book training</a>
-        <a href="#who" class="btn" style="border:1px solid #d8d0c6">View agenda</a>
+        <a href="#impact" class="btn" style="border:1px solid #d8d0c6">See impact & savings</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== NEW: Proof / Stats ===== -->
-<section class="section stats" id="proof" aria-labelledby="proof-h">
+<!-- ===== NEW: Training Impact & Savings ===== -->
+<section class="section" id="impact" aria-labelledby="impact-h" style="background:#fff">
   <div class="container">
-    <div class="eyebrow">Results</div>
-    <h2 id="proof-h" class="reveal">Clear wins districts can point to.</h2>
-    <p class="lead reveal">Built for K‑12 realities: simpler launches, higher trust, clearer reporting. Here are the outcomes districts care about most.</p>
+    <div class="eyebrow">Impact</div>
+    <h2 id="impact-h" class="reveal">Interview Training: measurable improvements</h2>
+    <p class="lead reveal">These are the outcomes districts highlight most. Update the figures below with your actual numbers at any time.</p>
+
+    <!-- Top KPI strip (editable examples) -->
     <div class="kpis">
       <div class="kpi reveal">
-        <div class="num">+74%</div>
-        <div class="label">average participation lift (Willard)</div>
+        <div class="num" data-kpi="time-to-fill">‑30%</div>
+        <div class="label">faster time‑to‑fill</div>
       </div>
       <div class="kpi reveal">
-        <div class="num">Anonymous</div>
-        <div class="label">third‑party hosted for trust</div>
+        <div class="num" data-kpi="turnover">‑15%</div>
+        <div class="label">reduction in early turnover</div>
       </div>
       <div class="kpi reveal">
-        <div class="num">Board‑ready</div>
-        <div class="label">executive summaries & next steps</div>
-      </div>
-      <div class="kpi reveal">
-        <div class="num">Calibrated</div>
-        <div class="label">structured interviewing & scorecards</div>
+        <div class="num" data-kpi="panel-time">‑25%</div>
+        <div class="label">panel time saved per hire</div>
       </div>
     </div>
-    <div class="cta-row reveal" style="margin-top:14px">
-      <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">See a sample report</a>
-      <a class="btn" style="border:1px solid #d8d0c6" href="#materials">Download materials</a>
-    </div>
-  </div>
-</section>
 
-<!-- ===== NEW: How it works ===== -->
-<section class="section" id="how" aria-labelledby="how-h">
-  <div class="container">
-    <div class="eyebrow">Process</div>
-    <h2 id="how-h" class="reveal">Plan → Measure → Act</h2>
-    <p class="lead reveal">A calm, crisp system that respects staff time and gives leaders clarity.</p>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="eyebrow">01 • Plan</span>
-        <h4>Set goals & timeline</h4>
-        <p class="lead">We align on outcomes, audiences, and communication. You get launch templates and a simple checklist.</p>
+    <div class="grid">
+      <div class="card reveal">
+        <h3>Avoid the cost of a mis‑hire</h3>
+        <p class="lead">Structured scoring + calibrated rubrics = fewer “gut feel” decisions.</p>
+        <ul class="bullets">
+          <li>Competency‑based question banks & scorecards</li>
+          <li>Consistent panel facilitation + note templates</li>
+          <li>Calibration to align on “what good looks like”</li>
+        </ul>
+        <p class="lead" style="margin-top:10px"><b>Example savings:</b> <span data-fig="mishire">$25,000–$50,000</span> per avoided mis‑hire (recruiting, backfill, onboarding, lost productivity).</p>
       </div>
-      <div class="step reveal">
-        <span class="eyebrow">02 • Measure</span>
-        <h4>Anonymous survey & training</h4>
-        <p class="lead">Third‑party hosted for trust. We monitor participation and keep it moving; optional workshops build interviewing consistency.</p>
+
+      <div class="card reveal">
+        <h3>Shorten hiring cycles</h3>
+        <p class="lead">Clear roles + prebuilt materials reduce back‑and‑forth and meeting load.</p>
+        <ul class="bullets">
+          <li>Ready‑to‑use agendas & scheduling templates</li>
+          <li>Score-at‑the‑table tally sheets (no re‑work)</li>
+          <li>Decision record for defensibility</li>
+        </ul>
+        <p class="lead" style="margin-top:10px"><b>Example savings:</b> <span data-fig="time">$5,000–$12,000</span> per vacancy by cutting 1–2 weeks of lost productivity.</p>
       </div>
-      <div class="step reveal">
-        <span class="eyebrow">03 • Act</span>
-        <h4>Board‑ready summary & next steps</h4>
-        <p class="lead">Clear scores, breakdowns, and targeted recommendations. Leadership debrief and optional follow‑up coaching.</p>
+
+      <div class="card reveal">
+        <h3>Improve retention through fit</h3>
+        <p class="lead">Better alignment on competencies and expectations reduces early exits.</p>
+        <ul class="bullets">
+          <li>Role profiles mapped to competencies</li>
+          <li>Candidate experience that sets expectations</li>
+          <li>Onboarding handoff notes from the panel</li>
+        </ul>
+        <p class="lead" style="margin-top:10px"><b>Example savings:</b> <span data-fig="retention">$8,000–$18,000</span> per avoided early exit.</p>
       </div>
+    </div>
+
+    <p class="note" style="color:#8b93aa;margin-top:10px">Figures shown are illustrative. Replace with your mock‑site figures or district‑specific calculations.</p>
+
+    <div class="cta-row" style="margin-top:14px">
+      <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Estimate savings for your district</a>
     </div>
   </div>
 </section>
@@ -601,137 +526,15 @@ footer{padding:34px 0 60px;border-top:1px solid var(--line);color:#6a748e;font-s
     <div class="tile reveal">
       <h3 id="who-h">Who we are</h3>
       <p style="margin:.4rem 0 0">
-        Denali helps school districts improve the <b>employee experience end-to-end</b>—from the moment you attract and interview candidates to how you listen and act on staff feedback.
+        Denali helps school districts improve the <b>employee experience end‑to‑end</b>—from the moment you attract and interview candidates to how you listen and act on staff feedback.
       </p>
       <p style="margin:.6rem 0 0;color:#6e7894">
         We focus on two things that consistently move the needle:
-        <b>structured, skill-based interview training</b> that helps you find and treat great talent right,
-        and <b>clear, trustworthy engagement surveys</b> that reveal what people are experiencing so you can respond confidently.
+        <b>structured, skill‑based interview training</b> and <b>clear, trustworthy engagement surveys</b>.
       </p>
       <p style="margin:.6rem 0 0;color:#6e7894">
-        Our systems are calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching.
-        The result is participation you can trust, decisions you can defend, and progress you can report.
+        Our system is calm and crisp: <b>Plan → Measure → Act</b>. You bring your goals; we bring the framework, tools, and coaching.
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== NEW: FAQs ===== -->
-<section class="section faqs" id="faqs" aria-labelledby="faqs-h">
-  <div class="container">
-    <div class="eyebrow">FAQs</div>
-    <h2 id="faqs-h" class="reveal">What districts ask us most.</h2>
-
-    <div class="accordion">
-      <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false">
-          <span>How do you ensure anonymity?</span>
-          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Surveys are hosted by Denali as an independent third party. We suppress small groups, avoid free‑text identifiers, and report in aggregates so no individual can be reverse‑identified.
-        </div></div>
-      </div>
-
-      <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false">
-          <span>Who owns the data?</span>
-          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Denali maintains survey infrastructure and protects anonymity. Districts receive board‑ready summaries, dashboards (when applicable), and agreed exports while preserving respondent privacy.
-        </div></div>
-      </div>
-
-      <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false">
-          <span>What’s the typical timeline?</span>
-          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Plan (1–2 weeks), Measure (1–2 weeks live, depending on reminders), Act (1 week to compile and debrief). Training workshops can be scheduled alongside.
-        </div></div>
-      </div>
-
-      <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false">
-          <span>Can we get breakdowns by building, role, and tenure?</span>
-          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Yes. The Plus and Premium packages include the breakdowns districts rely on—while preserving anonymity via minimum‑n rules and sensible grouping.
-        </div></div>
-      </div>
-
-      <div class="ac-item reveal">
-        <button class="ac-btn" aria-expanded="false">
-          <span>What does the training look like?</span>
-          <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="ac-body"><div style="padding:0 18px 16px;color:#6e7894">
-          Short, practical workshops with reusable question banks, scorecards, and live coaching so hiring panels leave ready to run consistent, defensible interviews.
-        </div></div>
-      </div>
-    </div>
-
-    <div class="cta-row reveal" style="margin-top:14px">
-      <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Ask a specific question</a>
-      <a class="btn" style="border:1px solid #d8d0c6" href="#materials">See materials</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== NEW: Materials ===== -->
-<section class="section" id="materials" aria-labelledby="materials-h">
-  <div class="container">
-    <div class="eyebrow">Materials</div>
-    <h2 id="materials-h" class="reveal">One‑pagers you can share.</h2>
-    <p class="lead reveal">Short, board‑friendly handouts you can send ahead of an intro call.</p>
-
-    <div class="mats">
-      <article class="mat reveal">
-        <figure>
-          <!-- If you exported a mock screenshot from your zip as 6.png, feel free to swap -->
-          <img src="1.png" alt="Engagement Survey One‑Pager preview" onerror="this.parentElement.style.background='#f1ece3'">
-        </figure>
-        <div class="meta">
-          <h4>Engagement Survey Overview</h4>
-          <p>What we measure, how we launch, and what leaders receive.</p>
-          <div class="cta">
-            <a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="mat reveal">
-        <figure>
-          <img src="2.png" alt="Interview Training Agenda preview" onerror="this.parentElement.style.background='#f1ece3'">
-        </figure>
-        <div class="meta">
-          <h4>Interview Training Agenda</h4>
-          <p>Workshop modules, toolkits, and deliverables at each tier.</p>
-          <div class="cta">
-            <a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="mat reveal">
-        <figure>
-          <img src="3.png" alt="Sample Executive Summary preview" onerror="this.parentElement.style.background='#f1ece3'">
-        </figure>
-        <div class="meta">
-          <h4>Sample Executive Summary</h4>
-          <p>District‑level snapshot with clear recommendations.</p>
-          <div class="cta">
-            <a class="btn btn-secondary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Request PDF</a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="cta-row reveal" style="margin-top:14px">
-      <a class="btn btn-primary" href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/blair-dnliconsulting/30min'});return false;">Send me all materials</a>
     </div>
   </div>
 </section>
@@ -792,23 +595,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 400);
 });
 
-/* Scroll-driven zoom (aurora layers if present) */
-(function(){
-  const layers = document.querySelectorAll('.aurora, .aurora2, .auroraGold');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-  const base = 1.0, max = 1.06;
-  function onScroll(){
-    const h = window.innerHeight;
-    const y = Math.min(Math.max(window.scrollY, 0), h);
-    const t = y / h;
-    const s = base + (max - base) * t;
-    layers.forEach(l => l.style.transform = `scale(${s})`);
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
-})();
-
 /* Fallback hero image */
 (function(){
   const testImg = new Image();
@@ -818,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
   testImg.src = 'denali-aurora.jpg';
 })();
 
-/* Lightweight A/B toggles via URL params */
+/* A/B toggles via URL params */
 (function(){
   const p = new URLSearchParams(location.search);
   if (p.get('radius') === 'sharp') {
@@ -839,15 +625,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 })();
-
-/* ===== Simple Accordion for FAQs ===== */
-document.querySelectorAll('.ac-item .ac-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const item = btn.closest('.ac-item');
-    const open = item.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-});
 </script>
 </body>
 </html>
